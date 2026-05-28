@@ -1,0 +1,977 @@
+[
+  {
+    "group": "Model Derivative",
+    "name": "Get Supported Translation Formats",
+    "method": "GET",
+    "url": "https://developer.api.autodesk.com/modelderivative/v2/designdata/formats",
+    "description": "Returns an up-to-date list of supported translations, showing which source design file types can be translated into which target formats. Optionally filters results by last modified date.",
+    "auth_required": false,
+    "oauth_scopes": [],
+    "headers": [
+      {
+        "name": "Authorization",
+        "type": "string",
+        "description": "Bearer <token>, obtained via POST /authentication/v2/token. Required for user context access."
+      },
+      {
+        "name": "If-Modified-Since",
+        "type": "string",
+        "description": "Optional HTTP-date string (e.g., 'Wed, 21 Oct 2015 07:28:00 GMT'). Only formats modified after this date are returned."
+      },
+      {
+        "name": "Accept-Encoding",
+        "type": "string",
+        "description": "Optional. Specifies preferred encoding for the response. Supports 'gzip'."
+      }
+    ],
+    "query_parameters": [],
+    "response": {
+      "status_codes": {
+        "200": "OK — Request succeeded and returns supported formats.",
+        "304": "Not Modified — No new formats since the specified date.",
+        "400": "Bad Request — Invalid date or request format.",
+        "401": "Unauthorized — Invalid or missing Authorization header.",
+        "403": "Forbidden — Access denied.",
+        "404": "Not Found — Endpoint does not exist.",
+        "500": "Internal Server Error — Unexpected failure."
+      },
+      "headers": [
+        {
+          "name": "Last-Modified",
+          "type": "string",
+          "description": "Date and time when the supported formats list was last updated."
+        },
+        {
+          "name": "x-ads-app-identifier",
+          "type": "string",
+          "description": "Service identifier with name, version, and environment."
+        },
+        {
+          "name": "x-ads-startup-time",
+          "type": "string",
+          "description": "Service startup time in format 'EEE MMM dd HH:mm:ss Z yyyy'."
+        },
+        {
+          "name": "x-ads-duration",
+          "type": "string",
+          "description": "Request duration in milliseconds."
+        },
+        {
+          "name": "x-ads-troubleshooting",
+          "type": "string",
+          "description": "Debug info about server failure, if applicable."
+        }
+      ],
+      "body_structure": {
+        "formats": {
+          "type": "object",
+          "description": "Key-value pairs of supported translation formats.",
+          "example": {
+            "svf": ["dwg", "ipt", "iam"],
+            "obj": ["rvt", "fbx"],
+            "stl": ["f3d", "sldprt"]
+          }
+        }
+      }
+    }
+  },
+  {
+    "group": "Model Derivative",
+    "name": "Create Translation Job",
+    "method": "POST",
+    "url": "https://developer.api.autodesk.com/modelderivative/v2/designdata/job",
+    "description": "Creates an asynchronous job to translate a source design into one or more derivative formats (SVF, OBJ, DWG, etc.). Use the manifest endpoint to check translation status. Supports optional region selection, force-refresh of manifest, and advanced options per format.",
+    "auth_required": true,
+    "oauth_scopes": ["data:read", "data:write or data:create"],
+    "headers": [
+      {
+        "name": "Authorization",
+        "type": "string",
+        "description": "Bearer <token>, obtained via POST /authentication/v2/token."
+      },
+      {
+        "name": "Content-Type",
+        "type": "string",
+        "description": "Must be application/json."
+      },
+      {
+        "name": "region",
+        "type": "enum:string",
+        "description": "Optional. Specifies where to store the manifest and derivatives. Values: US (default), EMEA, AUS (beta)."
+      },
+      {
+        "name": "x-ads-force",
+        "type": "boolean",
+        "description": "Optional. If true, clears existing manifest/derivatives before translation."
+      },
+      {
+        "name": "x-ads-derivative-format",
+        "type": "enum:string",
+        "description": "Optional. Specifies object ID format for OBJ translation. Values: latest (default), fallback."
+      }
+    ],
+    "body_structure": {
+      "input": {
+        "urn": "string (URL safe Base64 encoded source URN) [required]",
+        "compressedUrn": "boolean (default: false)",
+        "rootFilename": "string (required if compressedUrn is true)",
+        "checkReferences": "boolean (default: false)"
+      },
+      "output": {
+        "formats": [
+          {
+            "type": "string (e.g. svf, svf2, obj, dwg, stl, ifc, etc.) [required]",
+            "views": ["2d", "3d"],
+            "advanced": {
+              "objectIds": ["int", "int"],
+              "modelGuid": "string",
+              "exportFileStructure": "string",
+              "unit": "string",
+              "format": "string"
+            }
+          }
+        ]
+      }
+    },
+    "response": {
+      "status_codes": {
+        "200": "OK — Translation accepted and in progress.",
+        "201": "Created — Translation exists already and won't re-run.",
+        "400": "Bad Request — Likely malformed URN or unsupported format.",
+        "401": "Unauthorized — Invalid or missing token.",
+        "403": "Forbidden — Authorization denied.",
+        "404": "Not Found — Endpoint does not exist.",
+        "406": "Not Acceptable — Format not supported for this input.",
+        "409": "Conflict — Another translation job is still processing.",
+        "429": "Too Many Requests — Rate limit exceeded.",
+        "500": "Internal Server Error — Server-side error."
+      },
+      "headers": [
+        {
+          "name": "x-ads-app-identifier",
+          "type": "string",
+          "description": "Service name, version and environment."
+        },
+        {
+          "name": "x-ads-startup-time",
+          "type": "string",
+          "description": "Server startup time."
+        },
+        {
+          "name": "x-ads-duration",
+          "type": "string",
+          "description": "Request duration in ms."
+        }
+      ],
+      "body_structure": {
+        "result": "string — success status",
+        "urn": "string — same as source input URN",
+        "acceptedJobs": [
+          {
+            "type": "string",
+            "views": ["2d", "3d"]
+          }
+        ],
+        "output": "object — echo of request's output"
+      }
+    }
+  },
+  {
+    "group": "Model Derivative",
+    "name": "Specify References for Translation",
+    "method": "POST",
+    "url": "https://developer.api.autodesk.com/modelderivative/v2/designdata/{urn}/references",
+    "description": "Informs the Model Derivative service where to locate referenced files required for translating a design with external dependencies (e.g., Inventor assemblies). Must be called before creating a translation job with `checkReferences: true`.",
+    "auth_required": true,
+    "oauth_scopes": ["data:read", "data:write or data:create"],
+    "headers": [
+      {
+        "name": "Authorization",
+        "type": "string",
+        "description": "Bearer <token> obtained from POST /authentication/v2/token"
+      },
+      {
+        "name": "Content-Type",
+        "type": "string",
+        "description": "Must be application/json"
+      },
+      {
+        "name": "region",
+        "type": "enum:string",
+        "description": "Optional. Specifies where the referenced files are stored. Values: US (default), EMEA, AUS (beta)"
+      }
+    ],
+    "uri_params": {
+      "urn": "string — The URL safe Base64 encoded URN of the source design [required]"
+    },
+    "body_structure": {
+      "urn": {
+        "type": "string",
+        "description": "URN of the top-level component. Required if the URN in the URI is a logical URN."
+      },
+      "region": {
+        "type": "string (deprecated)",
+        "description": "DEPRECATED: Region where to store reference information. Use the 'region' header instead."
+      },
+      "filename": {
+        "type": "string",
+        "description": "Top-level file name. Defaults to an empty string, which means the file will be downloaded using the URN."
+      },
+      "references": [
+        {
+          "urn": "string — Base64 encoded URN of the reference file [required]",
+          "filename": "string — File name of the reference file [required]"
+        }
+      ]
+    },
+    "response": {
+      "status_codes": {
+        "200": "OK — References successfully registered.",
+        "400": "Bad Request — Invalid URN or malformed JSON.",
+        "401": "Unauthorized — Missing or invalid token.",
+        "403": "Forbidden — Access denied.",
+        "404": "Not Found — Endpoint does not exist.",
+        "406": "Not Acceptable — Reference files stored in a different region than the main file.",
+        "500": "Internal Server Error — Unexpected error."
+      },
+      "headers": [
+        {
+          "name": "x-ads-app-identifier",
+          "description": "Service name, version, and environment."
+        },
+        {
+          "name": "x-ads-duration",
+          "description": "Request duration in milliseconds."
+        },
+        {
+          "name": "x-ads-startup-time",
+          "description": "Service startup time."
+        }
+      ],
+      "body_structure": {
+        "result": "string — Result status, always 'success' on 200",
+        "urn": "string — The URN of the top-level design component"
+      }
+    }
+  },
+  {
+    "group": "Model Derivative",
+    "name": "Get Translation Manifest",
+    "method": "GET",
+    "url": "https://developer.api.autodesk.com/modelderivative/v2/designdata/{urn}/manifest",
+    "description": "Retrieves the manifest for a given design URN. The manifest includes status and metadata for all derivatives generated from the source design. Use this to monitor translation progress or review the available derivative formats.",
+    "auth_required": true,
+    "oauth_scopes": ["data:read", "viewables:read"],
+    "headers": [
+      {
+        "name": "Authorization",
+        "type": "string",
+        "description": "Bearer <token> obtained from POST /authentication/v2/token"
+      },
+      {
+        "name": "Accept-Encoding",
+        "type": "string",
+        "description": "Optional. Set to `gzip` or `*` to receive compressed response."
+      },
+      {
+        "name": "region",
+        "type": "enum:string",
+        "description": "Optional. Region where the design is stored. Values: US (default), EMEA, AUS (beta). Ignored for EMEA endpoint."
+      }
+    ],
+    "uri_params": {
+      "urn": "string — Base64 URL-safe encoded URN of the source design [required]"
+    },
+    "response": {
+      "status_codes": {
+        "200": "OK — Manifest successfully retrieved.",
+        "400": "Bad Request — Invalid URN or malformed request.",
+        "401": "Unauthorized — Invalid or missing access token.",
+        "403": "Forbidden — Access denied.",
+        "404": "Not Found — URN does not exist.",
+        "500": "Internal Server Error — Unexpected service issue."
+      },
+      "headers": [
+        {
+          "name": "x-ads-app-identifier",
+          "description": "Service identifier: name, version, and environment."
+        },
+        {
+          "name": "x-ads-startup-time",
+          "description": "Server startup timestamp (EEE MMM dd HH:mm:ss Z yyyy)."
+        },
+        {
+          "name": "x-ads-duration",
+          "description": "Request processing time in milliseconds."
+        },
+        {
+          "name": "x-ads-troubleshooting",
+          "description": "Server error diagnostics, if any."
+        }
+      ],
+      "body_structure": {
+        "urn": "string — URN of the source design",
+        "type": "string — Always 'manifest'",
+        "progress": "string — Overall progress (e.g. 'complete', '45%')",
+        "status": "string — Overall translation status: pending | inprogress | success | failed | timeout",
+        "hasThumbnail": "boolean — Whether the source design has a thumbnail",
+        "region": "string — Region where the files are stored (US, EMEA, AUS)",
+        "derivatives": [
+          {
+            "name": "string — Name of the derivative",
+            "hasThumbnail": "boolean",
+            "outputType": "string — Format of derivative: svf, svf2, stl, obj, etc.",
+            "status": "string — Status of this derivative: pending | inprogress | success | failed | timeout",
+            "progress": "string — Progress of this derivative",
+            "messages": [
+              {
+                "type": "string — Type of message (error, warning, info)",
+                "message": "string — Message details"
+              }
+            ],
+            "children": [
+              {
+                "guid": "string",
+                "role": "string",
+                "name": "string",
+                "type": "string",
+                "mime": "string",
+                "urn": "string"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "group": "Model Derivative",
+    "name": "Delete Manifest and Derivatives",
+    "method": "DELETE",
+    "url": "https://developer.api.autodesk.com/modelderivative/v2/designdata/{urn}/manifest",
+    "description": "Deletes the manifest and all generated derivatives for the given design URN. The original source file remains unaffected. The operation is idempotent—repeated calls return 200 even if the manifest is already gone.",
+    "auth_required": true,
+    "oauth_scopes": ["data:read", "data:write"],
+    "headers": [
+      {
+        "name": "Authorization",
+        "type": "string",
+        "description": "Bearer <token> obtained from POST /authentication/v2/token"
+      },
+      {
+        "name": "region",
+        "type": "enum:string",
+        "description": "Optional. Region where manifest is stored. Values: US (default), EMEA, AUS (beta). Ignored if using EMEA URI."
+      }
+    ],
+    "uri_params": {
+      "urn": "string — Base64 URL-safe encoded URN of the source design [required]"
+    },
+    "response": {
+      "status_codes": {
+        "200": "OK — Manifest and all derivatives successfully deleted. Also returned if no manifest existed.",
+        "400": "Bad Request — Invalid URN or malformed request.",
+        "401": "Unauthorized — Token missing, invalid, or lacking proper scopes.",
+        "403": "Forbidden — Valid token but insufficient permissions (check data:write scope).",
+        "404": "Not Found — The URN does not correspond to any existing manifest.",
+        "500": "Internal Server Error — Unexpected failure during deletion."
+      },
+      "headers": [
+        {
+          "name": "x-ads-app-identifier",
+          "description": "Service identifier: name, version, and environment."
+        },
+        {
+          "name": "x-ads-startup-time",
+          "description": "Server startup timestamp (EEE MMM dd HH:mm:ss Z yyyy)."
+        },
+        {
+          "name": "x-ads-duration",
+          "description": "Request processing time in milliseconds."
+        }
+      ],
+      "body_structure": {
+        "200": {
+          "result": "string — Always 'success' for a valid request"
+        },
+        "400": {
+          "diagnostics": "string — Human-readable error reason"
+        }
+      }
+    }
+  },
+  {
+    "group": "Model Derivative",
+    "name": "Get Derivative Download URL",
+    "method": "GET",
+    "url": "https://developer.api.autodesk.com/modelderivative/v2/designdata/{urn}/manifest/{derivativeUrn}/signedcookies",
+    "description": "Returns a secure download URL and signed cookies (valid for up to 6 hours) to access the specified derivative file. These cookies must be sent with the download request. The URL supports range headers for partial downloads.",
+    "auth_required": true,
+    "oauth_scopes": ["data:read", "viewables:read"],
+    "headers": [
+      {
+        "name": "Authorization",
+        "type": "string",
+        "description": "Bearer <token> from POST /authentication/v2/token"
+      },
+      {
+        "name": "region",
+        "type": "enum:string",
+        "description": "Optional. Storage region for derivative. One of: US (default), EMEA, AUS (beta). Ignored if using regional URI."
+      }
+    ],
+    "uri_params": {
+      "urn": "string — Base64 URL-safe encoded URN of the source design [required]",
+      "derivativeUrn": "string — URL-encoded URN of the derivative (from manifest) [required]"
+    },
+    "query_params": [
+      {
+        "name": "minutes-expiration",
+        "type": "integer",
+        "description": "Optional. Lifetime of the signed cookies in minutes. Default is 360. Must be ≤ 360."
+      },
+      {
+        "name": "response-content-disposition",
+        "type": "string",
+        "description": "Optional. Custom Content-Disposition header for the download. Must start with `attachment`."
+      }
+    ],
+    "response": {
+      "status_codes": {
+        "200": "OK — Signed URL and cookies successfully returned.",
+        "400": "Bad Request — Malformed URN or invalid query params.",
+        "401": "Unauthorized — Invalid or missing token.",
+        "403": "Forbidden — Access denied even if authenticated.",
+        "404": "Not Found — Derivative or manifest not found.",
+        "500": "Internal Server Error — Unexpected backend failure."
+      },
+      "headers": [
+        {
+          "name": "Set-Cookie",
+          "description": "Three signed cookies required for the file download."
+        },
+        {
+          "name": "Content-Type",
+          "description": "application/octet-stream"
+        },
+        {
+          "name": "Content-Length",
+          "description": "Size of the derivative in bytes"
+        },
+        {
+          "name": "x-ads-app-identifier",
+          "description": "API identifier (service, version, environment)"
+        },
+        {
+          "name": "x-ads-startup-time",
+          "description": "Service startup timestamp"
+        },
+        {
+          "name": "x-ads-duration",
+          "description": "API response duration in ms"
+        }
+      ],
+      "body_structure": {
+        "etag": "string — ETag (hash) of the derivative file",
+        "size": "string — Size of the derivative in bytes",
+        "url": "string — Pre-signed download URL",
+        "content-type": "string — MIME type of the derivative",
+        "expiration": "string — Epoch timestamp (ms) when the signed cookies expire"
+      }
+    }
+  },
+  {
+    "group": "Model Derivative",
+    "name": "Check Derivative Details",
+    "method": "HEAD",
+    "url": "https://developer.api.autodesk.com/modelderivative/v2/designdata/{urn}/manifest/{derivativeUrn}",
+    "description": "Returns headers with metadata about a specific derivative (e.g., size). Useful to check file size before downloading, especially for large files where you may want to use chunked downloads with range headers.",
+    "auth_required": true,
+    "oauth_scopes": ["data:read", "viewables:read"],
+    "headers": [
+      {
+        "name": "Authorization",
+        "type": "string",
+        "description": "Bearer <token> from POST /authentication/v2/token"
+      },
+      {
+        "name": "region",
+        "type": "enum:string",
+        "description": "Optional. Region where the derivative is stored. Values: US (default), EMEA, AUS (beta). Ignored if regional URI is used."
+      },
+      {
+        "name": "Range",
+        "type": "string",
+        "description": "Optional. Byte range for partial download (e.g., `bytes=0-1023`). Used to preflight chunked downloads."
+      }
+    ],
+    "uri_params": {
+      "urn": "string — Base64 URL-safe encoded source design URN [required]",
+      "derivativeUrn": "string — URL-encoded URN of the derivative file [required]"
+    },
+    "response": {
+      "status_codes": {
+        "200": "OK — Derivative info successfully returned.",
+        "202": "Accepted — Request accepted but derivative not yet ready. Try again later.",
+        "400": "Bad Request — Malformed URN or invalid Range format.",
+        "401": "Unauthorized — Invalid or missing access token.",
+        "403": "Forbidden — Token lacks permission or access denied.",
+        "404": "Not Found — Resource doesn't exist.",
+        "500": "Internal Server Error — Service interruption."
+      },
+      "headers": [
+        {
+          "name": "Content-Type",
+          "description": "application/octet-stream"
+        },
+        {
+          "name": "Content-Length",
+          "description": "Size of the derivative in bytes"
+        },
+        {
+          "name": "x-ads-app-identifier",
+          "description": "Service name, version, and environment"
+        },
+        {
+          "name": "x-ads-startup-time",
+          "description": "Service startup time (EEE MMM dd HH:mm:ss Z yyyy)"
+        },
+        {
+          "name": "x-ads-duration",
+          "description": "API call duration in milliseconds"
+        },
+        {
+          "name": "x-ads-troubleshooting",
+          "description": "Error diagnostics if available"
+        }
+      ]
+    }
+  },
+  {
+    "group": "Model Derivative",
+    "name": "Download Thumbnail",
+    "method": "GET",
+    "url": "https://developer.api.autodesk.com/modelderivative/v2/designdata/{urn}/thumbnail",
+    "description": "Downloads a thumbnail of the specified source design. You can specify width and/or height for the image. The response is a binary image stream.",
+    "auth_required": true,
+    "oauth_scopes": ["data:read", "viewables:read"],
+    "headers": [
+      {
+        "name": "Authorization",
+        "type": "string",
+        "description": "Bearer <token> from POST /authentication/v2/token"
+      },
+      {
+        "name": "region",
+        "type": "enum:string",
+        "description": "Optional. Storage region (US | EMEA | AUS). Ignored if using regional endpoint."
+      }
+    ],
+    "uri_params": {
+      "urn": "string — Base64 URL-safe encoded design URN [required]"
+    },
+    "query_params": [
+      {
+        "name": "width",
+        "type": "int",
+        "enum": [100, 200, 400],
+        "description": "Optional. Thumbnail width in pixels. If only height is specified, width defaults to height."
+      },
+      {
+        "name": "height",
+        "type": "int",
+        "enum": [100, 200, 400],
+        "description": "Optional. Thumbnail height in pixels. If only width is specified, height defaults to width."
+      }
+    ],
+    "response": {
+      "status_codes": {
+        "200": "OK — Thumbnail image returned successfully.",
+        "400": "Bad Request — Invalid URN or thumbnail parameters.",
+        "401": "Unauthorized — Invalid or missing token.",
+        "403": "Forbidden — Token lacks permission.",
+        "404": "Not Found — Thumbnail not available.",
+        "500": "Internal Server Error — Server-side issue."
+      },
+      "headers": [
+        {
+          "name": "x-ads-name",
+          "description": "Filename of the returned thumbnail"
+        },
+        {
+          "name": "x-ads-size",
+          "description": "Returned size, e.g. [200,200]"
+        },
+        {
+          "name": "x-ads-role",
+          "description": "Source of the thumbnail: rendered or extracted"
+        },
+        {
+          "name": "x-ads-job-status",
+          "description": "Status of thumbnail generation: inprogress, success, failed, or timedout"
+        },
+        {
+          "name": "x-ads-app-identifier",
+          "description": "Identifier for service version/environment"
+        },
+        {
+          "name": "x-ads-duration",
+          "description": "Processing time (e.g., 32 ms)"
+        },
+        {
+          "name": "x-ads-troubleshooting",
+          "description": "Error info, if any"
+        }
+      ],
+      "body": "Binary stream of thumbnail image (JPEG or PNG)"
+    }
+  },
+  {
+    "group": "Model Derivative",
+    "name": "Get Model Views",
+    "method": "GET",
+    "url": "https://developer.api.autodesk.com/modelderivative/v2/designdata/:urn/metadata",
+    "description": "Returns a list of Model Views (Viewables) in the source design specified by the URN. Each Model View includes a unique viewable ID used for other metadata operations. Available only for SVF or SVF2 translated designs.",
+    "auth_required": true,
+    "oauth_scopes": ["data:read"],
+    "headers": [
+      {
+        "name": "Authorization",
+        "type": "string",
+        "description": "Bearer <token>, obtained via POST /authentication/v2/token."
+      },
+      {
+        "name": "Accept-Encoding",
+        "type": "string",
+        "description": "Optional. Comma-separated list of accepted response encodings (e.g., gzip)."
+      },
+      {
+        "name": "region",
+        "type": "enum: string",
+        "description": "Optional. Region for data storage. Possible values: US (default), EMEA, AUS."
+      }
+    ],
+    "uri_parameters": [
+      {
+        "name": "urn",
+        "type": "string",
+        "description": "The URL-safe Base64 encoded URN of the source design."
+      }
+    ],
+    "query_parameters": [],
+    "response": {
+      "status_codes": {
+        "200": "OK — Success.",
+        "400": "Bad Request — Invalid URN format or malformed request.",
+        "401": "Unauthorized — Invalid or missing authorization token.",
+        "403": "Forbidden — Access denied regardless of token.",
+        "404": "Not Found — Design not found or not translated to SVF/SVF2.",
+        "500": "Internal Server Error — Unexpected service failure."
+      },
+      "body_structure": [
+        {
+          "type": "metadata",
+          "data": {
+            "type": "metadata",
+            "metadata": [
+              {
+                "guid": "string",
+                "name": "string",
+                "role": "string",
+                "type": "string",
+                "connection": "string (optional)"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "group": "Model Derivative",
+    "name": "Get Object Tree",
+    "method": "GET",
+    "url": "https://developer.api.autodesk.com/modelderivative/v2/designdata/:urn/metadata/:modelGuid",
+    "description": "Retrieves the structured hierarchy (object tree) from the specified Model View (Viewable) of the source design. The object tree represents the relationships and arrangement of objects within the Model View.",
+    "auth_required": true,
+    "oauth_scopes": ["data:read"],
+    "headers": [
+      {
+        "name": "Authorization",
+        "type": "string",
+        "description": "Bearer <token>, obtained via POST /authentication/v2/token."
+      },
+      {
+        "name": "Accept-Encoding",
+        "type": "string",
+        "description": "Optional. Comma-separated list of accepted response encodings (e.g., gzip)."
+      },
+      {
+        "name": "region",
+        "type": "enum: string",
+        "description": "Optional. Region for data storage. Possible values: US (default), EMEA, AUS."
+      },
+      {
+        "name": "x-ads-force",
+        "type": "bool",
+        "description": "Optional. If true, forces the system to parse property data again to retrieve an object tree."
+      },
+      {
+        "name": "x-ads-derivative-format",
+        "type": "enum: string",
+        "description": "Specifies which Object IDs to return for legacy SVF derivatives. Values: latest (default), fallback."
+      }
+    ],
+    "uri_parameters": [
+      {
+        "name": "urn",
+        "type": "string",
+        "description": "The URL-safe Base64 encoded URN of the source design."
+      },
+      {
+        "name": "modelGuid",
+        "type": "string",
+        "description": "The ID of the Model View. Obtained via the List Model Views operation."
+      }
+    ],
+    "query_parameters": [
+      {
+        "name": "forceget",
+        "type": "string",
+        "description": "Optional. If true, retrieves the object tree even if it exceeds 20 MB in size."
+      },
+      {
+        "name": "objectid",
+        "type": "integer",
+        "description": "Optional. If specified, retrieves the sub-tree that has the specified object ID as its parent."
+      },
+      {
+        "name": "level",
+        "type": "string",
+        "description": "Optional. Specifies the child levels to return. Supports only level=1 currently."
+      }
+    ],
+    "response": {
+      "status_codes": {
+        "200": "OK — Success.",
+        "202": "Accepted — Processing is still ongoing.",
+        "400": "Bad Request — Invalid request.",
+        "401": "Unauthorized — Invalid authorization.",
+        "403": "Forbidden — Access denied.",
+        "404": "Not Found — Resource not found.",
+        "406": "Not Acceptable — Unsupported request.",
+        "409": "Conflict — Request conflicts with a previous one.",
+        "413": "Request Entity Too Large — Exceeds 20 MB limit.",
+        "429": "Too Many Requests — Rate limit exceeded.",
+        "500": "Internal Server Error — Unexpected error."
+      },
+      "body_structure": [
+        {
+          "data": {
+            "type": "object_tree",
+            "structure": "object"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "group": "Model Derivative",
+    "name": "Get Properties of Objects",
+    "method": "GET",
+    "url": "https://developer.api.autodesk.com/modelderivative/v2/designdata/:urn/metadata/:modelGuid/properties",
+    "description": "Returns a list of properties of all objects in the specified Model View. Properties are returned as a flat list, ordered by their objectid. The objectid is a non-persistent ID assigned when the source design is translated to SVF or SVF2.",
+    "auth_required": true,
+    "oauth_scopes": ["data:read"],
+    "headers": [
+      {
+        "name": "Authorization",
+        "type": "string",
+        "description": "Bearer <token>, obtained using POST /authentication/v2/token."
+      },
+      {
+        "name": "Accept-Encoding",
+        "type": "string",
+        "description": "Optional. Comma-separated list of accepted response encodings (e.g., gzip)."
+      },
+      {
+        "name": "region",
+        "type": "enum: string",
+        "description": "Optional. Region for data storage. Possible values: US (default), EMEA, AUS."
+      },
+      {
+        "name": "x-ads-force",
+        "type": "bool",
+        "description": "Optional. If true, forces the system to parse property data again to retrieve properties."
+      },
+      {
+        "name": "x-ads-derivative-format",
+        "type": "enum: string",
+        "description": "Specifies which Object IDs to return for legacy SVF derivatives. Values: latest (default), fallback."
+      }
+    ],
+    "uri_parameters": [
+      {
+        "name": "urn",
+        "type": "string",
+        "description": "The URL-safe Base64 encoded URN of the source design."
+      },
+      {
+        "name": "modelGuid",
+        "type": "string",
+        "description": "The ID of the Model View. Obtained via the List Model Views operation."
+      }
+    ],
+    "query_parameters": [
+      {
+        "name": "objectid",
+        "type": "long",
+        "description": "Optional. If specified, retrieves the properties of the object with the given object ID."
+      },
+      {
+        "name": "forceget",
+        "type": "string",
+        "description": "Optional. If true, retrieves large resources even if they exceed the 20 MB limit."
+      }
+    ],
+    "response": {
+      "status_codes": {
+        "200": "OK — Success.",
+        "202": "Accepted — Processing is still ongoing.",
+        "400": "Bad Request — Invalid request.",
+        "401": "Unauthorized — Invalid authorization.",
+        "403": "Forbidden — Access denied.",
+        "404": "Not Found — Resource not found.",
+        "406": "Not Acceptable — Unsupported request.",
+        "409": "Conflict — Request conflicts with a previous one.",
+        "413": "Request Entity Too Large — Exceeds 20 MB limit.",
+        "429": "Too Many Requests — Rate limit exceeded.",
+        "500": "Internal Server Error — Unexpected error."
+      },
+      "body_structure": [
+        {
+          "data": {
+            "type": "properties",
+            "collection": [
+              {
+                "objectid": "integer",
+                "properties": [
+                  {
+                    "name": "string",
+                    "value": "string",
+                    "type": "string"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "group": "Model Derivative",
+    "name": "Get Model Properties",
+    "method": "POST",
+    "url": "https://developer.api.autodesk.com/modelderivative/v2/designdata/:urn/metadata/:modelGuid/properties:query",
+    "description": "Queries the objects in the Model View (Viewable) specified by the modelGuid URI parameter and returns the specified properties in a paginated list.",
+    "auth_required": true,
+    "oauth_scopes": ["data:read"],
+    "headers": [
+      {
+        "name": "Authorization",
+        "type": "string",
+        "description": "Bearer <token>, obtained via a two-legged OAuth flow."
+      },
+      {
+        "name": "Content-Type",
+        "type": "string",
+        "description": "Must be application/json."
+      },
+      {
+        "name": "region",
+        "type": "enum",
+        "description": "Specifies the data center where the manifest and derivative of the specified source design are stored. Values: US, EMEA, AUS."
+      },
+      {
+        "name": "x-ads-derivative-format",
+        "type": "enum",
+        "description": "Specifies what type of Object IDs to return. Values: latest (default), fallback."
+      },
+      {
+        "name": "Accept-Encoding",
+        "type": "string",
+        "description": "Comma-separated list of algorithms for encoding the response. Use gzip or * for compression."
+      }
+    ],
+    "uri_parameters": [
+      {
+        "name": "urn",
+        "type": "string",
+        "description": "The URL-safe Base64 encoded URN of the source design."
+      },
+      {
+        "name": "modelGuid",
+        "type": "string",
+        "description": "The ID of the Model View (Viewable) that contains the objects to fetch properties for."
+      }
+    ],
+    "query_parameters": [],
+    "body_parameters": [
+      {
+        "name": "query",
+        "type": "object",
+        "description": "Specifies what objects to query using one of the supported query operators such as $in, $eq, $prefix, etc."
+      },
+      {
+        "name": "fields",
+        "type": "array",
+        "description": "Specifies what properties of the objects to return. If omitted, returns all properties."
+      },
+      {
+        "name": "pagination",
+        "type": "object",
+        "description": "Defines how to paginate the response with limit and offset."
+      },
+      {
+        "name": "payload",
+        "type": "enum",
+        "description": "Specifies the format for numeric values. Values: text (default), unit."
+      }
+    ],
+    "response": {
+      "status_codes": {
+        "200": "OK — Success.",
+        "202": "Accepted — Request accepted but processing is not complete.",
+        "400": "Bad Request — Invalid or malformed input.",
+        "404": "Not Found — Resource or parameter is invalid or missing.",
+        "429": "Too Many Requests — Rate limit exceeded.",
+        "500": "Internal Server Error — Unexpected error occurred."
+      },
+      "body_structure": [
+        {
+          "pagination": {
+            "limit": "integer",
+            "offset": "integer",
+            "totalResults": "integer",
+            "nextUrl": "string"
+          },
+          "data": {
+            "type": "string (always 'properties')",
+            "collection": [
+              {
+                "objectid": "integer",
+                "name": "string",
+                "properties": {
+                  "category": {
+                    "property": "value"
+                  }
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
+]

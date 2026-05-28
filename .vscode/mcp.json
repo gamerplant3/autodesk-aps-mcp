@@ -1,0 +1,17 @@
+{
+  "servers": {
+    "autodesk-aps": {
+      "command": "uv",
+      "args": [
+        "--directory",
+        "C:\\Users\\wchikowero\\Documents\\Local\\autodesk-aps-mcp",
+        "run",
+        "--with",
+        "fastmcp",
+        "fastmcp",
+        "run",
+        "server.py"
+      ]
+    }
+  }
+}

@@ -1,0 +1,4852 @@
+[
+  {
+    "group": "BIM360",
+    "name": "Create New BIM 360 Project",
+    "method": "POST",
+    "url": "https://developer.api.autodesk.com/hq/v1/accounts/:account_id/projects",
+    "description": "This endpoint creates a new BIM 360 project in a specific BIM 360 account. It is only compatible with BIM 360 projects and not Autodesk Construction Cloud (ACC) projects.",
+    "auth_required": true,
+    "oauth_scopes": ["account:write"],
+    "headers": [
+      {
+        "name": "Authorization",
+        "type": "string",
+        "description": "Bearer <token>, obtained via a two-legged OAuth flow."
+      },
+      {
+        "name": "Content-Type",
+        "type": "string",
+        "description": "Must be application/json"
+      }
+    ],
+    "uri_parameters": [
+      {
+        "name": "account_id",
+        "type": "string",
+        "description": "UUID of the account. This corresponds to the hub ID in the Data Management API. To convert a hub ID to an account ID, remove the 'b.' prefix."
+      }
+    ],
+    "body_structure": {
+      "name": "string",
+      "service_types": "enum: string",
+      "start_date": "date (YYYY-MM-DD)",
+      "end_date": "date (YYYY-MM-DD)",
+      "project_type": "string",
+      "value": "float",
+      "currency": "enum: string",
+      "job_number": "string",
+      "address_line_1": "string",
+      "address_line_2": "string",
+      "city": "string",
+      "state_or_province": "enum: string",
+      "postal_code": "string",
+      "country": "enum: string",
+      "business_unit_id": "string (UUID)",
+      "timezone": "string",
+      "language": "enum: string",
+      "construction_type": "enum: string",
+      "contract_type": "enum: string",
+      "template_project_id": "string (UUID)",
+      "include_locations": "boolean",
+      "include_companies": "boolean"
+    },
+    "response": {
+      "status_codes": {
+        "201": "Created — A new resource has been successfully created.",
+        "400": "Bad Request — The request could not be understood by the server due to malformed syntax.",
+        "403": "Forbidden — Unauthorized access.",
+        "404": "Not Found — The resource cannot be found.",
+        "409": "Conflict — The request could not be completed due to a conflict.",
+        "422": "Unprocessable Entity — The request was unable to be followed due to restrictions.",
+        "500": "Internal Server Error — An unexpected error occurred."
+      },
+      "body_structure": {
+        "id": "string (UUID)",
+        "account_id": "string (UUID)",
+        "name": "string",
+        "start_date": "date (YYYY-MM-DD)",
+        "end_date": "date (YYYY-MM-DD)",
+        "project_type": "string",
+        "value": "float",
+        "currency": "enum: string",
+        "status": "enum: string",
+        "job_number": "string",
+        "address_line_1": "string",
+        "address_line_2": "string",
+        "city": "string",
+        "state_or_province": "enum: string",
+        "postal_code": "string",
+        "country": "enum: string",
+        "business_unit_id": "string (UUID)",
+        "timezone": "string",
+        "language": "enum: string",
+        "construction_type": "enum: string",
+        "contract_type": "enum: string",
+        "last_sign_in": "datetime (ISO 8601)",
+        "copy_project_job_id": "string"
+      }
+    }
+  },
+  {
+    "group": "BIM360",
+    "name": "Get All Projects in BIM 360 Account",
+    "method": "GET",
+    "url": "https://developer.api.autodesk.com/hq/v1/accounts/:account_id/projects",
+    "description": "This endpoint queries all projects in a specific BIM 360 account. It is only compatible with BIM 360 projects and not Autodesk Construction Cloud (ACC) projects.",
+    "auth_required": true,
+    "oauth_scopes": ["account:read"],
+    "headers": [
+      {
+        "name": "Authorization",
+        "type": "string",
+        "description": "Bearer <token>, obtained via a two-legged OAuth flow."
+      }
+    ],
+    "uri_parameters": [
+      {
+        "name": "account_id",
+        "type": "string",
+        "description": "UUID of the account. This corresponds to the hub ID in the Data Management API. To convert a hub ID into an account ID, remove the 'b.' prefix."
+      }
+    ],
+    "query_parameters": [
+      {
+        "name": "limit",
+        "type": "integer",
+        "description": "Specifies the number of projects to return. Default is 10, max is 100."
+      },
+      {
+        "name": "offset",
+        "type": "integer",
+        "description": "Specifies the offset for pagination, default is 0."
+      },
+      {
+        "name": "sort",
+        "type": "string",
+        "description": "Comma-separated fields to sort by in ascending order. Use a '-' prefix to sort in descending order."
+      },
+      {
+        "name": "field",
+        "type": "string",
+        "description": "Comma-separated list of fields to include in the response. 'id' will always be returned."
+      }
+    ],
+    "response": {
+      "status_codes": {
+        "200": "OK — The request has succeeded.",
+        "400": "Bad Request — The request could not be understood by the server due to malformed syntax.",
+        "403": "Forbidden — Unauthorized access.",
+        "404": "Not Found — The resource cannot be found.",
+        "409": "Conflict — The request could not be completed due to a conflict.",
+        "422": "Unprocessable Entity — The request was unable to be followed due to restrictions.",
+        "500": "Internal Server Error — An unexpected error occurred."
+      },
+      "body_structure": [
+        {
+          "id": "string (UUID)",
+          "account_id": "string (UUID)",
+          "name": "string",
+          "start_date": "date (YYYY-MM-DD)",
+          "end_date": "date (YYYY-MM-DD)",
+          "project_type": "string",
+          "value": "float",
+          "currency": "enum: string",
+          "status": "enum: string",
+          "job_number": "string",
+          "address_line_1": "string",
+          "address_line_2": "string",
+          "city": "string",
+          "state_or_province": "enum: string",
+          "postal_code": "string",
+          "country": "enum: string",
+          "business_unit_id": "string (UUID)",
+          "timezone": "string",
+          "language": "enum: string",
+          "construction_type": "enum: string",
+          "contract_type": "enum: string",
+          "last_sign_in": "datetime (ISO 8601)"
+        }
+      ]
+    }
+  },
+  {
+    "group": "BIM360",
+    "name": "Get All Projects in Autodesk Construction Cloud Account",
+    "method": "GET",
+    "url": "https://developer.api.autodesk.com/construction/admin/v1/accounts/:accountId/projects",
+    "description": "This endpoint queries all projects in a specific Autodesk Construction Cloud (ACC) account. It supports both ACC and BIM 360 projects.",
+    "auth_required": true,
+    "oauth_scopes": ["account:read"],
+    "headers": [
+      {
+        "name": "Authorization",
+        "type": "string",
+        "description": "Bearer <token>, obtained via a two-legged or three-legged OAuth flow."
+      }
+    ],
+    "uri_parameters": [
+      {
+        "name": "accountId",
+        "type": "string",
+        "description": "UUID of the account. This corresponds to the hub ID in the Data Management API. To convert a hub ID into an account ID, remove the 'b.' prefix."
+      }
+    ],
+    "query_parameters": [
+      {
+        "name": "fields",
+        "type": "array",
+        "description": "Comma-separated list of project fields to include in the response. Default value is all fields."
+      },
+      {
+        "name": "filter[classification]",
+        "type": "array",
+        "description": "Filters projects by classification (e.g., production, template, component, sample)."
+      },
+      {
+        "name": "filter[platform]",
+        "type": "array",
+        "description": "Filters projects by platform (e.g., acc for Autodesk Construction Cloud, bim360 for BIM 360)."
+      },
+      {
+        "name": "filter[products]",
+        "type": "array",
+        "description": "Comma-separated list of product names to filter projects using specific products."
+      },
+      {
+        "name": "filter[name]",
+        "type": "string",
+        "description": "Filters projects by name, supports partial matches."
+      },
+      {
+        "name": "filter[type]",
+        "type": "array",
+        "description": "Filters projects by type (e.g., Hospital, Bridge, etc.)."
+      },
+      {
+        "name": "filter[status]",
+        "type": "array",
+        "description": "Filters projects by status (e.g., active, pending, archived, suspended)."
+      },
+      {
+        "name": "filter[businessUnitId]",
+        "type": "string",
+        "description": "Filters projects by business unit ID."
+      },
+      {
+        "name": "filter[jobNumber]",
+        "type": "string",
+        "description": "Filters by job number."
+      },
+      {
+        "name": "filter[updatedAt]",
+        "type": "string",
+        "description": "Filters projects updated within a specific date range."
+      },
+      {
+        "name": "sort",
+        "type": "array",
+        "description": "Comma-separated list of fields to sort by (e.g., name, createdAt, etc.)."
+      },
+      {
+        "name": "limit",
+        "type": "integer",
+        "description": "The maximum number of projects to return. Default is 20, maximum is 200."
+      },
+      {
+        "name": "offset",
+        "type": "integer",
+        "description": "The record number to start returning results from, used for pagination."
+      }
+    ],
+    "response": {
+      "status_codes": {
+        "200": "OK — The request has succeeded.",
+        "400": "Bad Request — The request could not be understood by the server due to malformed syntax.",
+        "401": "Unauthorized — Missing or invalid authentication credentials.",
+        "403": "Forbidden — Unauthorized access.",
+        "404": "Not Found — The resource cannot be found.",
+        "406": "Not Acceptable — The server cannot produce a response matching the list of acceptable values defined in the request.",
+        "429": "Too Many Requests — User has sent too many requests in a given amount of time.",
+        "500": "Internal Server Error — An unexpected error occurred on the server.",
+        "503": "Service Unavailable — Server is not ready to handle the request."
+      },
+      "body_structure": [
+        {
+          "id": "string (UUID)",
+          "name": "string",
+          "startDate": "string (ISO 8601)",
+          "endDate": "string (ISO 8601)",
+          "type": "string",
+          "classification": "string",
+          "status": "string",
+          "jobNumber": "string",
+          "addressLine1": "string",
+          "addressLine2": "string",
+          "city": "string",
+          "stateOrProvince": "string",
+          "postalCode": "string",
+          "country": "string",
+          "latitude": "string",
+          "longitude": "string",
+          "timezone": "string",
+          "constructionType": "string",
+          "deliveryMethod": "string",
+          "contractType": "string",
+          "currentPhase": "string",
+          "projectValue": {
+            "amount": "float",
+            "currency": "string"
+          },
+          "imageUrl": "string",
+          "thumbnailImageUrl": "string",
+          "createdAt": "datetime (ISO 8601)",
+          "updatedAt": "datetime (ISO 8601)",
+          "platform": "string",
+          "businessUnitId": "string (UUID)",
+          "memberCount": "integer",
+          "companyCount": "integer",
+          "sheetCount": "integer",
+          "templateId": "string (UUID)"
+        }
+      ]
+    }
+  },
+  {
+    "group": "BIM360",
+    "name": "Get BIM 360 Project by ID",
+    "method": "GET",
+    "url": "https://developer.api.autodesk.com/hq/v1/accounts/:account_id/projects/:project_id",
+    "description": "This endpoint queries the details of a specific BIM 360 project. Note that this endpoint is ONLY compatible with BIM 360 projects.",
+    "auth_required": true,
+    "oauth_scopes": ["account:read"],
+    "headers": [
+      {
+        "name": "Authorization",
+        "type": "string",
+        "description": "Bearer <token>, obtained via a two-legged OAuth flow."
+      }
+    ],
+    "uri_parameters": [
+      {
+        "name": "account_id",
+        "type": "string",
+        "description": "The account ID of the project. This corresponds to hub ID in the Data Management API. To convert a hub ID into an account ID you need to remove the 'b.' prefix."
+      },
+      {
+        "name": "project_id",
+        "type": "string",
+        "description": "The ID of the project. This corresponds to project ID in the Data Management API. To convert a project ID into a project ID in the BIM 360 API you need to remove the 'b.' prefix."
+      }
+    ],
+    "response": {
+      "status_codes": {
+        "200": "OK — The request has succeeded.",
+        "400": "Bad Request — The request could not be understood by the server due to malformed syntax.",
+        "403": "Forbidden — Unauthorized access.",
+        "404": "Not Found — The resource cannot be found.",
+        "409": "Conflict — The request could not be completed due to a conflict.",
+        "422": "Unprocessable Entity — The request was unable to be followed due to restrictions.",
+        "500": "Internal Server Error — An unexpected error occurred."
+      },
+      "body_structure": [
+        {
+          "id": "string (UUID)",
+          "account_id": "string (UUID)",
+          "name": "string",
+          "start_date": "date (YYYY-MM-DD)",
+          "end_date": "date (YYYY-MM-DD)",
+          "project_type": "string",
+          "value": "float",
+          "currency": "enum: string",
+          "status": "enum: string",
+          "job_number": "string",
+          "address_line_1": "string",
+          "address_line_2": "string",
+          "city": "string",
+          "state_or_province": "enum: string",
+          "postal_code": "string",
+          "country": "enum: string",
+          "business_unit_id": "string (UUID)",
+          "timezone": "string",
+          "language": "enum: string",
+          "construction_type": "enum: string",
+          "contract_type": "enum: string",
+          "last_sign_in": "datetime (ISO 8601)",
+          "service_types": "enum: string"
+        }
+      ]
+    }
+  },
+  {
+    "group": "BIM360",
+    "name": "Get Project by ID",
+    "method": "GET",
+    "url": "https://developer.api.autodesk.com/construction/admin/v1/projects/:projectId",
+    "description": "This endpoint retrieves a project specified by its project ID. It is compatible with both BIM 360 and Autodesk Construction Cloud (ACC) projects.",
+    "auth_required": true,
+    "oauth_scopes": ["account:read"],
+    "headers": [
+      {
+        "name": "Authorization",
+        "type": "string",
+        "description": "Bearer <token>, obtained via either a two-legged or three-legged OAuth flow."
+      },
+      {
+        "name": "Region",
+        "type": "string",
+        "description": "Specifies the region where your request should be routed. Optional parameter with possible values: US, EMEA."
+      },
+      {
+        "name": "User-Id",
+        "type": "string",
+        "description": "The ID of the user on whose behalf the request is being made. Optional for GET requests."
+      }
+    ],
+    "uri_parameters": [
+      {
+        "name": "projectId",
+        "type": "string (UUID)",
+        "description": "The ID of the project. This corresponds to the project ID in the Data Management API, where you need to remove the 'b.' prefix."
+      }
+    ],
+    "query_parameters": [
+      {
+        "name": "fields",
+        "type": "array of strings",
+        "description": "A comma-separated list of project fields to include in the response. Default includes all fields."
+      }
+    ],
+    "response": {
+      "status_codes": {
+        "200": "OK — The requested project details are returned.",
+        "400": "Bad Request — The request could not be understood by the server.",
+        "401": "Unauthorized — Authentication credentials are missing or invalid.",
+        "403": "Forbidden — Access is denied.",
+        "404": "Not Found — The project could not be found.",
+        "406": "Not Acceptable — The response format is not acceptable.",
+        "409": "Conflict — A conflict occurred during the request.",
+        "410": "Gone — The project is no longer available.",
+        "429": "Too Many Requests — Rate limit exceeded.",
+        "500": "Internal Server Error — The server encountered an error.",
+        "503": "Service Unavailable — The server is temporarily unavailable."
+      },
+      "body_structure": [
+        {
+          "id": "string (UUID)",
+          "name": "string",
+          "startDate": "string (ISO 8601)",
+          "endDate": "string (ISO 8601)",
+          "type": "string",
+          "classification": "enum: string",
+          "projectValue": {
+            "amount": "float",
+            "currency": "string"
+          },
+          "status": "enum: string",
+          "jobNumber": "string",
+          "addressLine1": "string",
+          "addressLine2": "string",
+          "city": "string",
+          "stateOrProvince": "string",
+          "postalCode": "string",
+          "country": "string",
+          "latitude": "string",
+          "longitude": "string",
+          "timezone": "string",
+          "constructionType": "string",
+          "deliveryMethod": "string",
+          "contractType": "string",
+          "currentPhase": "string",
+          "imageUrl": "string",
+          "thumbnailImageUrl": "string",
+          "createdAt": "datetime (ISO 8601)",
+          "updatedAt": "datetime (ISO 8601)",
+          "accountId": "string (UUID)",
+          "sheetCount": "integer",
+          "platform": "enum: string",
+          "businessUnitId": "string (UUID)",
+          "lastSignIn": "datetime (ISO 8601)",
+          "memberGroupId": "string",
+          "adminGroupId": "string",
+          "products": "array of product objects",
+          "companyCount": "integer",
+          "memberCount": "integer",
+          "templateId": "string (UUID)"
+        }
+      ]
+    }
+  },
+  {
+    "group": "BIM360",
+    "name": "Update BIM 360 Project",
+    "method": "PATCH",
+    "url": "https://developer.api.autodesk.com/hq/v1/accounts/:account_id/projects/:project_id",
+    "description": "This endpoint updates the specified attributes of a BIM 360 project.",
+    "auth_required": true,
+    "oauth_scopes": ["account:write"],
+    "headers": [
+      {
+        "name": "Authorization",
+        "type": "string",
+        "description": "Bearer <token>, obtained via a two-legged OAuth flow."
+      },
+      {
+        "name": "Content-Type",
+        "type": "string",
+        "description": "application/json"
+      }
+    ],
+    "uri_parameters": [
+      {
+        "name": "account_id",
+        "type": "string",
+        "description": "UUID of the account. This corresponds to the hub ID in the Data Management API."
+      },
+      {
+        "name": "project_id",
+        "type": "string",
+        "description": "UUID of the project. This corresponds to the project ID in the BIM 360 API."
+      }
+    ],
+    "request_body": {
+      "name": "string",
+      "service_types": "string",
+      "status": "string",
+      "start_date": "date (YYYY-MM-DD)",
+      "end_date": "date (YYYY-MM-DD)",
+      "project_type": "string",
+      "value": "float",
+      "currency": "string",
+      "job_number": "string",
+      "address_line_1": "string",
+      "address_line_2": "string",
+      "city": "string",
+      "state_or_province": "string",
+      "postal_code": "string",
+      "country": "string",
+      "business_unit_id": "string (UUID)",
+      "timezone": "string",
+      "language": "string",
+      "construction_type": "string",
+      "contract_type": "string"
+    },
+    "response": {
+      "status_codes": {
+        "200": "OK — The request has succeeded.",
+        "400": "Bad Request — The request could not be understood by the server due to malformed syntax.",
+        "403": "Forbidden — Unauthorized access.",
+        "404": "Not Found — The resource cannot be found.",
+        "409": "Conflict — The request could not be completed due to a conflict.",
+        "422": "Unprocessable Entity — The request was unable to be followed due to restrictions.",
+        "500": "Internal Server Error — An unexpected error occurred."
+      },
+      "body_structure": [
+        {
+          "id": "string (UUID)",
+          "account_id": "string (UUID)",
+          "name": "string",
+          "start_date": "date (YYYY-MM-DD)",
+          "end_date": "date (YYYY-MM-DD)",
+          "project_type": "string",
+          "value": "float",
+          "currency": "string",
+          "status": "string",
+          "job_number": "string",
+          "address_line_1": "string",
+          "address_line_2": "string",
+          "city": "string",
+          "state_or_province": "string",
+          "postal_code": "string",
+          "country": "string",
+          "business_unit_id": "string (UUID)",
+          "timezone": "string",
+          "language": "string",
+          "construction_type": "string",
+          "contract_type": "string",
+          "last_sign_in": "datetime (ISO 8601)"
+        }
+      ]
+    }
+  },
+  {
+    "group": "BIM360",
+    "name": "Create or Update BIM 360 Project Image",
+    "method": "PATCH",
+    "url": "https://developer.api.autodesk.com/hq/v1/accounts/:account_id/projects/:project_id/image",
+    "description": "This endpoint creates or updates a project’s image. Compatible with both BIM 360 and Autodesk Construction Cloud (ACC) projects.",
+    "auth_required": true,
+    "oauth_scopes": ["account:write"],
+    "headers": [
+      {
+        "name": "Authorization",
+        "type": "string",
+        "description": "Bearer <token>, obtained via a two-legged OAuth flow."
+      },
+      {
+        "name": "Content-Type",
+        "type": "string",
+        "description": "application/json"
+      }
+    ],
+    "uri_parameters": [
+      {
+        "name": "account_id",
+        "type": "string",
+        "description": "UUID of the account. This corresponds to the hub ID in the Data Management API."
+      },
+      {
+        "name": "project_id",
+        "type": "string",
+        "description": "UUID of the project. This corresponds to the project ID in the BIM 360 API."
+      }
+    ],
+    "request_body": {
+      "image_file": "multipart data",
+      "mime_types": [
+        "image/png",
+        "image/jpeg",
+        "image/jpg",
+        "image/bmp",
+        "image/gif"
+      ]
+    },
+    "response": {
+      "status_codes": {
+        "200": "OK — The request has succeeded.",
+        "400": "Bad Request — The request could not be understood by the server due to malformed syntax.",
+        "403": "Forbidden — Unauthorized access.",
+        "404": "Not Found — The resource cannot be found.",
+        "409": "Conflict — The request could not be completed due to a conflict.",
+        "422": "Unprocessable Entity — The request was unable to be followed due to restrictions.",
+        "500": "Internal Server Error — An unexpected error occurred."
+      },
+      "body_structure": [
+        {
+          "id": "string (UUID)",
+          "account_id": "string (UUID)",
+          "name": "string",
+          "start_date": "date (YYYY-MM-DD)",
+          "end_date": "date (YYYY-MM-DD)",
+          "project_type": "string",
+          "value": "float",
+          "currency": "string",
+          "status": "string",
+          "job_number": "string",
+          "address_line_1": "string",
+          "address_line_2": "string",
+          "city": "string",
+          "state_or_province": "string",
+          "postal_code": "string",
+          "country": "string",
+          "business_unit_id": "string (UUID)",
+          "timezone": "string",
+          "language": "string",
+          "construction_type": "string",
+          "contract_type": "string",
+          "last_sign_in": "datetime (ISO 8601)"
+        }
+      ]
+    }
+  },
+
+  {
+    "group": "BIM360",
+    "name": "Create a New Partner Company",
+    "method": "POST",
+    "url": "https://developer.api.autodesk.com/hq/v1/accounts/:account_id/companies",
+    "description": "Creates a new partner company. Compatible with both BIM 360 and Autodesk Construction Cloud (ACC) projects.",
+    "auth_required": true,
+    "oauth_scopes": ["account:write"],
+    "headers": [
+      {
+        "name": "Authorization",
+        "type": "string",
+        "description": "Bearer <token>, obtained via a two-legged OAuth flow."
+      },
+      {
+        "name": "Content-Type",
+        "type": "string",
+        "description": "application/json"
+      }
+    ],
+    "uri_parameters": [
+      {
+        "name": "account_id",
+        "type": "string",
+        "description": "UUID of the account. This corresponds to the hub ID in the Data Management API."
+      }
+    ],
+    "request_body": {
+      "name": "string (required, max length 255)",
+      "trade": "string (required)",
+      "address_line_1": "string (max length 255)",
+      "address_line_2": "string (max length 255)",
+      "city": "string (max length 255)",
+      "state_or_province": "string (max length 255)",
+      "postal_code": "string (max length 255)",
+      "country": "string",
+      "phone": "string (max length 255)",
+      "website_url": "string (max length 255)",
+      "description": "string (max length 255)",
+      "erp_id": "string",
+      "tax_id": "string"
+    },
+    "response": {
+      "status_codes": {
+        "201": "Created — A new resource has been successfully created.",
+        "400": "Bad Request — The request could not be understood by the server due to malformed syntax.",
+        "403": "Forbidden — Unauthorized access.",
+        "404": "Not Found — The resource cannot be found.",
+        "409": "Conflict — The request could not be completed due to a conflict.",
+        "422": "Unprocessable Entity — The request was unable to be followed due to restrictions.",
+        "500": "Internal Server Error — An unexpected error occurred."
+      },
+      "body_structure": [
+        {
+          "id": "string (UUID)",
+          "account_id": "string (UUID)",
+          "name": "string",
+          "trade": "string",
+          "address_line_1": "string",
+          "address_line_2": "string",
+          "city": "string",
+          "state_or_province": "string",
+          "postal_code": "string",
+          "country": "string",
+          "phone": "string",
+          "website_url": "string",
+          "description": "string",
+          "erp_id": "string",
+          "tax_id": "string"
+        }
+      ]
+    }
+  },
+  {
+    "group": "BIM360",
+    "name": "Legacy Add Partner Companies",
+    "method": "POST",
+    "url": "https://developer.api.autodesk.com/hq/v1/accounts/:account_id/companies/import",
+    "description": "Bulk imports up to 50 partner companies to the company directory of a specific BIM 360 or ACC account.",
+    "auth_required": true,
+    "oauth_scopes": ["account:write"],
+    "headers": [
+      {
+        "name": "Authorization",
+        "type": "string",
+        "description": "Bearer <token>, obtained via a two-legged OAuth flow."
+      },
+      {
+        "name": "Content-Type",
+        "type": "string",
+        "description": "Must be application/json."
+      },
+      {
+        "name": "Region",
+        "type": "enum",
+        "description": "Optional. Specifies the region where the service is located. Possible values: US, EMEA."
+      }
+    ],
+    "uri_parameters": [
+      {
+        "name": "account_id",
+        "type": "string",
+        "description": "UUID of the account. This corresponds to the hub ID in the Data Management API with the 'b.' prefix removed."
+      }
+    ],
+    "query_parameters": [],
+    "body_parameters": [
+      {
+        "name": "name",
+        "type": "string",
+        "description": "Company name. Must be unique under an account. Required. Max length: 255."
+      },
+      {
+        "name": "trade",
+        "type": "string",
+        "description": "Trade type based on specialization. Required."
+      },
+      {
+        "name": "address_line_1",
+        "type": "string",
+        "description": "Company address line 1. Max length: 255."
+      },
+      {
+        "name": "address_line_2",
+        "type": "string",
+        "description": "Company address line 2. Max length: 255."
+      },
+      {
+        "name": "city",
+        "type": "string",
+        "description": "City in which the company is located. Max length: 255."
+      },
+      {
+        "name": "state_or_province",
+        "type": "string",
+        "description": "State or province in which the company is located. Max length: 255."
+      },
+      {
+        "name": "postal_code",
+        "type": "string",
+        "description": "Postal code for the company location. Max length: 255."
+      },
+      {
+        "name": "country",
+        "type": "string",
+        "description": "Country for the company."
+      },
+      {
+        "name": "phone",
+        "type": "string",
+        "description": "Business phone number for the company. Max length: 255."
+      },
+      {
+        "name": "website_url",
+        "type": "string",
+        "description": "Company website. Max length: 255."
+      },
+      {
+        "name": "description",
+        "type": "string",
+        "description": "Short description or overview of the company. Max length: 255."
+      },
+      {
+        "name": "erp_id",
+        "type": "string",
+        "description": "Used to associate a company with ERP system data."
+      },
+      {
+        "name": "tax_id",
+        "type": "string",
+        "description": "Used to associate a company with public and industry data."
+      }
+    ],
+    "response": {
+      "status_codes": {
+        "201": "Created — A new resource has been successfully created.",
+        "400": "Bad Request — The request could not be understood by the server due to malformed syntax.",
+        "403": "Forbidden — Unauthorized.",
+        "404": "Not Found — The resource could not be found.",
+        "409": "Conflict — The request could not be completed due to a conflict.",
+        "422": "Unprocessable Entity — The request was unable to be followed due to restrictions.",
+        "500": "Internal Server Error — An unexpected error occurred."
+      },
+      "body_structure": [
+        {
+          "success": "integer",
+          "failure": "integer",
+          "success_items": [
+            {
+              "id": "string (UUID)",
+              "account_id": "string (UUID)",
+              "name": "string",
+              "trade": "string",
+              "address_line_1": "string",
+              "address_line_2": "string",
+              "city": "string",
+              "postal_code": "string",
+              "state_or_province": "string",
+              "country": "string",
+              "phone": "string",
+              "website_url": "string",
+              "description": "string",
+              "created_at": "datetime (ISO 8601)",
+              "updated_at": "datetime (ISO 8601)",
+              "erp_id": "string",
+              "tax_id": "string"
+            }
+          ],
+          "failure_items": [
+            {
+              "content": "object (same structure as input)",
+              "errors": ["string"]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "group": "BIM360",
+    "name": "Legacy Get All Partner Companies",
+    "method": "GET",
+    "url": "https://developer.api.autodesk.com/hq/v1/accounts/:account_id/companies",
+    "description": "Retrieves all partner companies in a specific BIM 360 or Autodesk Construction Cloud (ACC) account.",
+    "auth_required": true,
+    "oauth_scopes": ["account:read"],
+    "headers": [
+      {
+        "name": "Authorization",
+        "type": "string",
+        "description": "Bearer <token>, obtained via a two-legged OAuth flow."
+      },
+      {
+        "name": "Region",
+        "type": "enum",
+        "description": "Optional. Specifies the region where the service is located. Possible values: US, EMEA."
+      }
+    ],
+    "uri_parameters": [
+      {
+        "name": "account_id",
+        "type": "string",
+        "description": "UUID of the account. This corresponds to the hub ID in the Data Management API with the 'b.' prefix removed."
+      }
+    ],
+    "query_parameters": [
+      {
+        "name": "limit",
+        "type": "integer",
+        "description": "Specifies the number of companies to return. Default is 10, max is 100."
+      },
+      {
+        "name": "offset",
+        "type": "integer",
+        "description": "Offset for pagination. Default is 0."
+      },
+      {
+        "name": "sort",
+        "type": "string",
+        "description": "Comma-separated fields to sort by. Use '-' prefix for descending order."
+      },
+      {
+        "name": "field",
+        "type": "string",
+        "description": "Comma-separated list of fields to include in the response. 'id' is always included."
+      }
+    ],
+    "response": {
+      "status_codes": {
+        "200": "OK — The request has succeeded.",
+        "400": "Bad Request — Malformed syntax in the request.",
+        "403": "Forbidden — Unauthorized access.",
+        "404": "Not Found — The resource cannot be found.",
+        "409": "Conflict — Conflict with the current state of the resource.",
+        "422": "Unprocessable Entity — The request could not be processed due to restrictions.",
+        "500": "Internal Server Error — An unexpected server error occurred."
+      },
+      "body_structure": [
+        {
+          "id": "string (UUID)",
+          "account_id": "string (UUID)",
+          "name": "string",
+          "trade": "string",
+          "address_line_1": "string",
+          "address_line_2": "string",
+          "city": "string",
+          "state_or_province": "string",
+          "postal_code": "string",
+          "country": "string",
+          "phone": "string",
+          "website_url": "string",
+          "description": "string",
+          "erp_id": "string",
+          "tax_id": "string"
+        }
+      ]
+    }
+  },
+  {
+    "group": "BIM360",
+    "name": "Get Partner Company by ID",
+    "method": "GET",
+    "url": "https://developer.api.autodesk.com/hq/v1/accounts/:account_id/companies/:company_id",
+    "description": "Retrieves the details of a specific partner company in a BIM 360 or Autodesk Construction Cloud (ACC) account.",
+    "auth_required": true,
+    "oauth_scopes": ["account:read"],
+    "headers": [
+      {
+        "name": "Authorization",
+        "type": "string",
+        "description": "Bearer <token>, obtained via a two-legged OAuth flow."
+      },
+      {
+        "name": "Region",
+        "type": "enum",
+        "description": "Optional. Specifies the region where the service is located. Possible values: US, EMEA."
+      }
+    ],
+    "uri_parameters": [
+      {
+        "name": "account_id",
+        "type": "string",
+        "description": "UUID of the account. This corresponds to the hub ID in the Data Management API with the 'b.' prefix removed."
+      },
+      {
+        "name": "company_id",
+        "type": "string",
+        "description": "UUID of the specific partner company."
+      }
+    ],
+    "query_parameters": [],
+    "response": {
+      "status_codes": {
+        "200": "OK — The request has succeeded.",
+        "400": "Bad Request — Malformed syntax in the request.",
+        "403": "Forbidden — Unauthorized access.",
+        "404": "Not Found — The resource cannot be found.",
+        "409": "Conflict — Conflict with the current state of the resource.",
+        "422": "Unprocessable Entity — The request could not be processed due to restrictions.",
+        "500": "Internal Server Error — An unexpected server error occurred."
+      },
+      "body_structure": {
+        "id": "string (UUID)",
+        "account_id": "string (UUID)",
+        "name": "string",
+        "trade": "string",
+        "address_line_1": "string",
+        "address_line_2": "string",
+        "city": "string",
+        "state_or_province": "string",
+        "postal_code": "string",
+        "country": "string",
+        "phone": "string",
+        "website_url": "string",
+        "description": "string",
+        "erp_id": "string",
+        "tax_id": "string"
+      }
+    }
+  },
+  {
+    "group": "BIM360",
+    "name": "Get All Partner Companies",
+    "method": "GET",
+    "url": "https://developer.api.autodesk.com/hq/v1/accounts/:account_id/companies/search",
+    "description": "Searches for partner companies in a specific BIM 360 or Autodesk Construction Cloud (ACC) account using parameters like name or trade.",
+    "auth_required": true,
+    "oauth_scopes": ["account:read"],
+    "headers": [
+      {
+        "name": "Authorization",
+        "type": "string",
+        "description": "Bearer <token>, obtained via a two-legged OAuth flow."
+      },
+      {
+        "name": "Region",
+        "type": "enum",
+        "description": "Optional. Specifies the region where the service is located. Possible values: US, EMEA."
+      }
+    ],
+    "uri_parameters": [
+      {
+        "name": "account_id",
+        "type": "string",
+        "description": "UUID of the account. This corresponds to the hub ID in the Data Management API with the 'b.' prefix removed."
+      }
+    ],
+    "query_parameters": [
+      {
+        "name": "name",
+        "type": "string",
+        "description": "Company name to match (max 255 characters)."
+      },
+      {
+        "name": "trade",
+        "type": "string",
+        "description": "Company trade type to match (max 255 characters)."
+      },
+      {
+        "name": "operator",
+        "type": "enum",
+        "description": "Boolean operator to use in the search. Options: OR (default), AND."
+      },
+      {
+        "name": "partial",
+        "type": "boolean",
+        "description": "If true (default), perform a fuzzy match on name/trade fields."
+      },
+      {
+        "name": "limit",
+        "type": "int",
+        "description": "Number of results to return. Default: 10. Max: 100."
+      },
+      {
+        "name": "offset",
+        "type": "int",
+        "description": "Number of results to skip. Default: 0."
+      },
+      {
+        "name": "sort",
+        "type": "string",
+        "description": "Comma-separated fields to sort by. Prepend with '-' for descending order."
+      },
+      {
+        "name": "field",
+        "type": "string",
+        "description": "Comma-separated fields to include in response. 'id' is always returned."
+      }
+    ],
+    "response": {
+      "status_codes": {
+        "200": "OK — The request succeeded.",
+        "400": "Bad Request — Malformed syntax.",
+        "403": "Forbidden — Unauthorized access.",
+        "404": "Not Found — The resource cannot be found.",
+        "409": "Conflict — Conflict with current resource state.",
+        "422": "Unprocessable Entity — Request could not be processed.",
+        "500": "Internal Server Error — Unexpected server error."
+      },
+      "body_structure": {
+        "type": "array",
+        "items": {
+          "id": "string (UUID)",
+          "account_id": "string (UUID)",
+          "name": "string",
+          "trade": "string",
+          "address_line_1": "string",
+          "address_line_2": "string",
+          "city": "string",
+          "state_or_province": "string",
+          "postal_code": "string",
+          "country": "string",
+          "phone": "string",
+          "website_url": "string",
+          "description": "string",
+          "erp_id": "string",
+          "tax_id": "string"
+        }
+      }
+    }
+  },
+  {
+    "group": "BIM360",
+    "name": "List Project Partner Companies",
+    "method": "GET",
+    "url": "https://developer.api.autodesk.com/hq/v1/accounts/:account_id/projects/:project_id/companies",
+    "description": "Retrieves all partner companies associated with a specific BIM 360 or Autodesk Construction Cloud (ACC) project.",
+    "auth_required": true,
+    "oauth_scopes": ["account:read"],
+    "headers": [
+      {
+        "name": "Authorization",
+        "type": "string",
+        "description": "Bearer <token>, obtained via a two-legged OAuth flow."
+      },
+      {
+        "name": "Region",
+        "type": "enum",
+        "description": "Optional. Region where the service is hosted. Values: US, EMEA."
+      }
+    ],
+    "uri_parameters": [
+      {
+        "name": "account_id",
+        "type": "string",
+        "description": "UUID of the account (hub ID without the 'b.' prefix)."
+      },
+      {
+        "name": "project_id",
+        "type": "string",
+        "description": "UUID of the project (project ID without the 'b.' prefix)."
+      }
+    ],
+    "query_parameters": [
+      {
+        "name": "limit",
+        "type": "int",
+        "description": "Number of results to return. Default: 10, Max: 100."
+      },
+      {
+        "name": "offset",
+        "type": "int",
+        "description": "Number of results to skip. Default: 0."
+      },
+      {
+        "name": "sort",
+        "type": "string",
+        "description": "Comma-separated fields to sort by. Prefix with '-' for descending."
+      },
+      {
+        "name": "field",
+        "type": "string",
+        "description": "Comma-separated fields to include in the response. 'id' is always returned."
+      }
+    ],
+    "response": {
+      "status_codes": {
+        "200": "OK — The request succeeded.",
+        "400": "Bad Request — Malformed request syntax.",
+        "403": "Forbidden — Unauthorized access.",
+        "404": "Not Found — Resource not found.",
+        "409": "Conflict — Conflict with current state.",
+        "422": "Unprocessable Entity — Constraints violated.",
+        "500": "Internal Server Error — Unexpected server error."
+      },
+      "body_structure": {
+        "type": "array",
+        "items": {
+          "id": "string (UUID)",
+          "account_id": "string (UUID)",
+          "project_id": "string (UUID)",
+          "name": "string",
+          "trade": "string",
+          "address_line_1": "string",
+          "address_line_2": "string",
+          "city": "string",
+          "state_or_province": "string",
+          "postal_code": "string",
+          "country": "string",
+          "phone": "string",
+          "website_url": "string",
+          "description": "string",
+          "erp_id": "string",
+          "tax_id": "string",
+          "member_group_id": "string"
+        }
+      }
+    }
+  },
+  {
+    "group": "BIM360",
+    "name": "Update Company Properties",
+    "method": "PATCH",
+    "url": "https://developer.api.autodesk.com/hq/v1/accounts/:account_id/companies/:company_id",
+    "description": "Updates one or more properties of a specific partner company in a BIM 360 or Autodesk Construction Cloud (ACC) project. Only the provided fields will be modified.",
+    "auth_required": true,
+    "oauth_scopes": ["account:write"],
+    "headers": [
+      {
+        "name": "Authorization",
+        "type": "string",
+        "description": "Bearer <token>, obtained via a two-legged OAuth flow."
+      },
+      {
+        "name": "Content-Type",
+        "type": "string",
+        "description": "Must be 'application/json'."
+      },
+      {
+        "name": "Region",
+        "type": "enum",
+        "description": "Optional. Region where the service is hosted. Values: US, EMEA."
+      }
+    ],
+    "uri_parameters": [
+      {
+        "name": "account_id",
+        "type": "string",
+        "description": "UUID of the account (hub ID without the 'b.' prefix)."
+      },
+      {
+        "name": "company_id",
+        "type": "string",
+        "description": "UUID of the company to update."
+      }
+    ],
+    "body_parameters": [
+      { "name": "name", "type": "string", "description": "Unique company name under the account. Max length: 255." },
+      { "name": "trade", "type": "string", "description": "Trade type based on specialization." },
+      { "name": "address_line_1", "type": "string", "description": "Address line 1. Max length: 255." },
+      { "name": "address_line_2", "type": "string", "description": "Address line 2. Max length: 255." },
+      { "name": "city", "type": "string", "description": "City. Max length: 255." },
+      { "name": "state_or_province", "type": "string", "description": "State or province, dependent on selected country. Max length: 255." },
+      { "name": "postal_code", "type": "string", "description": "Postal code. Max length: 255." },
+      { "name": "country", "type": "string", "description": "Country for this company." },
+      { "name": "phone", "type": "string", "description": "Business phone number. Max length: 255." },
+      { "name": "website_url", "type": "string", "description": "Company website. Max length: 255." },
+      { "name": "description", "type": "string", "description": "Short description or overview. Max length: 255." },
+      { "name": "erp_id", "type": "string", "description": "ERP system ID used to associate this company." },
+      { "name": "tax_id", "type": "string", "description": "Tax ID for public/industry associations." }
+    ],
+    "response": {
+      "status_codes": {
+        "200": "OK — The update was successful.",
+        "400": "Bad Request — Invalid request format or body.",
+        "403": "Forbidden — Authentication failure or insufficient permissions.",
+        "404": "Not Found — Company not found.",
+        "409": "Conflict — Update conflicts with existing data.",
+        "422": "Unprocessable Entity — Violates business constraints.",
+        "500": "Internal Server Error — Unexpected error on the server."
+      },
+      "body_structure": {
+        "type": "object",
+        "properties": {
+          "id": "string (UUID)",
+          "account_id": "string (UUID)",
+          "name": "string",
+          "trade": "string",
+          "address_line_1": "string",
+          "address_line_2": "string",
+          "city": "string",
+          "state_or_province": "string",
+          "postal_code": "string",
+          "country": "string",
+          "phone": "string",
+          "website_url": "string",
+          "description": "string",
+          "erp_id": "string",
+          "tax_id": "string"
+        }
+      }
+    }
+  },
+  {
+    "group": "BIM360",
+    "name": "Update Company Image",
+    "method": "PATCH",
+    "url": "https://developer.api.autodesk.com/hq/v1/accounts/:account_id/companies/:company_id/image",
+    "description": "Uploads or updates a specific partner company’s image in a BIM 360 or Autodesk Construction Cloud (ACC) project. Supported image types include PNG, JPEG, JPG, BMP, and GIF.",
+    "auth_required": true,
+    "oauth_scopes": ["account:write"],
+    "headers": [
+      {
+        "name": "Authorization",
+        "type": "string",
+        "description": "Bearer <token>, obtained via a two-legged OAuth flow."
+      },
+      {
+        "name": "Content-Type",
+        "type": "string",
+        "description": "Must be 'multipart/form-data'."
+      },
+      {
+        "name": "Region",
+        "type": "enum",
+        "description": "Optional. Region where the service is hosted. Values: US, EMEA."
+      }
+    ],
+    "uri_parameters": [
+      {
+        "name": "account_id",
+        "type": "string",
+        "description": "UUID of the account (hub ID without the 'b.' prefix)."
+      },
+      {
+        "name": "company_id",
+        "type": "string",
+        "description": "UUID of the company whose image is being updated."
+      }
+    ],
+    "body_parameters": [
+      {
+        "name": "image",
+        "type": "file",
+        "description": "Image file in supported MIME types: image/png, image/jpeg, image/jpg, image/bmp, image/gif."
+      }
+    ],
+    "response": {
+      "status_codes": {
+        "200": "OK — The image was successfully uploaded/updated.",
+        "400": "Bad Request — Invalid request format or body.",
+        "403": "Forbidden — Authentication failure or insufficient permissions.",
+        "404": "Not Found — Company not found.",
+        "409": "Conflict — Update conflicts with existing data.",
+        "422": "Unprocessable Entity — Image violates restrictions.",
+        "500": "Internal Server Error — Unexpected error on the server."
+      },
+      "body_structure": {
+        "type": "object",
+        "properties": {
+          "id": "string (UUID)",
+          "account_id": "string (UUID)",
+          "name": "string",
+          "trade": "string",
+          "address_line_1": "string",
+          "address_line_2": "string",
+          "city": "string",
+          "state_or_province": "string",
+          "postal_code": "string",
+          "country": "string",
+          "phone": "string",
+          "website_url": "string",
+          "description": "string",
+          "erp_id": "string",
+          "tax_id": "string"
+        }
+      }
+    }
+  },
+  {
+    "group": "BIM360",
+    "name": "List Companies",
+    "method": "GET",
+    "url": "https://developer.api.autodesk.com/construction/admin/v1/accounts/:accountId/companies",
+    "description": "Retrieves a paginated list of companies under a specific ACC or BIM 360 account, with optional filtering and sorting capabilities.",
+    "auth_required": true,
+    "oauth_scopes": ["account:read"],
+    "headers": [
+      {
+        "name": "Authorization",
+        "type": "string",
+        "description": "Bearer <token>, obtained via either a two-legged or three-legged OAuth flow."
+      },
+      {
+        "name": "Region",
+        "type": "string",
+        "description": "Optional. Service region (e.g., US, EMEA)."
+      },
+      {
+        "name": "User-Id",
+        "type": "string",
+        "description": "Optional for GET requests. User ACC ID or Autodesk ID on whose behalf the request is made (required for 2-legged auth on write operations)."
+      }
+    ],
+    "uri_parameters": [
+      {
+        "name": "accountId",
+        "type": "string",
+        "description": "UUID of the ACC account (hub ID without the 'b.' prefix)."
+      }
+    ],
+    "query_parameters": [
+      {
+        "name": "filter[name]",
+        "type": "string",
+        "description": "Filter by company name (partial match supported)."
+      },
+      {
+        "name": "filter[trade]",
+        "type": "string",
+        "description": "Filter by trade (partial match supported)."
+      },
+      {
+        "name": "filter[erpId]",
+        "type": "string",
+        "description": "Filter by ERP ID (partial match supported)."
+      },
+      {
+        "name": "filter[taxId]",
+        "type": "string",
+        "description": "Filter by Tax ID (partial match supported)."
+      },
+      {
+        "name": "filter[updatedAt]",
+        "type": "string",
+        "description": "Filter by updated date range using ISO-8601 format and '..' range syntax."
+      },
+      {
+        "name": "orFilters",
+        "type": "array<string>",
+        "description": "Fields to apply 'or' logic across: erpId, name, taxId, trade, updatedAt."
+      },
+      {
+        "name": "filterTextMatch",
+        "type": "string",
+        "description": "Match mode for text filters: contains (default), startsWith, endsWith, equals."
+      },
+      {
+        "name": "sort",
+        "type": "array<string>",
+        "description": "Sort by one or more fields (e.g., name, createdAt). Use field or field:asc/desc format."
+      },
+      {
+        "name": "fields",
+        "type": "array<string>",
+        "description": "Fields to include in response (e.g., name, trade, websiteUrl)."
+      },
+      {
+        "name": "limit",
+        "type": "int",
+        "description": "Number of records to return (default: 20, max: 200)."
+      },
+      {
+        "name": "offset",
+        "type": "int",
+        "description": "Index of the first record to return (used for pagination)."
+      }
+    ],
+    "response": {
+      "status_codes": {
+        "200": "OK — Successfully retrieved list of companies.",
+        "400": "Bad Request — Malformed or invalid query.",
+        "401": "Unauthorized — Invalid or missing auth credentials.",
+        "403": "Forbidden — Insufficient permissions.",
+        "404": "Not Found — Account or resource not found.",
+        "406": "Not Acceptable — Invalid accept header.",
+        "410": "Gone — Resource no longer available.",
+        "429": "Too Many Requests — Rate limit exceeded.",
+        "500": "Internal Server Error — Server error.",
+        "503": "Service Unavailable — Try again later."
+      },
+      "body_structure": {
+        "type": "object",
+        "properties": {
+          "pagination": {
+            "type": "object",
+            "properties": {
+              "limit": "integer",
+              "offset": "integer",
+              "totalResults": "integer"
+            }
+          },
+          "results": {
+            "type": "array<object>",
+            "description": "Array of company records for the current page."
+          }
+        }
+      }
+    }
+  },
+
+  {
+    "group": "BIM360",
+    "name": "Create Account User",
+    "method": "POST",
+    "url": "https://developer.api.autodesk.com/hq/v1/accounts/:account_id/users",
+    "description": "Creates a new user in the BIM 360 member directory under a specific account. Compatible with both BIM 360 and Autodesk Construction Cloud (ACC) projects.",
+    "auth_required": true,
+    "oauth_scopes": ["account:write"],
+    "headers": [
+      {
+        "name": "Authorization",
+        "type": "string",
+        "description": "Bearer <token>, obtained via two-legged OAuth flow."
+      },
+      {
+        "name": "Content-Type",
+        "type": "string",
+        "description": "Must be application/json."
+      },
+      {
+        "name": "Region",
+        "type": "string",
+        "description": "Optional. Specifies the region (e.g., US, EMEA)."
+      }
+    ],
+    "uri_parameters": [
+      {
+        "name": "account_id",
+        "type": "string",
+        "description": "UUID of the account. This corresponds to the hub ID in the Data Management API (remove 'b.' prefix)."
+      }
+    ],
+    "request_body": {
+      "type": "object",
+      "properties": {
+        "company_id": {
+          "type": "string",
+          "description": "UUID of the user's default company in BIM 360."
+        },
+        "email": {
+          "type": "string",
+          "description": "User's email address (required)."
+        },
+        "nickname": {
+          "type": "string",
+          "description": "User's nickname."
+        },
+        "first_name": {
+          "type": "string",
+          "description": "User's first name."
+        },
+        "last_name": {
+          "type": "string",
+          "description": "User's last name."
+        },
+        "image_url": {
+          "type": "string",
+          "description": "URL for the user's profile image."
+        },
+        "address_line_1": {
+          "type": "string",
+          "description": "User's address line 1."
+        },
+        "address_line_2": {
+          "type": "string",
+          "description": "User's address line 2."
+        },
+        "city": {
+          "type": "string",
+          "description": "User's city."
+        },
+        "state_or_province": {
+          "type": "string",
+          "description": "User's state or province."
+        },
+        "postal_code": {
+          "type": "string",
+          "description": "User's postal code."
+        },
+        "country": {
+          "type": "string",
+          "description": "User's country."
+        },
+        "phone": {
+          "type": "string",
+          "description": "User's contact phone number."
+        },
+        "company": {
+          "type": "string",
+          "description": "Company information from Autodesk user profile."
+        },
+        "job_title": {
+          "type": "string",
+          "description": "User's job title."
+        },
+        "industry": {
+          "type": "string",
+          "description": "User's industry."
+        },
+        "about_me": {
+          "type": "string",
+          "description": "Short description about the user."
+        },
+        "default_role": {
+          "type": "string",
+          "description": "User's default role."
+        }
+      },
+      "required": ["email"]
+    },
+    "response": {
+      "status_codes": {
+        "201": "Created — Successfully created a new user.",
+        "400": "Bad Request — Malformed request or missing required fields.",
+        "403": "Forbidden — Unauthorized access.",
+        "404": "Not Found — Resource not found.",
+        "409": "Conflict — Conflicting resource state.",
+        "422": "Unprocessable Entity — Request cannot be processed due to validation errors.",
+        "500": "Internal Server Error — Server error."
+      },
+      "body_structure": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "UUID of the newly created user."
+          },
+          "account_id": {
+            "type": "string",
+            "description": "UUID of the account the user belongs to."
+          },
+          "role": {
+            "type": "string",
+            "description": "Role assigned to the user (default: account_user)."
+          },
+          "status": {
+            "type": "string",
+            "description": "User status in the system (not_invited for new users)."
+          },
+          "company_id": {
+            "type": "string",
+            "description": "UUID of the user's default company."
+          },
+          "company_name": {
+            "type": "string",
+            "description": "Name of the user's default company."
+          },
+          "last_sign_in": {
+            "type": "string",
+            "description": "ISO 8601 formatted date of the user's last sign-in (not available for ACC Unified products)."
+          },
+          "email": {
+            "type": "string",
+            "description": "User's email."
+          },
+          "name": {
+            "type": "string",
+            "description": "User's display name."
+          },
+          "nickname": {
+            "type": "string",
+            "description": "User's nickname."
+          },
+          "first_name": {
+            "type": "string",
+            "description": "User's first name."
+          },
+          "last_name": {
+            "type": "string",
+            "description": "User's last name."
+          },
+          "uid": {
+            "type": "string",
+            "description": "User's Autodesk ID."
+          },
+          "image_url": {
+            "type": "string",
+            "description": "User's profile image URL."
+          },
+          "address_line_1": {
+            "type": "string",
+            "description": "User's address line 1."
+          },
+          "address_line_2": {
+            "type": "string",
+            "description": "User's address line 2."
+          },
+          "city": {
+            "type": "string",
+            "description": "User's city."
+          },
+          "state_or_province": {
+            "type": "string",
+            "description": "User's state or province."
+          },
+          "postal_code": {
+            "type": "string",
+            "description": "User's postal code."
+          },
+          "country": {
+            "type": "string",
+            "description": "User's country."
+          },
+          "phone": {
+            "type": "string",
+            "description": "User's phone number."
+          },
+          "company": {
+            "type": "string",
+            "description": "Company name as in Autodesk user profile."
+          },
+          "job_title": {
+            "type": "string",
+            "description": "User's job title."
+          },
+          "industry": {
+            "type": "string",
+            "description": "User's industry."
+          },
+          "about_me": {
+            "type": "string",
+            "description": "Short description about the user."
+          },
+          "default_role": {
+            "type": "string",
+            "description": "User's default role."
+          },
+          "default_role_id": {
+            "type": "string",
+            "description": "ID of the default role."
+          },
+          "created_at": {
+            "type": "string",
+            "description": "Timestamp for when the user was created."
+          },
+          "updated_at": {
+            "type": "string",
+            "description": "Timestamp for when the user was last updated."
+          }
+        }
+      }
+    }
+  },
+  {
+    "group": "BIM360",
+    "name": "Bulk Import Users",
+    "method": "POST",
+    "url": "https://developer.api.autodesk.com/hq/v1/accounts/:account_id/users/import",
+    "description": "Bulk imports users to the master member directory in a BIM 360 account. A maximum of 50 users can be included in each request. Compatible with both BIM 360 and Autodesk Construction Cloud (ACC) projects.",
+    "auth_required": true,
+    "oauth_scopes": ["account:write"],
+    "headers": [
+      {
+        "name": "Authorization",
+        "type": "string",
+        "description": "Bearer <token>, obtained via two-legged OAuth flow."
+      },
+      {
+        "name": "Content-Type",
+        "type": "string",
+        "description": "Must be application/json."
+      },
+      {
+        "name": "Region",
+        "type": "string",
+        "description": "Optional. Specifies the region (e.g., US, EMEA)."
+      }
+    ],
+    "uri_parameters": [
+      {
+        "name": "account_id",
+        "type": "string",
+        "description": "UUID of the account. This corresponds to the hub ID in the Data Management API (remove 'b.' prefix)."
+      }
+    ],
+    "request_body": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "company_id": {
+            "type": "string",
+            "description": "UUID of the user's default company in BIM 360."
+          },
+          "email": {
+            "type": "string",
+            "description": "User's email address (required)."
+          },
+          "nickname": {
+            "type": "string",
+            "description": "User's nickname."
+          },
+          "first_name": {
+            "type": "string",
+            "description": "User's first name."
+          },
+          "last_name": {
+            "type": "string",
+            "description": "User's last name."
+          },
+          "image_url": {
+            "type": "string",
+            "description": "URL for the user's profile image."
+          },
+          "address_line_1": {
+            "type": "string",
+            "description": "User's address line 1."
+          },
+          "address_line_2": {
+            "type": "string",
+            "description": "User's address line 2."
+          },
+          "city": {
+            "type": "string",
+            "description": "User's city."
+          },
+          "state_or_province": {
+            "type": "string",
+            "description": "User's state or province."
+          },
+          "postal_code": {
+            "type": "string",
+            "description": "User's postal code."
+          },
+          "country": {
+            "type": "string",
+            "description": "User's country."
+          },
+          "phone": {
+            "type": "string",
+            "description": "User's contact phone number."
+          },
+          "company": {
+            "type": "string",
+            "description": "Company information from Autodesk user profile."
+          },
+          "job_title": {
+            "type": "string",
+            "description": "User's job title."
+          },
+          "industry": {
+            "type": "string",
+            "description": "User's industry."
+          },
+          "about_me": {
+            "type": "string",
+            "description": "Short description about the user."
+          },
+          "default_role": {
+            "type": "string",
+            "description": "User's default role."
+          }
+        },
+        "required": ["email"]
+      }
+    },
+    "response": {
+      "status_codes": {
+        "201": "Created — Successfully created new users in bulk.",
+        "400": "Bad Request — Malformed request or missing required fields.",
+        "403": "Forbidden — Unauthorized access.",
+        "404": "Not Found — Resource not found.",
+        "409": "Conflict — Conflicting resource state.",
+        "422": "Unprocessable Entity — Request cannot be processed due to validation errors.",
+        "500": "Internal Server Error — Server error."
+      },
+      "body_structure": {
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "integer",
+            "description": "Number of successfully imported users."
+          },
+          "failure": {
+            "type": "integer",
+            "description": "Number of users that failed to import."
+          },
+          "success_items": {
+            "type": "array",
+            "description": "Array of user objects that were successfully imported.",
+            "items": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "description": "UUID of the newly created user."
+                },
+                "account_id": {
+                  "type": "string",
+                  "description": "UUID of the account the user belongs to."
+                },
+                "role": {
+                  "type": "string",
+                  "description": "Role assigned to the user."
+                },
+                "company_id": {
+                  "type": "string",
+                  "description": "UUID of the user's default company."
+                },
+                "company_name": {
+                  "type": "string",
+                  "description": "Name of the user's default company."
+                },
+                "email": {
+                  "type": "string",
+                  "description": "User's email."
+                },
+                "name": {
+                  "type": "string",
+                  "description": "User's display name."
+                },
+                "nickname": {
+                  "type": "string",
+                  "description": "User's nickname."
+                },
+                "first_name": {
+                  "type": "string",
+                  "description": "User's first name."
+                },
+                "last_name": {
+                  "type": "string",
+                  "description": "User's last name."
+                },
+                "uid": {
+                  "type": "string",
+                  "description": "User's Autodesk ID."
+                },
+                "image_url": {
+                  "type": "string",
+                  "description": "User's profile image URL."
+                },
+                "last_sign_in": {
+                  "type": "string",
+                  "description": "ISO 8601 formatted date of the user's last sign-in."
+                },
+                "address_line_1": {
+                  "type": "string",
+                  "description": "User's address line 1."
+                },
+                "address_line_2": {
+                  "type": "string",
+                  "description": "User's address line 2."
+                },
+                "city": {
+                  "type": "string",
+                  "description": "User's city."
+                },
+                "postal_code": {
+                  "type": "string",
+                  "description": "User's postal code."
+                },
+                "state_or_province": {
+                  "type": "string",
+                  "description": "User's state or province."
+                },
+                "country": {
+                  "type": "string",
+                  "description": "User's country."
+                },
+                "phone": {
+                  "type": "string",
+                  "description": "User's phone number."
+                },
+                "company": {
+                  "type": "string",
+                  "description": "Company name as in Autodesk user profile."
+                },
+                "job_title": {
+                  "type": "string",
+                  "description": "User's job title."
+                },
+                "industry": {
+                  "type": "string",
+                  "description": "User's industry."
+                },
+                "about_me": {
+                  "type": "string",
+                  "description": "Short description about the user."
+                },
+                "default_role": {
+                  "type": "string",
+                  "description": "User's default role."
+                },
+                "created_at": {
+                  "type": "string",
+                  "description": "Timestamp for when the user was created."
+                },
+                "updated_at": {
+                  "type": "string",
+                  "description": "Timestamp for when the user was last updated."
+                }
+              }
+            }
+          },
+          "failure_items": {
+            "type": "array",
+            "description": "Array of user objects that failed to import, with error details.",
+            "items": {
+              "type": "object",
+              "properties": {
+                "email": {
+                  "type": "string",
+                  "description": "Email of the user who failed to import."
+                },
+                "error": {
+                  "type": "string",
+                  "description": "Error message explaining why the import failed."
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  {
+    "group": "BIM360",
+    "name": "Get Account Users",
+    "method": "GET",
+    "url": "https://developer.api.autodesk.com/hq/v1/accounts/:account_id/users",
+    "description": "Queries all users in a specific BIM 360 account. This endpoint is compatible with both BIM 360 and Autodesk Construction Cloud (ACC) projects.",
+    "auth_required": true,
+    "oauth_scopes": ["account:read"],
+    "headers": [
+      {
+        "name": "Authorization",
+        "type": "string",
+        "description": "Bearer <token>, obtained via two-legged OAuth flow."
+      },
+      {
+        "name": "Content-Type",
+        "type": "string",
+        "description": "Must be application/json."
+      },
+      {
+        "name": "Region",
+        "type": "string",
+        "description": "Optional. Specifies the region (e.g., US, EMEA)."
+      }
+    ],
+    "uri_parameters": [
+      {
+        "name": "account_id",
+        "type": "string",
+        "description": "UUID of the account. This corresponds to the hub ID in the Data Management API (remove 'b.' prefix)."
+      }
+    ],
+    "query_parameters": [
+      {
+        "name": "limit",
+        "type": "integer",
+        "description": "The size of the response array. Default is 10, maximum is 100."
+      },
+      {
+        "name": "offset",
+        "type": "integer",
+        "description": "The offset of the response array. Default is 0."
+      },
+      {
+        "name": "sort",
+        "type": "string",
+        "description": "Comma-separated fields to sort by in ascending order. Use '-' to sort in descending order."
+      },
+      {
+        "name": "field",
+        "type": "string",
+        "description": "Comma-separated fields to include in the response. Invalid fields will be ignored."
+      }
+    ],
+    "response": {
+      "status_codes": {
+        "200": "OK — The request has succeeded.",
+        "400": "Bad Request — Malformed request or missing required fields.",
+        "403": "Forbidden — Unauthorized access.",
+        "404": "Not Found — Resource not found.",
+        "409": "Conflict — Conflicting resource state.",
+        "422": "Unprocessable Entity — Request cannot be processed due to validation errors.",
+        "500": "Internal Server Error — Server error."
+      },
+      "body_structure": {
+        "type": "array",
+        "description": "Array of user objects.",
+        "items": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string",
+              "description": "UUID of the BIM 360 user."
+            },
+            "account_id": {
+              "type": "string",
+              "description": "UUID of the account."
+            },
+            "role": {
+              "type": "string",
+              "description": "User's role in the account (e.g., account_admin, account_user, project_admin)."
+            },
+            "status": {
+              "type": "string",
+              "description": "Status of the user (active, inactive, pending, not_invited)."
+            },
+            "company_id": {
+              "type": "string",
+              "description": "UUID of the user's default company."
+            },
+            "company_name": {
+              "type": "string",
+              "description": "Name of the user's default company."
+            },
+            "last_sign_in": {
+              "type": "string",
+              "description": "ISO 8601 formatted datetime of the user's last sign-in."
+            },
+            "email": {
+              "type": "string",
+              "description": "User's email address."
+            },
+            "name": {
+              "type": "string",
+              "description": "User's display name."
+            },
+            "nickname": {
+              "type": "string",
+              "description": "User's nickname."
+            },
+            "first_name": {
+              "type": "string",
+              "description": "User's first name."
+            },
+            "last_name": {
+              "type": "string",
+              "description": "User's last name."
+            },
+            "uid": {
+              "type": "string",
+              "description": "User's Autodesk ID."
+            },
+            "image_url": {
+              "type": "string",
+              "description": "URL for the user's profile image."
+            },
+            "address_line_1": {
+              "type": "string",
+              "description": "User's address line 1."
+            },
+            "address_line_2": {
+              "type": "string",
+              "description": "User's address line 2."
+            },
+            "city": {
+              "type": "string",
+              "description": "User's city."
+            },
+            "state_or_province": {
+              "type": "string",
+              "description": "User's state or province."
+            },
+            "postal_code": {
+              "type": "string",
+              "description": "User's postal code."
+            },
+            "country": {
+              "type": "string",
+              "description": "User's country."
+            },
+            "phone": {
+              "type": "string",
+              "description": "User's contact phone number."
+            },
+            "company": {
+              "type": "string",
+              "description": "Company information from the Autodesk user profile."
+            },
+            "job_title": {
+              "type": "string",
+              "description": "User's job title."
+            },
+            "industry": {
+              "type": "string",
+              "description": "User's industry."
+            },
+            "about_me": {
+              "type": "string",
+              "description": "Short description about the user."
+            },
+            "default_role": {
+              "type": "string",
+              "description": "User's default role."
+            },
+            "default_role_id": {
+              "type": "string",
+              "description": "ID of the user's default role."
+            },
+            "created_at": {
+              "type": "string",
+              "description": "Timestamp when the user was created."
+            },
+            "updated_at": {
+              "type": "string",
+              "description": "Timestamp when the user was last updated."
+            }
+          }
+        }
+      }
+    }
+  },
+  {
+    "group": "BIM360",
+    "name": "Get Account User by ID",
+    "method": "GET",
+    "url": "https://developer.api.autodesk.com/hq/v1/accounts/:account_id/users/:user_id",
+    "description": "Queries the details of a specific user in a BIM 360 account. This endpoint is compatible with both BIM 360 and Autodesk Construction Cloud (ACC) projects.",
+    "auth_required": true,
+    "oauth_scopes": ["account:read"],
+    "headers": [
+      {
+        "name": "Authorization",
+        "type": "string",
+        "description": "Bearer <token>, obtained via two-legged OAuth flow."
+      },
+      {
+        "name": "Content-Type",
+        "type": "string",
+        "description": "Must be application/json."
+      },
+      {
+        "name": "Region",
+        "type": "string",
+        "description": "Optional. Specifies the region (e.g., US, EMEA)."
+      }
+    ],
+    "uri_parameters": [
+      {
+        "name": "account_id",
+        "type": "string",
+        "description": "UUID of the account. This corresponds to the hub ID in the Data Management API (remove 'b.' prefix)."
+      },
+      {
+        "name": "user_id",
+        "type": "string",
+        "description": "UUID of the user."
+      }
+    ],
+    "response": {
+      "status_codes": {
+        "200": "OK — The request has succeeded.",
+        "400": "Bad Request — Malformed request or missing required fields.",
+        "403": "Forbidden — Unauthorized access.",
+        "404": "Not Found — User or resource not found.",
+        "409": "Conflict — Conflicting resource state.",
+        "422": "Unprocessable Entity — Request cannot be processed due to validation errors.",
+        "500": "Internal Server Error — Server error."
+      },
+      "body_structure": {
+        "type": "object",
+        "description": "User object with detailed information.",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "UUID of the user."
+          },
+          "account_id": {
+            "type": "string",
+            "description": "UUID of the account."
+          },
+          "role": {
+            "type": "string",
+            "description": "User's role in the account (e.g., account_admin, account_user, project_admin)."
+          },
+          "status": {
+            "type": "string",
+            "description": "Status of the user (active, inactive, pending, not_invited)."
+          },
+          "company_id": {
+            "type": "string",
+            "description": "UUID of the user's default company."
+          },
+          "company_name": {
+            "type": "string",
+            "description": "Name of the user's default company."
+          },
+          "last_sign_in": {
+            "type": "string",
+            "description": "ISO 8601 formatted datetime of the user's last sign-in."
+          },
+          "email": {
+            "type": "string",
+            "description": "User's email address."
+          },
+          "name": {
+            "type": "string",
+            "description": "User's display name."
+          },
+          "nickname": {
+            "type": "string",
+            "description": "User's nickname."
+          },
+          "first_name": {
+            "type": "string",
+            "description": "User's first name."
+          },
+          "last_name": {
+            "type": "string",
+            "description": "User's last name."
+          },
+          "uid": {
+            "type": "string",
+            "description": "User's Autodesk ID."
+          },
+          "image_url": {
+            "type": "string",
+            "description": "URL for the user's profile image."
+          },
+          "address_line_1": {
+            "type": "string",
+            "description": "User's address line 1."
+          },
+          "address_line_2": {
+            "type": "string",
+            "description": "User's address line 2."
+          },
+          "city": {
+            "type": "string",
+            "description": "User's city."
+          },
+          "state_or_province": {
+            "type": "string",
+            "description": "User's state or province."
+          },
+          "postal_code": {
+            "type": "string",
+            "description": "User's postal code."
+          },
+          "country": {
+            "type": "string",
+            "description": "User's country."
+          },
+          "phone": {
+            "type": "string",
+            "description": "User's contact phone number."
+          },
+          "company": {
+            "type": "string",
+            "description": "Company information from the Autodesk user profile."
+          },
+          "job_title": {
+            "type": "string",
+            "description": "User's job title."
+          },
+          "industry": {
+            "type": "string",
+            "description": "User's industry."
+          },
+          "about_me": {
+            "type": "string",
+            "description": "Short description about the user."
+          },
+          "default_role": {
+            "type": "string",
+            "description": "User's default role."
+          },
+          "default_role_id": {
+            "type": "string",
+            "description": "ID of the user's default role."
+          },
+          "created_at": {
+            "type": "string",
+            "description": "Timestamp when the user was created."
+          },
+          "updated_at": {
+            "type": "string",
+            "description": "Timestamp when the user was last updated."
+          }
+        }
+      }
+    }
+  },
+  {
+    "group": "BIM360",
+    "name": "Search Users in Member Directory",
+    "method": "GET",
+    "url": "https://developer.api.autodesk.com/hq/v1/accounts/:account_id/users/search",
+    "description": "Searches users in the master member directory of a specific BIM 360 account by specified fields. This endpoint is compatible with both BIM 360 and Autodesk Construction Cloud (ACC) projects.",
+    "auth_required": true,
+    "oauth_scopes": ["account:read"],
+    "headers": [
+      {
+        "name": "Authorization",
+        "type": "string",
+        "description": "Bearer <token>, obtained via two-legged OAuth flow."
+      },
+      {
+        "name": "Content-Type",
+        "type": "string",
+        "description": "Must be application/json."
+      },
+      {
+        "name": "Region",
+        "type": "string",
+        "description": "Optional. Specifies the region (e.g., US, EMEA)."
+      }
+    ],
+    "uri_parameters": [
+      {
+        "name": "account_id",
+        "type": "string",
+        "description": "UUID of the account. This corresponds to the hub ID in the Data Management API (remove 'b.' prefix)."
+      }
+    ],
+    "query_parameters": [
+      {
+        "name": "name",
+        "type": "string",
+        "description": "User name to match (max length: 255)."
+      },
+      {
+        "name": "email",
+        "type": "string",
+        "description": "User email to match (max length: 255)."
+      },
+      {
+        "name": "company_name",
+        "type": "string",
+        "description": "User company name to match (max length: 255)."
+      },
+      {
+        "name": "operator",
+        "type": "enum",
+        "description": "Boolean operator to use for the search (default is OR, other option: AND)."
+      },
+      {
+        "name": "partial",
+        "type": "boolean",
+        "description": "If true (default), perform a fuzzy match."
+      },
+      {
+        "name": "limit",
+        "type": "integer",
+        "description": "Limits the response array's size (default: 10, max: 100)."
+      },
+      {
+        "name": "offset",
+        "type": "integer",
+        "description": "Offset of response array (default: 0)."
+      },
+      {
+        "name": "sort",
+        "type": "string",
+        "description": "Comma-separated fields to sort by in ascending order. Prepending a field with '-' sorts in descending order."
+      },
+      {
+        "name": "field",
+        "type": "string",
+        "description": "Comma-separated fields to include in the response (invalid fields will be ignored)."
+      }
+    ],
+    "response": {
+      "status_codes": {
+        "200": "OK — The request has succeeded.",
+        "400": "Bad Request — Malformed request or missing required fields.",
+        "403": "Forbidden — Unauthorized access.",
+        "404": "Not Found — User or resource not found.",
+        "409": "Conflict — Conflicting resource state.",
+        "422": "Unprocessable Entity — Request cannot be processed due to validation errors.",
+        "500": "Internal Server Error — Server error."
+      },
+      "body_structure": {
+        "type": "array",
+        "description": "Array of users matching the search criteria.",
+        "items": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string",
+              "description": "UUID of the user."
+            },
+            "account_id": {
+              "type": "string",
+              "description": "UUID of the account."
+            },
+            "role": {
+              "type": "string",
+              "description": "User's role in the account (e.g., account_admin, account_user, project_admin)."
+            },
+            "status": {
+              "type": "string",
+              "description": "Status of the user (active, inactive, pending, not_invited)."
+            },
+            "company_id": {
+              "type": "string",
+              "description": "UUID of the user's default company."
+            },
+            "company_name": {
+              "type": "string",
+              "description": "Name of the user's default company."
+            },
+            "last_sign_in": {
+              "type": "string",
+              "description": "ISO 8601 formatted datetime of the user's last sign-in."
+            },
+            "email": {
+              "type": "string",
+              "description": "User's email address."
+            },
+            "name": {
+              "type": "string",
+              "description": "User's display name."
+            },
+            "nickname": {
+              "type": "string",
+              "description": "User's nickname."
+            },
+            "first_name": {
+              "type": "string",
+              "description": "User's first name."
+            },
+            "last_name": {
+              "type": "string",
+              "description": "User's last name."
+            },
+            "uid": {
+              "type": "string",
+              "description": "User's Autodesk ID."
+            },
+            "image_url": {
+              "type": "string",
+              "description": "URL for the user's profile image."
+            },
+            "address_line_1": {
+              "type": "string",
+              "description": "User's address line 1."
+            },
+            "address_line_2": {
+              "type": "string",
+              "description": "User's address line 2."
+            },
+            "city": {
+              "type": "string",
+              "description": "User's city."
+            },
+            "state_or_province": {
+              "type": "string",
+              "description": "User's state or province."
+            },
+            "postal_code": {
+              "type": "string",
+              "description": "User's postal code."
+            },
+            "country": {
+              "type": "string",
+              "description": "User's country."
+            },
+            "phone": {
+              "type": "string",
+              "description": "User's contact phone number."
+            },
+            "company": {
+              "type": "string",
+              "description": "Company information from the Autodesk user profile."
+            },
+            "job_title": {
+              "type": "string",
+              "description": "User's job title."
+            },
+            "industry": {
+              "type": "string",
+              "description": "User's industry."
+            },
+            "about_me": {
+              "type": "string",
+              "description": "Short description about the user."
+            },
+            "default_role": {
+              "type": "string",
+              "description": "User's default role."
+            },
+            "default_role_id": {
+              "type": "string",
+              "description": "ID of the user's default role."
+            },
+            "created_at": {
+              "type": "string",
+              "description": "Timestamp when the user was created."
+            },
+            "updated_at": {
+              "type": "string",
+              "description": "Timestamp when the user was last updated."
+            }
+          }
+        }
+      }
+    }
+  },
+  {
+    "group": "BIM360",
+    "name": "Update User Status or Company",
+    "method": "PATCH",
+    "url": "https://developer.api.autodesk.com/hq/v1/accounts/:account_id/users/:user_id",
+    "description": "Updates a specific user’s status or default company. Compatible with both BIM 360 and Autodesk Construction Cloud (ACC) projects.",
+    "auth_required": true,
+    "oauth_scopes": ["account:write"],
+    "headers": [
+      {
+        "name": "Authorization",
+        "type": "string",
+        "description": "Bearer <token>, obtained via two-legged OAuth flow."
+      },
+      {
+        "name": "Content-Type",
+        "type": "string",
+        "description": "Must be application/json."
+      },
+      {
+        "name": "Region",
+        "type": "string",
+        "description": "Optional. Specifies the region (e.g., US, EMEA)."
+      }
+    ],
+    "uri_parameters": [
+      {
+        "name": "account_id",
+        "type": "string",
+        "description": "UUID of the account. This corresponds to the hub ID in the Data Management API (remove 'b.' prefix)."
+      },
+      {
+        "name": "user_id",
+        "type": "string",
+        "description": "UUID of the user."
+      }
+    ],
+    "request_body": {
+      "description": "The body of the request contains fields to update the user’s status or default company.",
+      "properties": {
+        "status": {
+          "type": "string",
+          "description": "New status to set for the user. Possible values: 'active', 'inactive'."
+        },
+        "company_id": {
+          "type": "string",
+          "description": "UUID of the user’s default company in BIM 360."
+        }
+      }
+    },
+    "response": {
+      "status_codes": {
+        "200": "OK — The request has succeeded.",
+        "400": "Bad Request — Malformed request or missing required fields.",
+        "403": "Forbidden — Unauthorized access.",
+        "404": "Not Found — User or resource not found.",
+        "409": "Conflict — Conflicting resource state.",
+        "422": "Unprocessable Entity — Request cannot be processed due to validation errors.",
+        "500": "Internal Server Error — Server error."
+      },
+      "body_structure": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "UUID of the user."
+          },
+          "account_id": {
+            "type": "string",
+            "description": "UUID of the account."
+          },
+          "role": {
+            "type": "string",
+            "description": "User's role in the account (e.g., account_admin, account_user, project_admin)."
+          },
+          "status": {
+            "type": "string",
+            "description": "Status of the user (active, inactive, pending, not_invited)."
+          },
+          "company_id": {
+            "type": "string",
+            "description": "UUID of the user's default company."
+          },
+          "company_name": {
+            "type": "string",
+            "description": "Name of the user's default company."
+          },
+          "last_sign_in": {
+            "type": "string",
+            "description": "ISO 8601 formatted datetime of the user's last sign-in."
+          },
+          "email": {
+            "type": "string",
+            "description": "User's email address."
+          },
+          "name": {
+            "type": "string",
+            "description": "User's display name."
+          },
+          "nickname": {
+            "type": "string",
+            "description": "User's nickname."
+          },
+          "first_name": {
+            "type": "string",
+            "description": "User's first name."
+          },
+          "last_name": {
+            "type": "string",
+            "description": "User's last name."
+          },
+          "uid": {
+            "type": "string",
+            "description": "User's Autodesk ID."
+          },
+          "image_url": {
+            "type": "string",
+            "description": "URL for the user's profile image."
+          },
+          "address_line_1": {
+            "type": "string",
+            "description": "User's address line 1."
+          },
+          "address_line_2": {
+            "type": "string",
+            "description": "User's address line 2."
+          },
+          "city": {
+            "type": "string",
+            "description": "User's city."
+          },
+          "state_or_province": {
+            "type": "string",
+            "description": "User's state or province."
+          },
+          "postal_code": {
+            "type": "string",
+            "description": "User's postal code."
+          },
+          "country": {
+            "type": "string",
+            "description": "User's country."
+          },
+          "phone": {
+            "type": "string",
+            "description": "User's contact phone number."
+          },
+          "company": {
+            "type": "string",
+            "description": "Company information from the Autodesk user profile."
+          },
+          "job_title": {
+            "type": "string",
+            "description": "User's job title."
+          },
+          "industry": {
+            "type": "string",
+            "description": "User's industry."
+          },
+          "about_me": {
+            "type": "string",
+            "description": "Short description about the user."
+          },
+          "default_role": {
+            "type": "string",
+            "description": "User's default role."
+          },
+          "default_role_id": {
+            "type": "string",
+            "description": "ID of the user's default role."
+          },
+          "created_at": {
+            "type": "string",
+            "description": "Timestamp when the user was created."
+          },
+          "updated_at": {
+            "type": "string",
+            "description": "Timestamp when the user was last updated."
+          }
+        }
+      }
+    }
+  },
+
+  {
+    "group": "BIM360",
+    "name": "Legacy Get Project Users",
+    "method": "GET",
+    "url": "https://developer.api.autodesk.com/bim360/admin/v1/projects/:projectId/users",
+    "description": "Retrieves information about all users in a specific BIM 360 project.",
+    "auth_required": true,
+    "oauth_scopes": ["account:read"],
+    "headers": [
+      {
+        "name": "Authorization",
+        "type": "string",
+        "description": "Bearer <token>, using either two-legged or three-legged OAuth flow."
+      },
+      {
+        "name": "Accept-Language",
+        "type": "string",
+        "description": "Preferred language (e.g., en;q=0.8). See supported BCP-47 codes."
+      },
+      {
+        "name": "Region",
+        "type": "string",
+        "description": "Optional. Specify 'US' or 'EMEA' to reduce latency."
+      },
+      {
+        "name": "User-Id",
+        "type": "string",
+        "description": "Optional. Act on behalf of a specific user using user ID or Autodesk ID (used in 2-legged auth)."
+      }
+    ],
+    "uri_parameters": [
+      {
+        "name": "projectId",
+        "type": "string",
+        "description": "UUID of the project (remove 'b.' prefix if using from Data Management API)."
+      }
+    ],
+    "query_parameters": [
+      { "name": "filter[name]", "type": "string", "description": "Filter users by name." },
+      { "name": "filter[email]", "type": "string", "description": "Filter users by email." },
+      { "name": "filter[accessLevels]", "type": "array[string]", "description": "Filter by access levels: accountAdmin, projectAdmin, executive." },
+      { "name": "filter[companyId]", "type": "string", "description": "Filter by company ID." },
+      { "name": "filter[autodeskId]", "type": "string", "description": "Filter by Autodesk ID." },
+      { "name": "filter[roleId]", "type": "string", "description": "Filter by project role ID." },
+      { "name": "filter[memberGroupId]", "type": "array[string]", "description": "Filter by member Autodesk group IDs." },
+      { "name": "filter[serviceNames]", "type": "array[string]", "description": "Filter by services (e.g., documents, glue, sheets, plan, etc.)." },
+      { "name": "sort", "type": "array[string]", "description": "Sort by fields: name, email, firstName, lastName, etc. Default: name." },
+      { "name": "fields", "type": "array[string]", "description": "Fields to return. Default: all." },
+      { "name": "limit", "type": "int", "description": "Max 200. Default: 20." },
+      { "name": "offset", "type": "int", "description": "Records to skip for pagination." }
+    ],
+    "response": {
+      "status_codes": {
+        "200": "OK — List of project users returned successfully.",
+        "400": "Bad Request — Syntax or parameter error.",
+        "401": "Unauthorized — Invalid credentials.",
+        "403": "Forbidden — Access denied.",
+        "404": "Not Found — Project does not exist.",
+        "406": "Not Acceptable — Unmatched language preferences.",
+        "409": "Conflict — Resource state conflict.",
+        "410": "Gone — Target resource is no longer available.",
+        "429": "Too Many Requests — Rate limited.",
+        "500": "Internal Server Error — Something went wrong.",
+        "503": "Service Unavailable — Try again later."
+      },
+      "body_structure": {
+        "pagination": {
+          "type": "object",
+          "description": "Pagination metadata"
+        },
+        "results": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": { "type": "string", "description": "User's internal UUID" },
+              "email": { "type": "string" },
+              "name": { "type": "string" },
+              "firstName": { "type": "string" },
+              "lastName": { "type": "string" },
+              "autodeskId": { "type": "string" },
+              "analyticsId": { "type": "string", "description": "Not relevant" },
+              "addressLine1": { "type": "string" },
+              "addressLine2": { "type": "string" },
+              "city": { "type": "string" },
+              "stateOrProvince": { "type": "string" },
+              "postalCode": { "type": "string" },
+              "country": { "type": "string" },
+              "imageUrl": { "type": "string" },
+              "phone": { "type": "object" },
+              "jobTitle": { "type": "string" },
+              "industry": { "type": "string" },
+              "aboutMe": { "type": "string" },
+              "accessLevels": { "type": "object" },
+              "companyId": { "type": "string" },
+              "roleIds": { "type": "array", "items": { "type": "string" } },
+              "services": {
+                "type": "array",
+                "items": { "type": "object" },
+                "description": "Flags showing service access (e.g., fieldManagement, documents, glue, etc.)"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  {
+    "group": "BIM360",
+    "name": "Get Project Users",
+    "method": "GET",
+    "url": "https://developer.api.autodesk.com/construction/admin/v1/projects/:projectId/users",
+    "description": "Retrieves information about a filtered subset of users in the specified project. Compatible with both BIM 360 and Autodesk Construction Cloud (ACC) projects.",
+    "auth_required": true,
+    "oauth_scopes": ["account:read"],
+    "headers": [
+      {
+        "name": "Authorization",
+        "type": "string",
+        "description": "Bearer <token>, obtained via a two-legged or three-legged OAuth flow."
+      },
+      {
+        "name": "Region",
+        "type": "string",
+        "description": "Specifies the region where your request should be routed. Possible values: US, EMEA."
+      },
+      {
+        "name": "User-Id",
+        "type": "string",
+        "description": "The ACC ID or Autodesk ID of the user on whose behalf the request is made. Optional for GET requests using 2-legged auth."
+      }
+    ],
+    "uri_parameters": [
+      {
+        "name": "projectId",
+        "type": "string",
+        "description": "UUID of the project. To convert a Data Management project ID, remove the 'b.' prefix."
+      }
+    ],
+    "query_parameters": [
+      {
+        "name": "filter[products]",
+        "type": "array:string",
+        "description": "Comma-separated list of product keys the users must have access to."
+      },
+      {
+        "name": "filter[name]",
+        "type": "string",
+        "description": "Filter by user name (supports partial match)."
+      },
+      {
+        "name": "filter[email]",
+        "type": "string",
+        "description": "Filter by user email (supports partial match)."
+      },
+      {
+        "name": "filter[accessLevels]",
+        "type": "array:string",
+        "description": "Filter by access levels (e.g., accountAdmin, projectAdmin, executive)."
+      },
+      {
+        "name": "filter[companyId]",
+        "type": "string",
+        "description": "Filter by company ID the user represents."
+      },
+      {
+        "name": "filter[companyName]",
+        "type": "string",
+        "description": "Filter by company name (supports partial match)."
+      },
+      {
+        "name": "filter[autodeskId]",
+        "type": "array:string",
+        "description": "Filter by Autodesk ID of users."
+      },
+      {
+        "name": "filter[id]",
+        "type": "array:string",
+        "description": "Filter by ACC IDs of users."
+      },
+      {
+        "name": "filter[roleId]",
+        "type": "string",
+        "description": "Filter by a single user role ID."
+      },
+      {
+        "name": "filter[roleIds]",
+        "type": "array:string",
+        "description": "Filter by multiple user role IDs."
+      },
+      {
+        "name": "filter[status]",
+        "type": "array:string",
+        "description": "Filter by user status (e.g., active, pending, deleted)."
+      },
+      {
+        "name": "sort",
+        "type": "array:string",
+        "description": "Fields to sort by (e.g., name, email), with optional asc/desc."
+      },
+      {
+        "name": "fields",
+        "type": "array:string",
+        "description": "Specify fields to include in the response (default: all)."
+      },
+      {
+        "name": "orFilters",
+        "type": "array:string",
+        "description": "Combine fields with OR logic (e.g., id, name, email)."
+      },
+      {
+        "name": "filterTextMatch",
+        "type": "enum:string",
+        "description": "Matching type for text fields: contains (default), startsWith, endsWith, equals."
+      },
+      {
+        "name": "limit",
+        "type": "integer",
+        "description": "Maximum number of records to return. Default: 20, Max: 200."
+      },
+      {
+        "name": "offset",
+        "type": "integer",
+        "description": "Pagination offset to start returning records from."
+      }
+    ],
+    "response": {
+      "status_codes": {
+        "200": "OK — A list of requested project users.",
+        "400": "Bad Request — The request could not be understood due to malformed syntax.",
+        "401": "Unauthorized — Invalid authentication credentials.",
+        "403": "Forbidden — The server refuses to authorize the request.",
+        "404": "Not Found — The resource could not be found.",
+        "406": "Not Acceptable — The server cannot produce a matching response.",
+        "409": "Conflict — Conflict with the current state of the resource.",
+        "410": "Gone — Access to the resource is no longer available.",
+        "429": "Too Many Requests — Rate limit exceeded.",
+        "500": "Internal Server Error — Unexpected error on the server.",
+        "503": "Service Unavailable — Server is not ready to handle the request."
+      },
+      "body_structure": [
+        {
+          "id": "string (UUID)",
+          "autodeskId": "string",
+          "email": "string",
+          "name": "string",
+          "firstName": "string",
+          "lastName": "string",
+          "analyticsId": "string",
+          "addressLine1": "string",
+          "addressLine2": "string",
+          "city": "string",
+          "stateOrProvince": "string",
+          "postalCode": "string",
+          "country": "string",
+          "imageUrl": "string",
+          "phone": {
+            "countryCode": "string",
+            "number": "string"
+          },
+          "jobTitle": "string",
+          "industry": "string",
+          "aboutMe": "string",
+          "companyId": "string or null",
+          "companyName": "string or null",
+          "accessLevels": {
+            "accountAdmin": "boolean",
+            "projectAdmin": "boolean",
+            "executive": "boolean"
+          },
+          "roleIds": ["string (UUID)"],
+          "roles": [
+            {
+              "id": "string (UUID)",
+              "name": "string"
+            }
+          ],
+          "status": "enum: active | pending | deleted | disabled",
+          "products": [
+            {
+              "id": "string",
+              "name": "string"
+            }
+          ],
+          "addedOn": "datetime (ISO 8601)",
+          "updatedAt": "datetime (ISO 8601)"
+        }
+      ]
+    }
+  },
+  {
+    "group": "BIM360",
+    "name": "Legacy Get Project User by ID",
+    "method": "GET",
+    "url": "https://developer.api.autodesk.com/bim360/admin/v1/projects/:projectId/users/:userId",
+    "description": "Retrieves detailed information about a single user in a specific BIM 360 project.",
+    "auth_required": true,
+    "oauth_scopes": ["account:read"],
+    "headers": [
+      {
+        "name": "Authorization",
+        "type": "string",
+        "description": "Bearer <token>, obtained via either a two-legged or three-legged OAuth flow."
+      },
+      {
+        "name": "Accept-Language",
+        "type": "string",
+        "description": "Preferred language(s) for the response. Supports quality factor format (e.g., en;q=0.8)."
+      },
+      {
+        "name": "Region",
+        "type": "string",
+        "description": "Region where the data is stored. Possible values: US, EMEA."
+      },
+      {
+        "name": "User-Id",
+        "type": "string",
+        "description": "In two-legged auth, restricts scope to a specific user by ID or Autodesk ID."
+      }
+    ],
+    "uri_parameters": [
+      {
+        "name": "projectId",
+        "type": "string",
+        "description": "UUID of the project, without the 'b.' prefix from the Data Management API."
+      },
+      {
+        "name": "userId",
+        "type": "string",
+        "description": "User's internal ID or Autodesk ID."
+      }
+    ],
+    "query_parameters": [
+      {
+        "name": "fields",
+        "type": "array:string",
+        "description": "Comma-separated list of fields to include in the response."
+      }
+    ],
+    "response": {
+      "status_codes": {
+        "200": "OK — The requested user.",
+        "400": "Bad Request — Malformed request syntax.",
+        "401": "Unauthorized — Invalid or missing authentication credentials.",
+        "403": "Forbidden — Access is denied.",
+        "404": "Not Found — The specified user does not exist.",
+        "406": "Not Acceptable — Cannot produce acceptable response.",
+        "409": "Conflict — Conflict with current state of the resource.",
+        "410": "Gone — The resource is no longer available.",
+        "429": "Too Many Requests — Rate limit exceeded.",
+        "500": "Internal Server Error — Unexpected error on server.",
+        "503": "Service Unavailable — Server is not ready to handle the request."
+      },
+      "body_structure": {
+        "id": "string (UUID)",
+        "email": "string",
+        "name": "string",
+        "firstName": "string",
+        "lastName": "string",
+        "autodeskId": "string",
+        "addressLine1": "string",
+        "addressLine2": "string",
+        "city": "string",
+        "stateOrProvince": "string",
+        "postalCode": "string",
+        "country": "string",
+        "imageUrl": "string",
+        "phone": {
+          "countryCode": "string",
+          "number": "string"
+        },
+        "jobTitle": "string",
+        "industry": "string",
+        "aboutMe": "string",
+        "accessLevels": {
+          "accountAdmin": "boolean",
+          "projectAdmin": "boolean",
+          "executive": "boolean"
+        },
+        "companyId": "string",
+        "roleIds": ["string"],
+        "services": [
+          {
+            "serviceId": "string",
+            "name": "string"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "group": "BIM360",
+    "name": "Get Project User",
+    "method": "GET",
+    "url": "https://developer.api.autodesk.com/construction/admin/v1/projects/:projectId/users/:userId",
+    "description": "Retrieves detailed information about a specified user in an Autodesk Construction Cloud or BIM 360 project. Useful for confirming activation status and inspecting user metadata such as roles and products.",
+    "auth_required": true,
+    "oauth_scopes": ["account:read"],
+    "headers": [
+      {
+        "name": "Authorization",
+        "type": "string",
+        "description": "Bearer <token>, obtained through a two-legged or three-legged OAuth flow."
+      },
+      {
+        "name": "Region",
+        "type": "string",
+        "description": "Optional. Helps route requests optimally. Possible values: US, EMEA."
+      },
+      {
+        "name": "User-Id",
+        "type": "string",
+        "description": "Optional for GET. Required for write ops using 2-legged auth. Use Autodesk ID or ACC user ID."
+      }
+    ],
+    "uri_parameters": [
+      {
+        "name": "projectId",
+        "type": "string",
+        "description": "UUID of the project without the 'b.' prefix (if using Data Management API project ID)."
+      },
+      {
+        "name": "userId",
+        "type": "string",
+        "description": "User’s Autodesk ID or ACC internal user ID."
+      }
+    ],
+    "query_parameters": [
+      {
+        "name": "fields",
+        "type": "array:string",
+        "description": "Optional comma-separated list of specific fields to include. E.g., name,email,roles,status"
+      }
+    ],
+    "response": {
+      "status_codes": {
+        "200": "OK — User information successfully retrieved.",
+        "400": "Bad Request — Invalid parameters.",
+        "401": "Unauthorized — Invalid authentication.",
+        "403": "Forbidden — Not permitted to access this user or project.",
+        "404": "Not Found — User or project not found.",
+        "406": "Not Acceptable — Invalid Accept headers.",
+        "409": "Conflict — Request conflicts with current state.",
+        "410": "Gone — The resource is no longer available.",
+        "429": "Too Many Requests — Rate limit exceeded.",
+        "500": "Internal Server Error — Unexpected server-side issue.",
+        "503": "Service Unavailable — Server unable to process request."
+      },
+      "body_structure": {
+        "id": "string (UUID)",
+        "email": "string",
+        "name": "string",
+        "firstName": "string",
+        "lastName": "string",
+        "autodeskId": "string",
+        "addressLine1": "string",
+        "addressLine2": "string",
+        "city": "string",
+        "stateOrProvince": "string",
+        "postalCode": "string",
+        "country": "string",
+        "imageUrl": "string",
+        "phone": {
+          "countryCode": "string",
+          "number": "string"
+        },
+        "jobTitle": "string",
+        "industry": "string",
+        "aboutMe": "string",
+        "accessLevels": {
+          "accountAdmin": "boolean",
+          "projectAdmin": "boolean"
+        },
+        "addedOn": "string (ISO 8601)",
+        "updatedAt": "string (ISO 8601)",
+        "companyId": "string or null",
+        "companyName": "string or null",
+        "roleIds": ["string"],
+        "roles": [
+          {
+            "id": "string",
+            "name": "string"
+          }
+        ],
+        "status": "string (active | pending | disabled | deleted)",
+        "products": [
+          {
+            "productId": "string",
+            "productName": "string",
+            "status": "string"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "group": "BIM360",
+    "name": "Add Project Admin",
+    "method": "POST",
+    "url": "https://developer.api.autodesk.com/hq/v1/accounts/:account_id/projects/:project_id/users",
+    "description": "Adds a Project Admin to a specific BIM 360 project and service type. Note: This endpoint is not compatible with Autodesk Construction Cloud (ACC) projects.",
+    "auth_required": true,
+    "auth_context": "app only (2-legged OAuth)",
+    "oauth_scopes": ["account:write"],
+    "headers": [
+      {
+        "name": "Authorization",
+        "type": "string",
+        "description": "Bearer <token> from a two-legged OAuth flow"
+      },
+      {
+        "name": "Content-Type",
+        "type": "string",
+        "description": "application/json"
+      },
+      {
+        "name": "Region",
+        "type": "string",
+        "description": "Optional. Routes request by region (e.g., US, EMEA)"
+      }
+    ],
+    "uri_parameters": [
+      {
+        "name": "account_id",
+        "type": "string",
+        "description": "UUID of the BIM 360 account (hub ID with 'b.' prefix removed)"
+      },
+      {
+        "name": "project_id",
+        "type": "string",
+        "description": "UUID of the project (project ID from Data Management API with 'b.' prefix removed)"
+      }
+    ],
+    "body_parameters": [
+      { "name": "role", "type": "string", "required": true, "description": "Must be 'project_admin'" },
+      { "name": "service_type", "type": "string", "required": true, "description": "BIM 360 service name to assign admin role to" },
+      { "name": "company_id", "type": "string", "required": true, "description": "UUID of the user's default BIM 360 company" },
+      { "name": "company_name", "type": "string", "required": false, "description": "Name of the user's company" },
+      { "name": "email", "type": "string", "required": false, "description": "User's email" },
+      { "name": "name", "type": "string", "required": false, "description": "Full display name" },
+      { "name": "nickname", "type": "string", "required": false },
+      { "name": "first_name", "type": "string", "required": false },
+      { "name": "last_name", "type": "string", "required": false },
+      { "name": "uid", "type": "string", "required": false, "description": "User's Autodesk ID" },
+      { "name": "image_url", "type": "string", "required": false },
+      { "name": "address_line_1", "type": "string", "required": false },
+      { "name": "address_line_2", "type": "string", "required": false },
+      { "name": "city", "type": "string", "required": false },
+      { "name": "state_or_province", "type": "string", "required": false },
+      { "name": "postal_code", "type": "string", "required": false },
+      { "name": "country", "type": "string", "required": false },
+      { "name": "phone", "type": "string", "required": false },
+      { "name": "company", "type": "string", "required": false, "description": "Company from user’s Autodesk profile (different from BIM 360 company)" },
+      { "name": "job_title", "type": "string", "required": false },
+      { "name": "industry", "type": "string", "required": false },
+      { "name": "about_me", "type": "string", "required": false }
+    ],
+    "response": {
+      "status_codes": {
+        "201": "Created — New project admin added successfully",
+        "400": "Bad Request — Malformed syntax or missing fields",
+        "403": "Forbidden — Auth error or insufficient permissions",
+        "404": "Not Found — Project or account not found",
+        "409": "Conflict — Duplicate or conflicting data",
+        "422": "Unprocessable Entity — Fails internal constraints",
+        "500": "Internal Server Error — Unexpected server issue"
+      },
+      "body_structure": {
+        "id": "string (UUID)",
+        "account_id": "string (UUID)",
+        "project_id": "string (UUID)",
+        "role": "string (must be 'project_admin')",
+        "status": "string (active | inactive | pending)",
+        "service_type": "string",
+        "company_id": "string (UUID)",
+        "company_name": "string",
+        "last_sign_in": "ISO 8601 datetime",
+        "email": "string",
+        "name": "string",
+        "nickname": "string",
+        "first_name": "string",
+        "last_name": "string",
+        "uid": "string (Autodesk ID)",
+        "image_url": "string",
+        "address_line_1": "string",
+        "address_line_2": "string",
+        "city": "string",
+        "state_or_province": "string",
+        "postal_code": "string",
+        "country": "string",
+        "phone": "string",
+        "company": "string",
+        "job_title": "string",
+        "industry": "string",
+        "about_me": "string",
+        "updated_at": "ISO 8601 datetime",
+        "created_at": "ISO 8601 datetime"
+      }
+    }
+  },
+  {
+    "group": "BIM360",
+    "name": "Add Users to BIM 360 Project",
+    "method": "POST",
+    "url": "https://developer.api.autodesk.com/hq/v2/accounts/:account_id/projects/:project_id/users/import",
+    "description": "Adds users (project admin or project user) to a BIM 360 project. Supports bulk import of up to 50 users per request. Not compatible with Autodesk Construction Cloud (ACC) projects.",
+    "auth_required": true,
+    "oauth_scopes": ["account:write"],
+    "headers": [
+      {
+        "name": "Authorization",
+        "type": "string",
+        "description": "Bearer <token>, obtained via a two-legged or three-legged OAuth flow."
+      },
+      {
+        "name": "Content-Type",
+        "type": "string",
+        "description": "Must be application/json."
+      },
+      {
+        "name": "x-user-id",
+        "type": "string",
+        "description": "Required for two-legged token context. BIM 360 ID of the user to act on behalf of."
+      },
+      {
+        "name": "Region",
+        "type": "string",
+        "description": "Specifies the region where the service is located. Possible values: US, EMEA."
+      }
+    ],
+    "uri_parameters": [
+      {
+        "name": "account_id",
+        "type": "string",
+        "description": "UUID of the BIM 360 account. This corresponds to the hub ID in the Data Management API without the 'b.' prefix."
+      },
+      {
+        "name": "project_id",
+        "type": "string",
+        "description": "UUID of the BIM 360 project. This corresponds to the project ID in the Data Management API without the 'b.' prefix."
+      }
+    ],
+    "query_parameters": [],
+    "response": {
+      "status_codes": {
+        "201": "Created — Users were added successfully.",
+        "400": "Bad Request — The request could not be understood due to malformed syntax.",
+        "403": "Forbidden — Unauthorized access.",
+        "404": "Not Found — The specified account or project could not be found.",
+        "409": "Conflict — A conflict occurred with the current state of the resource.",
+        "422": "Unprocessable Entity — The request contains invalid or restricted values.",
+        "500": "Internal Server Error — An unexpected error occurred on the server."
+      },
+      "body_structure": [
+        {
+          "success": "integer",
+          "failure": "integer",
+          "success_items": [
+            {
+              "user_id": "string (UUID)",
+              "email": "string",
+              "account_id": "string (UUID)",
+              "project_id": "string (UUID)",
+              "company_id": "string (UUID)",
+              "industry_roles": ["array of string (UUID)"],
+              "services": {
+                "document_management": {
+                  "access_level": "string"
+                },
+                "project_administration": {
+                  "access_level": "string"
+                }
+              }
+            }
+          ],
+          "failure_items": [
+            {
+              "user_id": "string (UUID)",
+              "email": "string",
+              "account_id": "string (UUID)",
+              "project_id": "string (UUID)",
+              "company_id": "string (UUID)",
+              "industry_roles": ["array of string (UUID)"],
+              "services": {
+                "document_management": {
+                  "access_level": "string"
+                },
+                "project_administration": {
+                  "access_level": "string"
+                }
+              },
+              "errors": [
+                {
+                  "code": "string",
+                  "message": "string"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "group": "BIM360",
+    "name": "Update User in BIM 360 Project",
+    "method": "PATCH",
+    "url": "https://developer.api.autodesk.com/hq/v2/accounts/:account_id/projects/:project_id/users/:user_id",
+    "description": "Updates a user's company assignment and industry roles for a BIM 360 project. Only compatible with BIM 360 projects and not Autodesk Construction Cloud (ACC).",
+    "auth_required": true,
+    "oauth_scopes": ["account:write"],
+    "headers": [
+      {
+        "name": "Authorization",
+        "type": "string",
+        "description": "Bearer <token>, obtained via a two-legged or three-legged OAuth flow."
+      },
+      {
+        "name": "Content-Type",
+        "type": "string",
+        "description": "Must be application/json."
+      },
+      {
+        "name": "x-user-id",
+        "type": "string",
+        "description": "Required for two-legged token context. BIM 360 ID of the user to act on behalf of."
+      },
+      {
+        "name": "Region",
+        "type": "string",
+        "description": "Specifies the region where the service is located. Possible values: US, EMEA."
+      }
+    ],
+    "uri_parameters": [
+      {
+        "name": "account_id",
+        "type": "string",
+        "description": "UUID of the BIM 360 account. Remove the 'b.' prefix from the hub ID in the Data Management API."
+      },
+      {
+        "name": "project_id",
+        "type": "string",
+        "description": "UUID of the BIM 360 project. Remove the 'b.' prefix from the project ID in the Data Management API."
+      },
+      {
+        "name": "user_id",
+        "type": "string",
+        "description": "BIM 360 ID of the user. This is required to identify the specific user in the project."
+      }
+    ],
+    "query_parameters": [],
+    "response": {
+      "status_codes": {
+        "200": "OK — The request has succeeded.",
+        "400": "Bad Request — The request could not be understood due to malformed syntax.",
+        "403": "Forbidden — Unauthorized access.",
+        "404": "Not Found — The specified user, project, or account was not found.",
+        "409": "Conflict — The request could not be completed due to a conflict with the current resource state.",
+        "422": "Unprocessable Entity — The request contains invalid or restricted values.",
+        "500": "Internal Server Error — An unexpected error occurred."
+      },
+      "body_structure": [
+        {
+          "user_id": "string (UUID)",
+          "account_id": "string (UUID)",
+          "project_id": "string (UUID)",
+          "company_id": "string (UUID)",
+          "industry_roles": ["array of string (UUID)"],
+          "email": "string"
+        }
+      ]
+    }
+  },
+
+  {
+    "group": "BIM360",
+    "name": "Get Industry Roles for a Project",
+    "method": "GET",
+    "url": "https://developer.api.autodesk.com/hq/v2/accounts/:account_id/projects/:project_id/industry_roles",
+    "description": "Retrieves the industry roles associated with a specific BIM 360 project, such as contractor or architect. This endpoint is only compatible with BIM 360 projects.",
+    "auth_required": true,
+    "oauth_scopes": ["account:read"],
+    "headers": [
+      {
+        "name": "Authorization",
+        "type": "string",
+        "description": "Bearer <token>, obtained via a two-legged or three-legged OAuth flow."
+      },
+      {
+        "name": "Content-Type",
+        "type": "string",
+        "description": "Must be application/json."
+      },
+      {
+        "name": "Region",
+        "type": "string",
+        "description": "Specifies the region where the service is located. Possible values: US, EMEA."
+      }
+    ],
+    "uri_parameters": [
+      {
+        "name": "account_id",
+        "type": "string",
+        "description": "UUID of the BIM 360 account. Remove the 'b.' prefix from the hub ID in the Data Management API."
+      },
+      {
+        "name": "project_id",
+        "type": "string",
+        "description": "UUID of the BIM 360 project. Remove the 'b.' prefix from the project ID in the Data Management API."
+      }
+    ],
+    "query_parameters": [],
+    "response": {
+      "status_codes": {
+        "200": "OK — The request has succeeded.",
+        "400": "Bad Request — The request could not be understood due to malformed syntax.",
+        "403": "Forbidden — Unauthorized access.",
+        "404": "Not Found — The specified resource was not found.",
+        "409": "Conflict — The request could not be completed due to a conflict with the current resource state.",
+        "422": "Unprocessable Entity — The request contains invalid or restricted values.",
+        "500": "Internal Server Error — An unexpected error occurred."
+      },
+      "body_structure": [
+        {
+          "id": "string (UUID)",
+          "name": "string",
+          "project_id": "string (UUID)",
+          "services": {
+            "project_administration": "object",
+            "document_management": "object"
+          },
+          "member_group_id": "string"
+        }
+      ]
+    }
+  },
+
+  {
+    "group": "BIM360",
+    "name": "Create or Redefine Business Units for BIM 360 Account",
+    "method": "PUT",
+    "url": "https://developer.api.autodesk.com/hq/v1/accounts/:account_id/business_units_structure",
+    "description": "Creates or redefines the business units of a specific BIM 360 account, compatible with both BIM 360 and Autodesk Construction Cloud (ACC) projects.",
+    "auth_required": true,
+    "oauth_scopes": ["account:write"],
+    "headers": [
+      {
+        "name": "Authorization",
+        "type": "string",
+        "description": "Bearer <token>, obtained via a two-legged OAuth flow."
+      },
+      {
+        "name": "Content-Type",
+        "type": "string",
+        "description": "Must be application/json."
+      },
+      {
+        "name": "Region",
+        "type": "string",
+        "description": "Specifies the region where the service is located. Possible values: US, EMEA."
+      }
+    ],
+    "uri_parameters": [
+      {
+        "name": "account_id",
+        "type": "string",
+        "description": "UUID of the account. Remove the 'b.' prefix from the hub ID in the Data Management API."
+      }
+    ],
+    "query_parameters": [],
+    "request_body_structure": {
+      "business_units": [
+        {
+          "id": "string (UUID)",
+          "parent_id": "string (UUID)",
+          "name": "string",
+          "description": "string"
+        }
+      ]
+    },
+    "response": {
+      "status_codes": {
+        "200": "OK — The request has succeeded.",
+        "400": "Bad Request — The request could not be understood due to malformed syntax.",
+        "403": "Forbidden — Unauthorized access.",
+        "404": "Not Found — The specified resource was not found.",
+        "409": "Conflict — The request could not be completed due to a conflict with the current resource state.",
+        "422": "Unprocessable Entity — The request contains invalid or restricted values.",
+        "500": "Internal Server Error — An unexpected error occurred."
+      },
+      "body_structure": {
+        "business_units": [
+          {
+            "id": "string (UUID)",
+            "account_id": "string (UUID)",
+            "parent_id": "string (UUID)",
+            "name": "string",
+            "path": "string",
+            "description": "string",
+            "created_at": "datetime (ISO 8601)",
+            "updated_at": "datetime (ISO 8601)"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "group": "BIM360",
+    "name": "Get All Business Units in BIM 360 Account",
+    "method": "GET",
+    "url": "https://developer.api.autodesk.com/hq/v1/accounts/:account_id/business_units_structure",
+    "description": "Queries all the business units in a specific BIM 360 account, compatible with both BIM 360 and Autodesk Construction Cloud (ACC) projects.",
+    "auth_required": true,
+    "oauth_scopes": ["account:read"],
+    "headers": [
+      {
+        "name": "Authorization",
+        "type": "string",
+        "description": "Bearer <token>, obtained via a two-legged OAuth flow."
+      },
+      {
+        "name": "Region",
+        "type": "string",
+        "description": "Specifies the region where the service is located. Possible values: US, EMEA."
+      }
+    ],
+    "uri_parameters": [
+      {
+        "name": "account_id",
+        "type": "string",
+        "description": "UUID of the account. Remove the 'b.' prefix from the hub ID in the Data Management API."
+      }
+    ],
+    "query_parameters": [],
+    "request_body_structure": {},
+    "response": {
+      "status_codes": {
+        "200": "OK — The request has succeeded.",
+        "400": "Bad Request — The request could not be understood due to malformed syntax.",
+        "403": "Forbidden — Unauthorized access.",
+        "404": "Not Found — The specified resource was not found.",
+        "409": "Conflict — The request could not be completed due to a conflict with the current resource state.",
+        "422": "Unprocessable Entity — The request contains invalid or restricted values.",
+        "500": "Internal Server Error — An unexpected error occurred."
+      },
+      "body_structure": {
+        "business_units": [
+          {
+            "id": "string (UUID)",
+            "account_id": "string (UUID)",
+            "parent_id": "string (UUID)",
+            "name": "string",
+            "path": "string",
+            "description": "string",
+            "created_at": "datetime (ISO 8601)",
+            "updated_at": "datetime (ISO 8601)"
+          }
+        ]
+      }
+    }
+  },
+
+  {
+    "group": "BIM360",
+    "name": "Get Job Status by ID",
+    "method": "GET",
+    "url": "https://developer.api.autodesk.com/hq/v1/accounts/:account_id/jobs/:job_id",
+    "description": "Returns the job status, used to track asynchronous operations during the BIM 360 Project creation process when project settings from an existing BIM 360 Field project are used as a template.",
+    "auth_required": true,
+    "oauth_scopes": ["account:read"],
+    "headers": [
+      {
+        "name": "Authorization",
+        "type": "string",
+        "description": "Bearer <token>, obtained via a two-legged OAuth flow."
+      },
+      {
+        "name": "Region",
+        "type": "string",
+        "description": "Specifies the region where the service is located. Possible values: US, EMEA."
+      }
+    ],
+    "uri_parameters": [
+      {
+        "name": "account_id",
+        "type": "string",
+        "description": "UUID of the account. This corresponds to hub ID in the Data Management API. To convert a hub ID into an account ID, remove the 'b.' prefix."
+      },
+      {
+        "name": "job_id",
+        "type": "string",
+        "description": "UUID of the job. For jobs that create new BIM 360 Field projects, this value can be found in the copy_project_job_id attribute in the response of the POST projects endpoint."
+      }
+    ],
+    "query_parameters": [],
+    "request_body_structure": {},
+    "response": {
+      "status_codes": {
+        "200": "OK — The request has succeeded.",
+        "400": "Bad Request — The request could not be understood due to malformed syntax.",
+        "403": "Forbidden — Unauthorized access.",
+        "404": "Not Found — The resource cannot be found.",
+        "409": "Conflict — The request could not be completed due to a conflict with the current resource state.",
+        "422": "Unprocessable Entity — The request contains invalid or restricted values.",
+        "500": "Internal Server Error — An unexpected error occurred."
+      },
+      "body_structure": {
+        "id": "string (UUID)",
+        "account_id": "string (UUID)",
+        "name": "string",
+        "status": "enum: string (completed, in progress)",
+        "details": {
+          "project_id": "string (UUID)",
+          "template_project_id": "string (UUID)",
+          "include_companies": "boolean",
+          "include_locations": "boolean"
+        }
+      }
+    }
+  },
+
+  {
+    "group": "BIM360",
+    "name": "Create Data Request",
+    "method": "POST",
+    "url": "https://developer.api.autodesk.com/data-connector/v1/accounts/:accountId/requests",
+    "description": "Creates a data request for an authenticated user. The user can specify project(s), service groups, and recurring intervals. The request spawns jobs, which notify the user upon completion, and optionally provide a callback URL for job status updates.",
+    "auth_required": true,
+    "oauth_scopes": ["data:create"],
+    "headers": [
+      {
+        "name": "Authorization",
+        "type": "string",
+        "description": "Bearer <token>, obtained via a three-legged OAuth flow."
+      },
+      {
+        "name": "Content-Type",
+        "type": "string",
+        "description": "application/json"
+      }
+    ],
+    "uri_parameters": [
+      {
+        "name": "accountId",
+        "type": "string",
+        "description": "UUID of the account. Derived from the hub ID, with the 'b.' prefix removed."
+      }
+    ],
+    "request_body_structure": {
+      "description": "string — The user-entered description of the data request.",
+      "isActive": "boolean — The status of the data request (true for active, false for inactive). Default is true.",
+      "scheduleInterval": "string — Unit of the job scheduling interval (ONE_TIME, DAY, WEEK, MONTH, YEAR).",
+      "reoccuringInterval": "int — Number of scheduleInterval units between job executions.",
+      "effectiveFrom": "datetime — The start date/time for one-time or recurring job scheduling (ISO 8601 format).",
+      "effectiveTo": "datetime — The end date/time for recurring job schedules (ISO 8601 format).",
+      "serviceGroups": "array: string — List of service groups for data extraction. Required and must include at least one service group.",
+      "callbackUrl": "string — The URL where job status updates are sent, if specified.",
+      "sendEmail": "boolean — Whether to send a notification email upon job completion. Default is true.",
+      "projectId": "string — Legacy field for a single project ID (superseded by projectIdList).",
+      "projectIdList": "array: string — A list of up to 50 project IDs for data extraction.",
+      "startDate": "string — The start date for date-range extractions (ISO 8601 format).",
+      "endDate": "string — The end date for date-range extractions (ISO 8601 format).",
+      "dateRange": "string — Specifies the timeframe for scheduled data extraction. Values: TODAY, YESTERDAY, PAST_7_DAYS, MONTH_TO_DATE, LAST_MONTH.",
+      "projectStatus": "string — The status of projects included in the request (all, archived, active)."
+    },
+    "response": {
+      "status_codes": {
+        "201": "Created — Successfully created the data request.",
+        "400": "Bad Request — The parameters provided are invalid.",
+        "401": "Unauthorized — Invalid bearer token.",
+        "403": "Forbidden — The user does not have permission to perform this operation.",
+        "404": "Not Found — The specified resource or endpoint cannot be found.",
+        "429": "Too Many Requests — Rate limit exceeded, try again later.",
+        "500": "Internal Server Error — An unexpected error occurred on the server.",
+        "503": "Service Unavailable — Service is temporarily unavailable."
+      },
+      "body_structure": {
+        "id": "string (UUID) — The unique ID of the data request.",
+        "description": "string — The user-entered description of the data request.",
+        "isActive": "boolean — The status of the data request (active or inactive).",
+        "accountId": "string (UUID) — The account ID associated with the data request.",
+        "projectId": "string (UUID) — The legacy project ID for the data request.",
+        "projectIdList": "array: string — The list of project IDs included in the request.",
+        "createdBy": "string — The user ID of the request creator.",
+        "createdByEmail": "string — The email address of the request creator.",
+        "createdAt": "datetime (ISO 8601) — The date and time the data request was created.",
+        "updatedBy": "string — The user ID of the user who last updated the data request.",
+        "updatedAt": "datetime (ISO 8601) — The date and time the data request was last updated.",
+        "scheduleInterval": "string — The scheduling interval for job execution.",
+        "reoccuringInterval": "int — The interval between scheduled jobs.",
+        "effectiveFrom": "datetime (ISO 8601) — The start time for one-time or recurring job scheduling.",
+        "effectiveTo": "datetime (ISO 8601) — The end time for recurring job schedules.",
+        "lastQueuedAt": "datetime (ISO 8601) — The date and time the last job was scheduled.",
+        "serviceGroups": "array: string — The service groups from which data is extracted.",
+        "callbackUrl": "string — The callback URL specified for job status updates.",
+        "sendEmail": "boolean — Whether email notifications are sent upon job completion.",
+        "startDate": "string (ISO 8601) — The start date for data extraction.",
+        "endDate": "string (ISO 8601) — The end date for data extraction.",
+        "dateRange": "string — The time range for extracting data (e.g., TODAY, YESTERDAY).",
+        "projectStatus": "string — The status of the projects included in the request (all, archived, active)."
+      }
+    }
+  },
+  {
+    "group": "BIM360",
+    "name": "Get Data Requests in Account",
+    "method": "GET",
+    "url": "https://developer.api.autodesk.com/data-connector/v1/accounts/:accountId/requests",
+    "description": "This endpoint retrieves an array of data requests created by the authenticated user in a specified account.",
+    "auth_required": true,
+    "oauth_scopes": ["data:read"],
+    "headers": [
+      {
+        "name": "Authorization",
+        "type": "string",
+        "description": "Bearer <token>, obtained via a three-legged OAuth flow."
+      }
+    ],
+    "uri_parameters": [
+      {
+        "name": "accountId",
+        "type": "string",
+        "description": "UUID of the account. Can be derived from the hub ID by removing the initial 'b.' from the hub ID."
+      }
+    ],
+    "query_parameters": [
+      {
+        "name": "limit",
+        "type": "integer",
+        "description": "The number of data requests to return. Default is 20."
+      },
+      {
+        "name": "offset",
+        "type": "integer",
+        "description": "The number of data requests to skip. Default is 0."
+      },
+      {
+        "name": "sort",
+        "type": "string",
+        "description": "Sort order for the response. Values: 'asc' for ascending or 'desc' for descending."
+      },
+      {
+        "name": "sortFields",
+        "type": "string",
+        "description": "Comma-separated list of fields by which to sort the data requests."
+      },
+      {
+        "name": "filter[field_to_filter]",
+        "type": "string",
+        "description": "Filter data requests based on a specific field and value."
+      }
+    ],
+    "response": {
+      "status_codes": {
+        "200": "OK — Successfully retrieved the data requests.",
+        "400": "Bad Request — Invalid parameters.",
+        "401": "Unauthorized — Invalid or expired bearer token.",
+        "403": "Forbidden — Insufficient permissions for the user.",
+        "404": "Not Found — The resource or endpoint cannot be found.",
+        "429": "Too Many Requests — Rate limit exceeded.",
+        "500": "Internal Server Error — An unexpected error occurred.",
+        "503": "Service Unavailable — Service temporarily unavailable."
+      },
+      "body_structure": [
+        {
+          "pagination": {
+            "limit": "integer",
+            "offset": "integer",
+            "count": "integer",
+            "total": "integer"
+          },
+          "results": [
+            {
+              "id": "string (UUID)",
+              "description": "string",
+              "isActive": "boolean",
+              "accountId": "string (UUID)",
+              "projectIdList": "array of strings (UUID)",
+              "createdBy": "string",
+              "createdByEmail": "string",
+              "createdAt": "datetime (ISO 8601)",
+              "updatedBy": "string",
+              "updatedAt": "datetime (ISO 8601)",
+              "scheduleInterval": "string",
+              "reoccuringInterval": "integer",
+              "effectiveFrom": "datetime (ISO 8601)",
+              "effectiveTo": "datetime (ISO 8601)",
+              "lastQueuedAt": "datetime (ISO 8601)",
+              "serviceGroups": "array of strings",
+              "callbackUrl": "string",
+              "sendEmail": "boolean",
+              "startDate": "string (ISO 8601)",
+              "endDate": "string (ISO 8601)",
+              "dateRange": "string",
+              "projectStatus": "string"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "group": "BIM360",
+    "name": "Get Data Request by ID",
+    "method": "GET",
+    "url": "https://developer.api.autodesk.com/data-connector/v1/accounts/:accountId/requests/:requestId",
+    "description": "This endpoint returns information about a specified data request created by the authenticated user. The user must have executive overview or project administrator permissions.",
+    "auth_required": true,
+    "oauth_scopes": ["data:read"],
+    "headers": [
+      {
+        "name": "Authorization",
+        "type": "string",
+        "description": "Bearer <token>, obtained via a three-legged OAuth flow."
+      }
+    ],
+    "uri_parameters": [
+      {
+        "name": "accountId",
+        "type": "string",
+        "description": "The account ID, derived from the hub ID by removing the 'b.' prefix."
+      },
+      {
+        "name": "requestId",
+        "type": "string",
+        "description": "The ID of the specified data request."
+      }
+    ],
+    "response": {
+      "status_codes": {
+        "200": "OK — Successfully returned the data request.",
+        "400": "Bad Request — Invalid parameters.",
+        "401": "Unauthorized — Invalid or expired bearer token.",
+        "403": "Forbidden — Insufficient permissions to perform the operation.",
+        "404": "Not Found — The resource or endpoint cannot be found.",
+        "429": "Too Many Requests — Rate limit exceeded.",
+        "500": "Internal Server Error — An unexpected error occurred.",
+        "503": "Service Unavailable — The service is temporarily unavailable."
+      },
+      "body_structure": {
+        "id": "string (UUID)",
+        "description": "string",
+        "isActive": "boolean",
+        "accountId": "string (UUID)",
+        "projectId": "string (UUID)",
+        "projectIdList": "array of strings (UUID)",
+        "createdBy": "string",
+        "createdByEmail": "string",
+        "createdAt": "datetime (ISO 8601)",
+        "updatedBy": "string",
+        "updatedAt": "datetime (ISO 8601)",
+        "scheduleInterval": "string",
+        "reoccuringInterval": "integer",
+        "effectiveFrom": "datetime (ISO 8601)",
+        "effectiveTo": "datetime (ISO 8601)",
+        "lastQueuedAt": "datetime (ISO 8601)",
+        "serviceGroups": "array of strings",
+        "callbackUrl": "string",
+        "sendEmail": "boolean",
+        "startDate": "string (ISO 8601)",
+        "endDate": "string (ISO 8601)",
+        "dateRange": "string",
+        "projectStatus": "string"
+      }
+    }
+  },
+  {
+    "group": "BIM360",
+    "name": "Update Data Request by ID",
+    "method": "PATCH",
+    "url": "https://developer.api.autodesk.com/data-connector/v1/accounts/:accountId/requests/:requestId",
+    "description": "This endpoint updates the attributes of an existing data request created by the authenticated user. Only the attributes provided will be updated; attributes not specified will not be affected.",
+    "auth_required": true,
+    "oauth_scopes": ["data:write"],
+    "headers": [
+      {
+        "name": "Authorization",
+        "type": "string",
+        "description": "Bearer <token>, obtained via a three-legged OAuth flow."
+      },
+      {
+        "name": "Content-Type",
+        "type": "string",
+        "description": "application/json"
+      }
+    ],
+    "uri_parameters": [
+      {
+        "name": "accountId",
+        "type": "string",
+        "description": "The account ID, derived from the hub ID by removing the 'b.' prefix."
+      },
+      {
+        "name": "requestId",
+        "type": "string",
+        "description": "The ID of the specified data request."
+      }
+    ],
+    "request_body_structure": {
+      "isActive": "boolean",
+      "description": "string",
+      "scheduleInterval": "string",
+      "reoccuringInterval": "integer",
+      "effectiveFrom": "datetime (ISO 8601)",
+      "effectiveTo": "datetime (ISO 8601)",
+      "serviceGroups": "array of strings",
+      "callbackUrl": "string",
+      "sendEmail": "boolean",
+      "projectId": "string (legacy)",
+      "projectIdList": "array of strings (up to 50 project IDs)",
+      "startDate": "string (ISO 8601)",
+      "endDate": "string (ISO 8601)",
+      "dateRange": "string",
+      "projectStatus": "string"
+    },
+    "response": {
+      "status_codes": {
+        "200": "OK — The specified data request was successfully updated.",
+        "400": "Bad Request — Invalid parameters.",
+        "401": "Unauthorized — Invalid or expired bearer token.",
+        "403": "Forbidden — Insufficient permissions to perform the operation.",
+        "404": "Not Found — The resource or endpoint cannot be found.",
+        "429": "Too Many Requests — Rate limit exceeded.",
+        "500": "Internal Server Error — An unexpected error occurred.",
+        "503": "Service Unavailable — The service is temporarily unavailable."
+      },
+      "body_structure": {
+        "id": "string (UUID)",
+        "description": "string",
+        "isActive": "boolean",
+        "accountId": "string (UUID)",
+        "projectId": "string (UUID)",
+        "projectIdList": "array of strings (UUID)",
+        "createdBy": "string",
+        "createdByEmail": "string",
+        "createdAt": "datetime (ISO 8601)",
+        "updatedBy": "string",
+        "updatedAt": "datetime (ISO 8601)",
+        "scheduleInterval": "string",
+        "reoccuringInterval": "integer",
+        "effectiveFrom": "datetime (ISO 8601)",
+        "effectiveTo": "datetime (ISO 8601)",
+        "lastQueuedAt": "datetime (ISO 8601)",
+        "serviceGroups": "array of strings",
+        "callbackUrl": "string",
+        "sendEmail": "boolean",
+        "startDate": "string (ISO 8601)",
+        "endDate": "string (ISO 8601)",
+        "dateRange": "string",
+        "projectStatus": "string"
+      }
+    }
+  },
+  {
+    "group": "BIM360",
+    "name": "Delete Data Request by ID",
+    "method": "DELETE",
+    "url": "https://developer.api.autodesk.com/data-connector/v1/accounts/:accountId/requests/:requestId",
+    "description": "This endpoint deletes a specific data request created by the authenticated user. Only users with executive overview or project administrator permissions can perform this operation.",
+    "auth_required": true,
+    "oauth_scopes": ["data:write"],
+    "headers": [
+      {
+        "name": "Authorization",
+        "type": "string",
+        "description": "Bearer <token>, obtained via a three-legged OAuth flow."
+      }
+    ],
+    "uri_parameters": [
+      {
+        "name": "accountId",
+        "type": "string",
+        "description": "The account ID, derived from the hub ID by removing the 'b.' prefix."
+      },
+      {
+        "name": "requestId",
+        "type": "string",
+        "description": "The ID of the specified data request."
+      }
+    ],
+    "response": {
+      "status_codes": {
+        "204": "No Content — The specified data request was successfully deleted.",
+        "400": "Bad Request — Invalid parameters.",
+        "401": "Unauthorized — Invalid or expired bearer token.",
+        "403": "Forbidden — Insufficient permissions to perform the operation.",
+        "404": "Not Found — The resource or endpoint cannot be found.",
+        "429": "Too Many Requests — Rate limit exceeded.",
+        "500": "Internal Server Error — An unexpected error occurred.",
+        "503": "Service Unavailable — The service is temporarily unavailable."
+      },
+      "body_structure": {
+        "204": "No content in response body for successful deletion."
+      }
+    }
+  },
+
+  {
+    "group": "BIM360",
+    "name": "Get Jobs for Data Request",
+    "method": "GET",
+    "url": "https://developer.api.autodesk.com/data-connector/v1/accounts/:accountId/requests/:requestId/jobs",
+    "description": "This endpoint retrieves an array of data connector jobs associated with a specific request created by the authenticated user. The user must have project administrator or executive overview permissions to access this data.",
+    "auth_required": true,
+    "oauth_scopes": ["data:read"],
+    "headers": [
+      {
+        "name": "Authorization",
+        "type": "string",
+        "description": "Bearer <token>, obtained via a three-legged OAuth flow."
+      }
+    ],
+    "uri_parameters": [
+      {
+        "name": "accountId",
+        "type": "string",
+        "description": "The account ID, derived from the hub ID by removing the 'b.' prefix."
+      },
+      {
+        "name": "requestId",
+        "type": "string",
+        "description": "The ID of the data request whose jobs are being queried."
+      }
+    ],
+    "query_parameters": [
+      {
+        "name": "sort",
+        "type": "string",
+        "description": "The sort order of the returned jobs. Possible values are 'asc' (ascending) and 'desc' (descending)."
+      },
+      {
+        "name": "limit",
+        "type": "integer",
+        "description": "The number of jobs to return. Default value is 20."
+      },
+      {
+        "name": "offset",
+        "type": "integer",
+        "description": "The number of jobs to skip before starting to collect the result set. Default value is 0."
+      }
+    ],
+    "response": {
+      "status_codes": {
+        "200": "OK — Successfully retrieved the array of jobs associated with the specified data request.",
+        "400": "Bad Request — Invalid parameters.",
+        "401": "Unauthorized — Invalid or expired bearer token.",
+        "403": "Forbidden — The user does not have permission to perform this operation.",
+        "404": "Not Found — The resource or endpoint cannot be found.",
+        "429": "Too Many Requests — Rate limit exceeded.",
+        "500": "Internal Server Error — An unexpected error occurred.",
+        "503": "Service Unavailable — The service is temporarily unavailable."
+      },
+      "body_structure": {
+        "pagination": {
+          "type": "object",
+          "description": "Information about the pagination of the results."
+        },
+        "results": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string",
+                "description": "The job ID."
+              },
+              "requestId": {
+                "type": "string",
+                "description": "The ID of the data request that spawned the job."
+              },
+              "accountId": {
+                "type": "string",
+                "description": "The account ID."
+              },
+              "projectId": {
+                "type": "string",
+                "description": "The project ID."
+              },
+              "projectIdList": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "description": "The list of project IDs."
+                }
+              },
+              "createdBy": {
+                "type": "string",
+                "description": "The BIM 360 / ACC user ID of the user who created the data request."
+              },
+              "createdByEmail": {
+                "type": "string",
+                "description": "The email address of the user who created the data request."
+              },
+              "createdAt": {
+                "type": "string",
+                "format": "date-time",
+                "description": "The date and time the job was created in ISO 8601 format."
+              },
+              "status": {
+                "type": "string",
+                "description": "The current status of the job. Possible values: queued, running, complete."
+              },
+              "completionStatus": {
+                "type": "string",
+                "description": "The completion status for completed jobs. Possible values: success, failed, cancelled."
+              },
+              "startedAt": {
+                "type": "string",
+                "format": "date-time",
+                "description": "The date and time the job was started. If not started, the value is null."
+              },
+              "completedAt": {
+                "type": "string",
+                "format": "date-time",
+                "description": "The date and time the job was completed. If not completed, the value is null."
+              },
+              "sendEmail": {
+                "type": "boolean",
+                "description": "Indicates if a notification email is sent upon job completion."
+              },
+              "progress": {
+                "type": "integer",
+                "description": "Job progress percentage (0 to 100)."
+              },
+              "lastDownloadedBy": {
+                "type": "string",
+                "description": "The user ID who last downloaded the job data."
+              },
+              "lastDownloadedAt": {
+                "type": "string",
+                "format": "date-time",
+                "description": "The last date and time the job data was downloaded."
+              },
+              "startDate": {
+                "type": "string",
+                "format": "date-time",
+                "description": "The start date and time for the data extraction in ISO 8601 format."
+              },
+              "endDate": {
+                "type": "string",
+                "format": "date-time",
+                "description": "The end date and time for the data extraction in ISO 8601 format."
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  {
+    "group": "BIM360",
+    "name": "Get All Jobs for Data Requests in Account",
+    "method": "GET",
+    "url": "https://developer.api.autodesk.com/data-connector/v1/accounts/:accountId/jobs",
+    "description": "This endpoint retrieves an array of Data Connector jobs spawned by requests made by the authenticated user. Depending on the user's permissions, jobs can be retrieved for a specific project or all projects in the user's account.",
+    "auth_required": true,
+    "oauth_scopes": ["data:read"],
+    "headers": [
+      {
+        "name": "Authorization",
+        "type": "string",
+        "description": "Bearer <token>, obtained via a three-legged OAuth flow."
+      }
+    ],
+    "uri_parameters": [
+      {
+        "name": "accountId",
+        "type": "string",
+        "description": "The account ID, derived from the hub ID by removing the 'b.' prefix."
+      }
+    ],
+    "query_parameters": [
+      {
+        "name": "sort",
+        "type": "string",
+        "description": "The sort order of the returned jobs. Possible values are 'asc' (ascending) and 'desc' (descending)."
+      },
+      {
+        "name": "limit",
+        "type": "integer",
+        "description": "The number of jobs to return. Default value is 20."
+      },
+      {
+        "name": "offset",
+        "type": "integer",
+        "description": "The number of jobs to skip before starting to collect the result set. Default value is 0."
+      },
+      {
+        "name": "projectId",
+        "type": "string",
+        "description": "Filter jobs by project ID."
+      },
+      {
+        "name": "sortFields",
+        "type": "string",
+        "description": "Comma-separated list of fields to sort the returned jobs by. You can prepend fields with a hyphen (-) to sort in descending order."
+      },
+      {
+        "name": "filter[field_to_filter]",
+        "type": "string",
+        "description": "Filter jobs by a specific field. You can use filters like 'projectId', 'createdAt', 'status', etc. The date ranges can be specified using the format 'firstdate..lastdate'."
+      }
+    ],
+    "response": {
+      "status_codes": {
+        "200": "OK — Successfully retrieved the array of jobs associated with the data request.",
+        "400": "Bad Request — Invalid parameters.",
+        "401": "Unauthorized — Invalid or expired bearer token.",
+        "403": "Forbidden — The user does not have permission to perform this operation.",
+        "404": "Not Found — The resource or endpoint cannot be found.",
+        "429": "Too Many Requests — Rate limit exceeded.",
+        "500": "Internal Server Error — An unexpected error occurred.",
+        "503": "Service Unavailable — The service is temporarily unavailable."
+      },
+      "body_structure": {
+        "pagination": {
+          "type": "object",
+          "description": "Information about the pagination of the results."
+        },
+        "results": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string",
+                "description": "The job ID."
+              },
+              "requestId": {
+                "type": "string",
+                "description": "The ID of the data request that spawned the job."
+              },
+              "accountId": {
+                "type": "string",
+                "description": "The account ID."
+              },
+              "projectId": {
+                "type": "string",
+                "description": "The project ID."
+              },
+              "projectIdList": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "description": "The list of project IDs."
+                }
+              },
+              "createdBy": {
+                "type": "string",
+                "description": "The BIM 360 / ACC user ID of the user who created the data request."
+              },
+              "createdByEmail": {
+                "type": "string",
+                "description": "The email address of the user who created the data request."
+              },
+              "createdAt": {
+                "type": "string",
+                "format": "date-time",
+                "description": "The date and time the job was created in ISO 8601 format."
+              },
+              "status": {
+                "type": "string",
+                "description": "The current status of the job. Possible values: queued, running, complete."
+              },
+              "completionStatus": {
+                "type": "string",
+                "description": "The completion status for completed jobs. Possible values: success, failed, cancelled."
+              },
+              "startedAt": {
+                "type": "string",
+                "format": "date-time",
+                "description": "The date and time the job was started. If not started, the value is null."
+              },
+              "completedAt": {
+                "type": "string",
+                "format": "date-time",
+                "description": "The date and time the job was completed. If not completed, the value is null."
+              },
+              "sendEmail": {
+                "type": "boolean",
+                "description": "Indicates if a notification email is sent upon job completion."
+              },
+              "progress": {
+                "type": "integer",
+                "description": "Job progress percentage (0 to 100)."
+              },
+              "lastDownloadedBy": {
+                "type": "string",
+                "description": "The user ID who last downloaded the job data."
+              },
+              "lastDownloadedAt": {
+                "type": "string",
+                "format": "date-time",
+                "description": "The last date and time the job data was downloaded."
+              },
+              "startDate": {
+                "type": "string",
+                "format": "date-time",
+                "description": "The start date and time for the data extraction in ISO 8601 format."
+              },
+              "endDate": {
+                "type": "string",
+                "format": "date-time",
+                "description": "The end date and time for the data extraction in ISO 8601 format."
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  {
+    "group": "BIM360",
+    "name": "Get Job Information by ID",
+    "method": "GET",
+    "url": "https://developer.api.autodesk.com/data-connector/v1/accounts/:accountId/jobs/:jobId",
+    "description": "This endpoint retrieves information about a specific Data Connector job that was spawned by a data request created by the authenticated user. The user must have project administrator or executive overview permissions.",
+    "auth_required": true,
+    "oauth_scopes": ["data:write"],
+    "headers": [
+      {
+        "name": "Authorization",
+        "type": "string",
+        "description": "Bearer <token>, obtained via a three-legged OAuth flow."
+      }
+    ],
+    "uri_parameters": [
+      {
+        "name": "accountId",
+        "type": "string",
+        "description": "The account ID, derived from the hub ID by removing the 'b.' prefix."
+      },
+      {
+        "name": "jobId",
+        "type": "string",
+        "description": "The job ID of the specified Data Connector job."
+      }
+    ],
+    "response": {
+      "status_codes": {
+        "200": "OK — Successfully retrieved information about the specified job.",
+        "400": "Bad Request — Invalid parameters.",
+        "401": "Unauthorized — Invalid or expired bearer token.",
+        "403": "Forbidden — The user does not have permission to perform this operation.",
+        "404": "Not Found — The resource or endpoint cannot be found.",
+        "429": "Too Many Requests — Rate limit exceeded.",
+        "500": "Internal Server Error — An unexpected error occurred.",
+        "503": "Service Unavailable — The service is temporarily unavailable."
+      },
+      "body_structure": {
+        "id": {
+          "type": "string",
+          "description": "The job ID."
+        },
+        "requestId": {
+          "type": "string",
+          "description": "The ID of the data request that spawned the job."
+        },
+        "accountId": {
+          "type": "string",
+          "description": "The account ID."
+        },
+        "projectId": {
+          "type": "string",
+          "description": "The project ID."
+        },
+        "projectIdList": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "description": "The list of project IDs."
+          }
+        },
+        "createdBy": {
+          "type": "string",
+          "description": "The BIM 360 / ACC user ID of the user who created the data request."
+        },
+        "createdByEmail": {
+          "type": "string",
+          "description": "The email address of the user who created the data request."
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "The date and time the job was created in ISO 8601 format."
+        },
+        "status": {
+          "type": "string",
+          "description": "The current status of the job. Possible values: queued, running, complete."
+        },
+        "completionStatus": {
+          "type": "string",
+          "description": "The completion status for completed jobs. Possible values: success, failed, cancelled."
+        },
+        "startedAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "The date and time the job was started. If not started, the value is null."
+        },
+        "completedAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "The date and time the job was completed. If not completed, the value is null."
+        },
+        "sendEmail": {
+          "type": "boolean",
+          "description": "Indicates if a notification email is sent upon job completion."
+        },
+        "progress": {
+          "type": "integer",
+          "description": "Job progress percentage (0 to 100)."
+        },
+        "lastDownloadedBy": {
+          "type": "string",
+          "description": "The user ID who last downloaded the job data."
+        },
+        "lastDownloadedAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "The last date and time the job data was downloaded."
+        },
+        "startDate": {
+          "type": "string",
+          "format": "date-time",
+          "description": "The start date and time for the data extraction in ISO 8601 format."
+        },
+        "endDate": {
+          "type": "string",
+          "format": "date-time",
+          "description": "The end date and time for the data extraction in ISO 8601 format."
+        }
+      }
+    }
+  },
+  {
+    "group": "BIM360",
+    "name": "Cancel a Running Job by ID",
+    "method": "DELETE",
+    "url": "https://developer.api.autodesk.com/data-connector/v1/accounts/:accountId/jobs/:jobId",
+    "description": "This endpoint cancels a running job spawned by a data request created by the authenticated user. The user must have project administrator or executive overview permissions. A cancelled job will still appear as a spawned job with a completion status of 'cancelled'.",
+    "auth_required": true,
+    "oauth_scopes": ["data:write"],
+    "headers": [
+      {
+        "name": "Authorization",
+        "type": "string",
+        "description": "Bearer <token>, obtained via a three-legged OAuth flow."
+      }
+    ],
+    "uri_parameters": [
+      {
+        "name": "accountId",
+        "type": "string",
+        "description": "The account ID, derived from the hub ID by removing the 'b.' prefix."
+      },
+      {
+        "name": "jobId",
+        "type": "string",
+        "description": "The job ID of the specified Data Connector job to be cancelled."
+      }
+    ],
+    "response": {
+      "status_codes": {
+        "204": "No Content — The specified object was successfully deleted (i.e., the job was cancelled).",
+        "400": "Bad Request — Invalid parameters.",
+        "401": "Unauthorized — Invalid or expired bearer token.",
+        "403": "Forbidden — The user does not have permission to perform this operation.",
+        "404": "Not Found — The resource or endpoint cannot be found.",
+        "429": "Too Many Requests — Rate limit exceeded.",
+        "500": "Internal Server Error — An unexpected error occurred.",
+        "503": "Service Unavailable — The service is temporarily unavailable."
+      },
+      "body_structure": {
+        "description": "Response for status code 204 has no body."
+      }
+    }
+  },
+  {
+    "group": "BIM360",
+    "name": "Get Data Extract File Listing",
+    "method": "GET",
+    "url": "https://developer.api.autodesk.com/data-connector/v1/accounts/:accountId/jobs/:jobId/data-listing",
+    "description": "This endpoint returns an array of information about the files contained within the data extract created by a specified job. The job must be spawned by a data request created by the authenticated user. The user must have executive overview or project administrator permissions. The information includes the file name, creation date, and size. If the job was cancelled or failed to create a data extract, this endpoint will return a 404 error.",
+    "auth_required": true,
+    "oauth_scopes": ["data:read"],
+    "headers": [
+      {
+        "name": "Authorization",
+        "type": "string",
+        "description": "Bearer <token>, obtained via a three-legged OAuth flow."
+      }
+    ],
+    "uri_parameters": [
+      {
+        "name": "accountId",
+        "type": "string",
+        "description": "The account ID, which can be derived from the hub ID by removing the 'b.' prefix."
+      },
+      {
+        "name": "jobId",
+        "type": "string",
+        "description": "The job ID for which to retrieve the data extract file listing."
+      }
+    ],
+    "response": {
+      "status_codes": {
+        "200": "OK — Successfully returned an array of information about data extract files.",
+        "400": "Bad Request — The parameters are invalid.",
+        "401": "Unauthorized — Invalid or expired bearer token.",
+        "403": "Forbidden — The user does not have permission to perform this operation.",
+        "404": "Not Found — The resource or endpoint cannot be found, or the job did not create a data extract.",
+        "429": "Too Many Requests — Rate limit exceeded.",
+        "500": "Internal Server Error — An unexpected error occurred.",
+        "503": "Service Unavailable — The service is temporarily unavailable."
+      },
+      "body_structure": {
+        "files": [
+          {
+            "name": "string",
+            "createdAt": "datetime (ISO 8601)",
+            "size": "int (bytes)"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "group": "BIM360",
+    "name": "Get Signed URL for Data Extract File",
+    "method": "GET",
+    "url": "https://developer.api.autodesk.com/data-connector/v1/accounts/:accountId/jobs/:jobId/data/:name",
+    "description": "This endpoint returns a signed URL to retrieve a specific file from a data extract of a specified job. The signed URL is valid for 60 seconds, allowing the user to download the file. The file could be a CSV file, a README file, or a master ZIP file containing all CSV files and the README. The user must have executive overview or project administrator permissions.",
+    "auth_required": true,
+    "oauth_scopes": ["data:read"],
+    "headers": [
+      {
+        "name": "Authorization",
+        "type": "string",
+        "description": "Bearer <token>, obtained via a three-legged OAuth flow."
+      }
+    ],
+    "uri_parameters": [
+      {
+        "name": "accountId",
+        "type": "string",
+        "description": "The account ID, which can be derived from the hub ID by removing the 'b.' prefix."
+      },
+      {
+        "name": "jobId",
+        "type": "string",
+        "description": "The job ID for which to retrieve a file from the data extract."
+      },
+      {
+        "name": "name",
+        "type": "string",
+        "description": "The name of the file you wish to retrieve from the data extract."
+      }
+    ],
+    "response": {
+      "status_codes": {
+        "200": "OK — Successfully set up a job extract file for retrieval, with a signed URL provided.",
+        "400": "Bad Request — The parameters are invalid.",
+        "401": "Unauthorized — Invalid or expired bearer token.",
+        "403": "Forbidden — The user does not have permission to perform this operation.",
+        "404": "Not Found — The resource or endpoint cannot be found, or the file does not exist.",
+        "429": "Too Many Requests — Rate limit exceeded.",
+        "500": "Internal Server Error — An unexpected error occurred.",
+        "503": "Service Unavailable — The service is temporarily unavailable."
+      },
+      "body_structure": {
+        "size": "int (bytes)",
+        "name": "string",
+        "signedUrl": "string (URL) — A signed URL valid for 60 seconds."
+      }
+    }
+  },
+
+  {
+    "group": "BIM360",
+    "name": "Get PDF Export Job Status",
+    "method": "GET",
+    "url": "https://developer.api.autodesk.com/bim360/docs/v1/projects/:project_id/versions/:version_id/exports/:export_id",
+    "description": "Returns the status of a PDF export job and provides the download data once the export is complete. Use the job ID from the POST request to track the export job status and download the file when ready.",
+    "auth_required": true,
+    "oauth_scopes": ["data:read"],
+    "headers": [
+      {
+        "name": "Authorization",
+        "type": "string",
+        "description": "Bearer <token>, obtained via either a two-legged or three-legged OAuth flow."
+      },
+      {
+        "name": "x-user-id",
+        "type": "string",
+        "description": "In a two-legged authentication context, this header limits access to the specified user."
+      }
+    ],
+    "uri_parameters": [
+      {
+        "name": "project_id",
+        "type": "string",
+        "description": "UUID of the project. Remove the 'b.' prefix from a Data Management API project ID."
+      },
+      {
+        "name": "version_id",
+        "type": "string",
+        "description": "URL-encoded version ID (URN) of the exported page from the previous export request."
+      },
+      {
+        "name": "export_id",
+        "type": "string",
+        "description": "UUID of the export job, returned when initiating the export job via the POST request."
+      }
+    ],
+    "response": {
+      "status_codes": {
+        "200": "OK — The request has succeeded and returns the export job status.",
+        "400": "Bad Request — The parameters of the requested operation are invalid.",
+        "401": "Unauthorized — Invalid bearer token.",
+        "403": "Forbidden — Insufficient permissions for the operation.",
+        "404": "Not Found — The requested project, exported document, or job does not exist.",
+        "429": "Too Many Requests — Rate limit exceeded, try again later.",
+        "500": "Internal Server Error — An unknown server error occurred."
+      },
+      "body_structure": {
+        "id": "string (UUID) — The unique ID of the export job.",
+        "status": "enum: string (committed, completed, failed) — The status of the export job.",
+        "data": {
+          "versionUrn": "string — The Base64 encoded version ID used to download the page.",
+          "resourceId": "string — The URL-encoded ID (URN) of the exported PDF page.",
+          "signedUrl": "string — The signed URL for downloading the exported PDF page, valid for two minutes."
+        }
+      }
+    }
+  },
+  {
+    "group": "BIM360",
+    "name": "Export Page from PDF",
+    "method": "POST",
+    "url": "https://developer.api.autodesk.com/bim360/docs/v1/projects/:project_id/versions/:version_id/exports",
+    "description": "Exports a single page from an uploaded PDF file into a new PDF file. You can also export the page’s markups (annotations) and hyperlinks. This is an asynchronous operation and will return an export ID to track the job status.",
+    "auth_required": true,
+    "oauth_scopes": ["data:read"],
+    "headers": [
+      {
+        "name": "Authorization",
+        "type": "string",
+        "description": "Bearer <token>, obtained via a two-legged or three-legged OAuth flow."
+      },
+      {
+        "name": "Content-Type",
+        "type": "string",
+        "description": "Must be application/json."
+      },
+      {
+        "name": "x-user-id",
+        "type": "string",
+        "description": "In a two-legged authentication context, the app has access to all users specified by the administrator in the SaaS integrations UI."
+      }
+    ],
+    "uri_parameters": [
+      {
+        "name": "project_id",
+        "type": "string",
+        "description": "UUID of the project. This corresponds to project ID in the Data Management API. Remove the 'b.' prefix from a Data Management API project ID."
+      },
+      {
+        "name": "version_id",
+        "type": "string",
+        "description": "URL-encoded version ID (URN) of the page to export. The ID corresponds to the specific page of the PDF in the Plans folder."
+      }
+    ],
+    "request_body_structure": {
+      "includeMarkups": "boolean (default: false)",
+      "includeHyperlinks": "boolean (default: false)"
+    },
+    "response": {
+      "status_codes": {
+        "202": "Accepted — Successfully created an export job.",
+        "400": "Bad Request — Invalid parameters for the requested operation.",
+        "401": "Unauthorized — Invalid bearer token.",
+        "403": "Forbidden — Insufficient permission for the operation.",
+        "404": "Not Found — The requested project or exported document does not exist.",
+        "429": "Too Many Requests — Rate limit exceeded, try again later.",
+        "500": "Internal Server Error — An unknown server error occurred."
+      },
+      "body_structure": {
+        "id": "string (UUID)",
+        "status": "enum: string (committed, completed, failed)"
+      }
+    }
+  }
+]

@@ -1,0 +1,327 @@
+[
+  {
+    "group": "Authentication",
+    "name": "Get OIDC Configuration",
+    "method": "GET",
+    "url": "https://developer.api.autodesk.com/.well-known/openid-configuration",
+    "description": "Retrieves OIDC discovery metadata for Autodesk's identity provider. Contains URLs for authorization, token issuance, revocation, introspection, and other OAuth-related endpoints.",
+    "auth_required": false,
+    "oauth_scopes": [],
+    "headers": [],
+    "query_parameters": [],
+    "uri_parameters": [],
+    "response": {
+      "status_codes": {
+        "200": "Successful request; metadata returned.",
+        "500": "Internal server error."
+      },
+      "body": {
+        "issuer": "string",
+        "authorization_endpoint": "string",
+        "token_endpoint": "string",
+        "userinfo_endpoint": "string",
+        "jwks_uri": "string",
+        "revoke_endpoint": "string",
+        "introspect_endpoint": "string",
+        "scopes_supported": ["array"],
+        "response_types_supported": ["array"],
+        "response_modes_supported": ["array"],
+        "grant_types_supported": ["array"],
+        "subject_types_supported": ["array"],
+        "id_token_signing_alg_values_supported": ["array"]
+      }
+    }
+  },
+  {
+    "group": "Authentication",
+    "name": "Authorize User",
+    "method": "GET",
+    "url": "https://developer.api.autodesk.com/authentication/v2/authorize",
+    "description": "Redirects end users to Autodesk's authorization page to authenticate and grant access. Part of the 3-legged OAuth flow. Returns an authorization code used to obtain access and refresh tokens.",
+    "auth_required": false,
+    "oauth_scopes": ["varies depending on app need"],
+    "rate_limit": "100 calls per minute",
+    "headers": [],
+    "query_parameters": [
+      { "name": "client_id", "type": "string", "required": true, "description": "Client ID of the registered app." },
+      { "name": "response_type", "type": "string", "required": true, "description": "Must be 'code' for authorization code grant or 'id_token' for ID token flow." },
+      { "name": "redirect_uri", "type": "string", "required": true, "description": "URL-encoded callback URI registered with the app." },
+      { "name": "nonce", "type": "string", "required": false, "description": "Associates client session with ID token; required when scope includes openid." },
+      { "name": "scope", "type": "string", "required": false, "description": "Space-separated list of requested scopes (e.g., data:read)." },
+      { "name": "state", "type": "string", "required": true, "description": "Arbitrary data passed back in the state query param to the redirect URI." },
+      { "name": "prompt", "type": "string", "required": false, "description": "Prompts user login. Valid: login." },
+      { "name": "response_mode", "type": "string", "required": false, "description": "Determines how the response is returned. Options: fragment, form_post, query." },
+      { "name": "authoptions", "type": "string", "required": false, "description": "JSON string with identity-related information." },
+      { "name": "code_challenge", "type": "string", "required": false, "description": "PKCE code challenge." },
+      { "name": "code_challenge_method", "type": "string", "required": false, "description": "PKCE challenge method, must be 'S256' if code_challenge is present." }
+    ],
+    "response": {
+      "status_codes": {
+        "302": "Redirect to Autodesk login/authorization UI.",
+        "4xx": "Various client errors depending on request setup.",
+        "5xx": "Server-side error."
+      },
+      "body": "HTML redirect and consent UI for the end user. No JSON response body."
+    }
+  },
+  {
+    "group": "Authentication",
+    "name": "Get JWKS",
+    "method": "GET",
+    "url": "https://developer.api.autodesk.com/authentication/v2/keys",
+    "description": "Retrieves the list of public keys in the JSON Web Key Set (JWKS) format. These keys are used to validate OAuth 2.0 access tokens. The key to validate a token is identified using the token’s 'kid' (key ID).",
+    "auth_required": false,
+    "oauth_scopes": ["none"],
+    "rate_limit": "No specific rate limit mentioned",
+    "headers": [],
+    "query_parameters": [],
+    "response": {
+      "status_codes": {
+        "200": "Successful retrieval of the JWKS list.",
+        "500": "Internal server error."
+      },
+      "body": {
+        "kid": "string, Key ID used to identify the key.",
+        "kty": "string, Cryptographic algorithm family (e.g., RSA).",
+        "use": "string, Use of the key (e.g., sig for signature).",
+        "n": "string, RSA modulus value.",
+        "e": "string, RSA exponent value."
+      }
+    }
+  },
+  {
+    "group": "Authentication",
+    "name": "Logout",
+    "method": "GET",
+    "url": "https://developer.api.autodesk.com/authentication/v2/logout",
+    "description": "Logs the user out by removing their browser session and redirects to the Autodesk login page. Optionally, a custom redirect URI can be provided to specify where the user is sent after logout.",
+    "auth_required": false,
+    "oauth_scopes": ["none"],
+    "rate_limit": "500 calls per minute",
+    "headers": [],
+    "query_parameters": [
+      {
+        "name": "post_logout_redirect_uri",
+        "type": "string",
+        "description": "The location to redirect once logout is performed. The provided domain host should be on the allowed list."
+      }
+    ],
+    "response": {
+      "status_codes": {
+        "302": "Successful request; user redirected to the post_logout_redirect_uri or Autodesk login page.",
+        "500": "Internal server error."
+      },
+      "body": {}
+    }
+  },
+  {
+    "group": "Authentication",
+    "name": "Token",
+    "method": "POST",
+    "url": "https://developer.api.autodesk.com/authentication/v2/token",
+    "description": "Retrieves a two-legged or three-legged access token depending on the grant type. This endpoint handles the OAuth token exchange process for various types of grants: client_credentials, authorization_code, and refresh_token.",
+    "auth_required": true,
+    "oauth_scopes": ["none"],
+    "rate_limit": "500 calls per minute",
+    "headers": [
+      {
+        "name": "Authorization",
+        "type": "string",
+        "description": "Must be in the form Basic ${Base64(<client_id>:<client_secret>)}. Required if not passed in the body."
+      },
+      {
+        "name": "Content-Type",
+        "type": "string",
+        "description": "Must be application/x-www-form-urlencoded. Required."
+      }
+    ],
+    "body_parameters": [
+      {
+        "name": "grant_type",
+        "type": "string",
+        "description": "The grant type, which must be authorization_code for this section."
+      },
+      {
+        "name": "code",
+        "type": "string",
+        "description": "The authorization code captured from the GET authorize redirect."
+      },
+      {
+        "name": "redirect_uri",
+        "type": "string",
+        "description": "Must match the redirect_uri used in the GET authorize request."
+      },
+      {
+        "name": "client_id",
+        "type": "string",
+        "description": "Client ID of the app."
+      },
+      {
+        "name": "client_secret",
+        "type": "string",
+        "description": "Client secret of the app."
+      }
+    ],
+    "response": {
+      "status_codes": {
+        "200": "Successful request; returns an access token.",
+        "400": "Bad Request; typically caused by malformed or missing parameters."
+      },
+      "body": {
+        "access_token": "string",
+        "token_type": "string",
+        "expires_in": "integer",
+        "refresh_token": "string"
+      }
+    }
+  },
+  {
+    "group": "Authentication",
+    "name": "Introspect",
+    "method": "POST",
+    "url": "https://developer.api.autodesk.com/authentication/v2/introspect",
+    "description": "Checks if the token is active and returns additional information if the token is valid. If the token is expired, invalid, or revoked, the status will be returned as inactive.",
+    "auth_required": true,
+    "oauth_scopes": ["none"],
+    "rate_limit": "100 calls per minute",
+    "headers": [
+      {
+        "name": "Content-Type",
+        "type": "string",
+        "description": "Must be application/x-www-form-urlencoded. Required."
+      }
+    ],
+    "body_parameters": [
+      {
+        "name": "token",
+        "type": "string",
+        "description": "The token to be introspected. Required."
+      },
+      {
+        "name": "client_id",
+        "type": "string",
+        "description": "Required for public clients to identify the client associated with the token."
+      }
+    ],
+    "response": {
+      "status_codes": {
+        "200": "Successful request; returns token information.",
+        "400": "Bad Request; typically caused by malformed or missing parameters."
+      },
+      "body": {
+        "active": "boolean",
+        "scope": "string",
+        "exp": "string",
+        "client_id": "string"
+      }
+    }
+  },
+  {
+    "group": "Authentication",
+    "name": "Revoke",
+    "method": "POST",
+    "url": "https://developer.api.autodesk.com/authentication/v2/revoke",
+    "description": "Revokes an access token or refresh token, rendering it inactive. Once the token is revoked, there is no response body. The client can only revoke its own tokens.",
+    "auth_required": true,
+    "oauth_scopes": ["none"],
+    "rate_limit": "100 calls per minute",
+    "headers": [
+      {
+        "name": "Content-Type",
+        "type": "string",
+        "description": "Must be application/x-www-form-urlencoded. Required."
+      },
+      {
+        "name": "Authorization",
+        "type": "string",
+        "description": "Required for private clients in the form Basic ${Base64(<client_id>:<client_secret>)}."
+      }
+    ],
+    "body_parameters": [
+      {
+        "name": "token",
+        "type": "string",
+        "description": "The token to be revoked. Required."
+      },
+      {
+        "name": "token_type_hint",
+        "type": "string",
+        "description": "Indicates the type of token being revoked, typically access_token. Required."
+      },
+      {
+        "name": "client_id",
+        "type": "string",
+        "description": "Required for public clients to identify the client requesting the revocation. Required for public clients only."
+      }
+    ],
+    "response": {
+      "status_codes": {
+        "200": "Token successfully revoked.",
+        "400": "Bad Request; typically caused by malformed or missing parameters."
+      },
+      "body": {
+        "message": "No response body; successful revocation."
+      }
+    }
+  },
+
+  {
+    "group": "Authentication",
+    "name": "OIDC User Info Endpoint",
+    "method": "GET",
+    "url": "https://api.userprofile.autodesk.com/userinfo",
+    "description": "Fetches basic information for the authenticated user using a 3-legged access token.",
+    "auth_required": true,
+    "oauth_scopes": ["openid", "profile", "email"],
+    "rate_limit": "500 requests per minute",
+    "headers": [
+      {
+        "name": "Authorization",
+        "type": "string",
+        "description": "Required: A valid 3-legged token must be included in the Authorization header."
+      }
+    ],
+    "request": {
+      "parameters": "No arguments are needed in the request."
+    },
+    "response": {
+      "status_codes": {
+        "200": "Successful request; returns user profile information.",
+        "401": "Unauthorized; invalid or missing token.",
+        "500": "Internal server error."
+      },
+      "body": {
+        "sub": "String: Oxygen id of the user",
+        "name": "String: Full name of the user",
+        "given_name": "String: First name of the user",
+        "family_name": "String: Last name of the user",
+        "preferred_username": "String: Username of the user",
+        "email": "String: Primary email of the user",
+        "email_verified": "Boolean: Flag indicating if the user's email is verified",
+        "profile": "String: URL for the profile of the user",
+        "picture": "String: Profile image of the user (x120 thumbnail)",
+        "locale": "String: End-User's locale in BCP47 format (e.g., en-US)",
+        "updated_at": "Integer: Last modification timestamp (Unix)",
+        "is_2fa_enabled": "Boolean: Whether two-factor authentication is enabled",
+        "country_code": "String: Country code at account creation",
+        "address": "Object: Contains contact address information",
+        "phone_number": "String: Primary phone number with country code and extension",
+        "phone_number_verified": "Boolean: Whether the phone number is verified",
+        "ldap_enabled": "Boolean: Flag for LDAP/SSO status",
+        "ldap_domain": "String: Domain name for LDAP users (null if not LDAP)",
+        "job_title": "String: Job title on the user profile",
+        "industry": "String: Industry selected in the profile",
+        "industry_code": "String: Industry code associated with the profile",
+        "about_me": "String: About me section on the user profile",
+        "language": "String: Language selected by the user",
+        "company": "String: Company listed in the profile",
+        "created_date": "String: User profile creation date (UTC)",
+        "last_login_date": "String: Last login date (UTC)",
+        "eidm_guid": "String: EIDM Identifier",
+        "opt_in": "Boolean: Whether the user opts into marketing information",
+        "social_userinfo_list": "Array of Objects: Social provider name and identifier for social users (empty if not social)",
+        "thumbnails": "Object: Profile image thumbnail URLs for each size"
+      }
+    }
+  }
+]
