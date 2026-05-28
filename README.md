@@ -40,4 +40,6 @@ uv run fastmcp dev inspector server.py
 
 ```
 
+<img width="1102" height="463" alt="Screenshot 2026-05-28 111202" src="https://github.com/user-attachments/assets/d156fe84-fceb-4923-a01d-496d3f97edf0" />
+
 *To activate: `Ctrl + Shift + P` -> `MCP: List Servers` -> **Start**.*
