@@ -2,7 +2,7 @@
 
 An MCP server running over stdio that gives access to Autodesk API schemas.
 
-Look at ```testing.cs``` and ```testing.js``` for a sample run (used github copilot chat).
+Look at ```testing.cs``` and ```testing.js``` for a sample run (used github copilot chat). You can also use it for inline code generation by using the inline prompt bar (Ctrl + I) and telling it what to do, without going to the chat interface.
 
 ## Tools
 
