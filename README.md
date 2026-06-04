@@ -1,45 +1,65 @@
 # Autodesk APS MCP Server
 
-An MCP server running over stdio that gives access to Autodesk API schemas.
+MCP server (stdio) for Cursor: offline APS API reference plus optional **read-only live** GETs when `.env` credentials are set.
 
-Look at ```testing.cs``` and ```testing.js``` for a sample run (used github copilot chat). You can also use it for inline code generation by using the inline prompt bar (Ctrl + I) and telling it what to do, without going to the chat interface.
+**Catalog snapshot:** 2025-04-01 — last refresh of `data/*.json`.
 
 ## Tools
 
-* **`search_autodesk_endpoints`**: Keyword search across API groups, names, and descriptions.
-* **`get_endpoint_details`**: Returns complete JSON specs (headers, parameters, and responses).
+| Tool | Purpose |
+|------|---------|
+| `get_catalog_info` | When the offline docs were updated, how many endpoints exist, and a note that live APIs may be newer |
+| `list_api_groups` | Lists product areas (ACC, Data Management, BIM 360, etc.) and endpoint count per area |
+| `list_endpoints` | Lists endpoints from the saved catalog; optional filter by product area or HTTP method |
+| `search_autodesk_endpoints` | Keyword search over saved endpoint names, URLs, and descriptions |
+| `get_endpoint_details` | Full saved spec for one endpoint (parameters, headers, scopes, responses) |
+| `get_endpoint_by_url` | Find saved endpoints whose URL contains your search text |
+| `aps_auth_status` | Whether `.env` credentials are set and live calls are available |
+| `aps_live_get` | Run a real Autodesk GET request (read-only; `developer.api.autodesk.com` only) |
 
-## Local Development
+## Resources
+
+- `aps://catalog` — overview
+- `aps://catalog/groups` — product areas and counts
+- `aps://catalog/{area}` — endpoints in one area (e.g. `acc`, `data-management`)
+
+## Setup
 
 ```bash
-# Run server over stdio
+uv sync --dev
+cp .env.example .env   # add APS_CLIENT_ID + APS_CLIENT_SECRET
+```
+
+**Cursor:** open this repo → restart Cursor → **Settings → Tools & MCP** → enable **`autodesk-aps`**.
+
+Config: `.cursor/mcp.json` (loads `.env` via `envFile`).
+
+**APS-only chat:** `/autodesk-aps <question>` or ask the **autodesk-aps** subagent. Project rule `.cursor/rules/autodesk-aps-mcp-only.mdc` is always on.
+
+## Development
+
+```bash
+uv run python scripts/validate_data.py
+uv run pytest
 uv run fastmcp run server.py
-
-# Open web inspector
-uv run fastmcp dev inspector server.py
-
 ```
 
-## VS Code Integration (`.vscode/mcp.json`)
+After editing `data/*.json`, re-run `validate_data.py` and update the **Catalog snapshot** date above.
 
-```json
-{
-  "servers": {
-    "autodesk-aps": {
-      "command": "uv",
-      "args": [
-        "--directory",
-        "C:\\Users\\[   ]\\Documents\\Local\\autodesk-aps-mcp",
-        "run",
-        "fastmcp",
-        "server.py"
-      ]
-    }
-  }
-}
+## Example
+
+`examples/export-acc-sheets-pdf.js` — ACC Sheets API: list sheets → export combined PDF.
+
+## Layout
 
 ```
-
-<img width="1102" height="463" alt="Screenshot 2026-05-28 111202" src="https://github.com/user-attachments/assets/d156fe84-fceb-4923-a01d-496d3f97edf0" />
-
-*To activate: `Ctrl + Shift + P` -> `MCP: List Servers` -> **Start**.*
+.cursor/       mcp.json, agents/, rules/, permissions.json
+server.py      MCP entry (also: uv run autodesk-aps-mcp)
+api_store.py   Cached catalog index
+aps_auth.py    .env + two-legged tokens
+aps_live.py    Allowlisted live GET
+data/          Offline endpoint JSON
+schemas/       Validation schema
+scripts/       validate_data.py
+tests/
+```

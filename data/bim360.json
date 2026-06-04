@@ -52,13 +52,13 @@
     },
     "response": {
       "status_codes": {
-        "201": "Created — A new resource has been successfully created.",
-        "400": "Bad Request — The request could not be understood by the server due to malformed syntax.",
-        "403": "Forbidden — Unauthorized access.",
-        "404": "Not Found — The resource cannot be found.",
-        "409": "Conflict — The request could not be completed due to a conflict.",
-        "422": "Unprocessable Entity — The request was unable to be followed due to restrictions.",
-        "500": "Internal Server Error — An unexpected error occurred."
+        "201": "Created - A new resource has been successfully created.",
+        "400": "Bad Request - The request could not be understood by the server due to malformed syntax.",
+        "403": "Forbidden - Unauthorized access.",
+        "404": "Not Found - The resource cannot be found.",
+        "409": "Conflict - The request could not be completed due to a conflict.",
+        "422": "Unprocessable Entity - The request was unable to be followed due to restrictions.",
+        "500": "Internal Server Error - An unexpected error occurred."
       },
       "body_structure": {
         "id": "string (UUID)",
@@ -133,13 +133,13 @@
     ],
     "response": {
       "status_codes": {
-        "200": "OK — The request has succeeded.",
-        "400": "Bad Request — The request could not be understood by the server due to malformed syntax.",
-        "403": "Forbidden — Unauthorized access.",
-        "404": "Not Found — The resource cannot be found.",
-        "409": "Conflict — The request could not be completed due to a conflict.",
-        "422": "Unprocessable Entity — The request was unable to be followed due to restrictions.",
-        "500": "Internal Server Error — An unexpected error occurred."
+        "200": "OK - The request has succeeded.",
+        "400": "Bad Request - The request could not be understood by the server due to malformed syntax.",
+        "403": "Forbidden - Unauthorized access.",
+        "404": "Not Found - The resource cannot be found.",
+        "409": "Conflict - The request could not be completed due to a conflict.",
+        "422": "Unprocessable Entity - The request was unable to be followed due to restrictions.",
+        "500": "Internal Server Error - An unexpected error occurred."
       },
       "body_structure": [
         {
@@ -260,15 +260,15 @@
     ],
     "response": {
       "status_codes": {
-        "200": "OK — The request has succeeded.",
-        "400": "Bad Request — The request could not be understood by the server due to malformed syntax.",
-        "401": "Unauthorized — Missing or invalid authentication credentials.",
-        "403": "Forbidden — Unauthorized access.",
-        "404": "Not Found — The resource cannot be found.",
-        "406": "Not Acceptable — The server cannot produce a response matching the list of acceptable values defined in the request.",
-        "429": "Too Many Requests — User has sent too many requests in a given amount of time.",
-        "500": "Internal Server Error — An unexpected error occurred on the server.",
-        "503": "Service Unavailable — Server is not ready to handle the request."
+        "200": "OK - The request has succeeded.",
+        "400": "Bad Request - The request could not be understood by the server due to malformed syntax.",
+        "401": "Unauthorized - Missing or invalid authentication credentials.",
+        "403": "Forbidden - Unauthorized access.",
+        "404": "Not Found - The resource cannot be found.",
+        "406": "Not Acceptable - The server cannot produce a response matching the list of acceptable values defined in the request.",
+        "429": "Too Many Requests - User has sent too many requests in a given amount of time.",
+        "500": "Internal Server Error - An unexpected error occurred on the server.",
+        "503": "Service Unavailable - Server is not ready to handle the request."
       },
       "body_structure": [
         {
@@ -340,13 +340,13 @@
     ],
     "response": {
       "status_codes": {
-        "200": "OK — The request has succeeded.",
-        "400": "Bad Request — The request could not be understood by the server due to malformed syntax.",
-        "403": "Forbidden — Unauthorized access.",
-        "404": "Not Found — The resource cannot be found.",
-        "409": "Conflict — The request could not be completed due to a conflict.",
-        "422": "Unprocessable Entity — The request was unable to be followed due to restrictions.",
-        "500": "Internal Server Error — An unexpected error occurred."
+        "200": "OK - The request has succeeded.",
+        "400": "Bad Request - The request could not be understood by the server due to malformed syntax.",
+        "403": "Forbidden - Unauthorized access.",
+        "404": "Not Found - The resource cannot be found.",
+        "409": "Conflict - The request could not be completed due to a conflict.",
+        "422": "Unprocessable Entity - The request was unable to be followed due to restrictions.",
+        "500": "Internal Server Error - An unexpected error occurred."
       },
       "body_structure": [
         {
@@ -418,17 +418,17 @@
     ],
     "response": {
       "status_codes": {
-        "200": "OK — The requested project details are returned.",
-        "400": "Bad Request — The request could not be understood by the server.",
-        "401": "Unauthorized — Authentication credentials are missing or invalid.",
-        "403": "Forbidden — Access is denied.",
-        "404": "Not Found — The project could not be found.",
-        "406": "Not Acceptable — The response format is not acceptable.",
-        "409": "Conflict — A conflict occurred during the request.",
-        "410": "Gone — The project is no longer available.",
-        "429": "Too Many Requests — Rate limit exceeded.",
-        "500": "Internal Server Error — The server encountered an error.",
-        "503": "Service Unavailable — The server is temporarily unavailable."
+        "200": "OK - The requested project details are returned.",
+        "400": "Bad Request - The request could not be understood by the server.",
+        "401": "Unauthorized - Authentication credentials are missing or invalid.",
+        "403": "Forbidden - Access is denied.",
+        "404": "Not Found - The project could not be found.",
+        "406": "Not Acceptable - The response format is not acceptable.",
+        "409": "Conflict - A conflict occurred during the request.",
+        "410": "Gone - The project is no longer available.",
+        "429": "Too Many Requests - Rate limit exceeded.",
+        "500": "Internal Server Error - The server encountered an error.",
+        "503": "Service Unavailable - The server is temporarily unavailable."
       },
       "body_structure": [
         {
@@ -532,13 +532,13 @@
     },
     "response": {
       "status_codes": {
-        "200": "OK — The request has succeeded.",
-        "400": "Bad Request — The request could not be understood by the server due to malformed syntax.",
-        "403": "Forbidden — Unauthorized access.",
-        "404": "Not Found — The resource cannot be found.",
-        "409": "Conflict — The request could not be completed due to a conflict.",
-        "422": "Unprocessable Entity — The request was unable to be followed due to restrictions.",
-        "500": "Internal Server Error — An unexpected error occurred."
+        "200": "OK - The request has succeeded.",
+        "400": "Bad Request - The request could not be understood by the server due to malformed syntax.",
+        "403": "Forbidden - Unauthorized access.",
+        "404": "Not Found - The resource cannot be found.",
+        "409": "Conflict - The request could not be completed due to a conflict.",
+        "422": "Unprocessable Entity - The request was unable to be followed due to restrictions.",
+        "500": "Internal Server Error - An unexpected error occurred."
       },
       "body_structure": [
         {
@@ -612,13 +612,13 @@
     },
     "response": {
       "status_codes": {
-        "200": "OK — The request has succeeded.",
-        "400": "Bad Request — The request could not be understood by the server due to malformed syntax.",
-        "403": "Forbidden — Unauthorized access.",
-        "404": "Not Found — The resource cannot be found.",
-        "409": "Conflict — The request could not be completed due to a conflict.",
-        "422": "Unprocessable Entity — The request was unable to be followed due to restrictions.",
-        "500": "Internal Server Error — An unexpected error occurred."
+        "200": "OK - The request has succeeded.",
+        "400": "Bad Request - The request could not be understood by the server due to malformed syntax.",
+        "403": "Forbidden - Unauthorized access.",
+        "404": "Not Found - The resource cannot be found.",
+        "409": "Conflict - The request could not be completed due to a conflict.",
+        "422": "Unprocessable Entity - The request was unable to be followed due to restrictions.",
+        "500": "Internal Server Error - An unexpected error occurred."
       },
       "body_structure": [
         {
@@ -693,13 +693,13 @@
     },
     "response": {
       "status_codes": {
-        "201": "Created — A new resource has been successfully created.",
-        "400": "Bad Request — The request could not be understood by the server due to malformed syntax.",
-        "403": "Forbidden — Unauthorized access.",
-        "404": "Not Found — The resource cannot be found.",
-        "409": "Conflict — The request could not be completed due to a conflict.",
-        "422": "Unprocessable Entity — The request was unable to be followed due to restrictions.",
-        "500": "Internal Server Error — An unexpected error occurred."
+        "201": "Created - A new resource has been successfully created.",
+        "400": "Bad Request - The request could not be understood by the server due to malformed syntax.",
+        "403": "Forbidden - Unauthorized access.",
+        "404": "Not Found - The resource cannot be found.",
+        "409": "Conflict - The request could not be completed due to a conflict.",
+        "422": "Unprocessable Entity - The request was unable to be followed due to restrictions.",
+        "500": "Internal Server Error - An unexpected error occurred."
       },
       "body_structure": [
         {
@@ -824,13 +824,13 @@
     ],
     "response": {
       "status_codes": {
-        "201": "Created — A new resource has been successfully created.",
-        "400": "Bad Request — The request could not be understood by the server due to malformed syntax.",
-        "403": "Forbidden — Unauthorized.",
-        "404": "Not Found — The resource could not be found.",
-        "409": "Conflict — The request could not be completed due to a conflict.",
-        "422": "Unprocessable Entity — The request was unable to be followed due to restrictions.",
-        "500": "Internal Server Error — An unexpected error occurred."
+        "201": "Created - A new resource has been successfully created.",
+        "400": "Bad Request - The request could not be understood by the server due to malformed syntax.",
+        "403": "Forbidden - Unauthorized.",
+        "404": "Not Found - The resource could not be found.",
+        "409": "Conflict - The request could not be completed due to a conflict.",
+        "422": "Unprocessable Entity - The request was unable to be followed due to restrictions.",
+        "500": "Internal Server Error - An unexpected error occurred."
       },
       "body_structure": [
         {
@@ -918,13 +918,13 @@
     ],
     "response": {
       "status_codes": {
-        "200": "OK — The request has succeeded.",
-        "400": "Bad Request — Malformed syntax in the request.",
-        "403": "Forbidden — Unauthorized access.",
-        "404": "Not Found — The resource cannot be found.",
-        "409": "Conflict — Conflict with the current state of the resource.",
-        "422": "Unprocessable Entity — The request could not be processed due to restrictions.",
-        "500": "Internal Server Error — An unexpected server error occurred."
+        "200": "OK - The request has succeeded.",
+        "400": "Bad Request - Malformed syntax in the request.",
+        "403": "Forbidden - Unauthorized access.",
+        "404": "Not Found - The resource cannot be found.",
+        "409": "Conflict - Conflict with the current state of the resource.",
+        "422": "Unprocessable Entity - The request could not be processed due to restrictions.",
+        "500": "Internal Server Error - An unexpected server error occurred."
       },
       "body_structure": [
         {
@@ -982,13 +982,13 @@
     "query_parameters": [],
     "response": {
       "status_codes": {
-        "200": "OK — The request has succeeded.",
-        "400": "Bad Request — Malformed syntax in the request.",
-        "403": "Forbidden — Unauthorized access.",
-        "404": "Not Found — The resource cannot be found.",
-        "409": "Conflict — Conflict with the current state of the resource.",
-        "422": "Unprocessable Entity — The request could not be processed due to restrictions.",
-        "500": "Internal Server Error — An unexpected server error occurred."
+        "200": "OK - The request has succeeded.",
+        "400": "Bad Request - Malformed syntax in the request.",
+        "403": "Forbidden - Unauthorized access.",
+        "404": "Not Found - The resource cannot be found.",
+        "409": "Conflict - Conflict with the current state of the resource.",
+        "422": "Unprocessable Entity - The request could not be processed due to restrictions.",
+        "500": "Internal Server Error - An unexpected server error occurred."
       },
       "body_structure": {
         "id": "string (UUID)",
@@ -1080,13 +1080,13 @@
     ],
     "response": {
       "status_codes": {
-        "200": "OK — The request succeeded.",
-        "400": "Bad Request — Malformed syntax.",
-        "403": "Forbidden — Unauthorized access.",
-        "404": "Not Found — The resource cannot be found.",
-        "409": "Conflict — Conflict with current resource state.",
-        "422": "Unprocessable Entity — Request could not be processed.",
-        "500": "Internal Server Error — Unexpected server error."
+        "200": "OK - The request succeeded.",
+        "400": "Bad Request - Malformed syntax.",
+        "403": "Forbidden - Unauthorized access.",
+        "404": "Not Found - The resource cannot be found.",
+        "409": "Conflict - Conflict with current resource state.",
+        "422": "Unprocessable Entity - Request could not be processed.",
+        "500": "Internal Server Error - Unexpected server error."
       },
       "body_structure": {
         "type": "array",
@@ -1166,13 +1166,13 @@
     ],
     "response": {
       "status_codes": {
-        "200": "OK — The request succeeded.",
-        "400": "Bad Request — Malformed request syntax.",
-        "403": "Forbidden — Unauthorized access.",
-        "404": "Not Found — Resource not found.",
-        "409": "Conflict — Conflict with current state.",
-        "422": "Unprocessable Entity — Constraints violated.",
-        "500": "Internal Server Error — Unexpected server error."
+        "200": "OK - The request succeeded.",
+        "400": "Bad Request - Malformed request syntax.",
+        "403": "Forbidden - Unauthorized access.",
+        "404": "Not Found - Resource not found.",
+        "409": "Conflict - Conflict with current state.",
+        "422": "Unprocessable Entity - Constraints violated.",
+        "500": "Internal Server Error - Unexpected server error."
       },
       "body_structure": {
         "type": "array",
@@ -1252,13 +1252,13 @@
     ],
     "response": {
       "status_codes": {
-        "200": "OK — The update was successful.",
-        "400": "Bad Request — Invalid request format or body.",
-        "403": "Forbidden — Authentication failure or insufficient permissions.",
-        "404": "Not Found — Company not found.",
-        "409": "Conflict — Update conflicts with existing data.",
-        "422": "Unprocessable Entity — Violates business constraints.",
-        "500": "Internal Server Error — Unexpected error on the server."
+        "200": "OK - The update was successful.",
+        "400": "Bad Request - Invalid request format or body.",
+        "403": "Forbidden - Authentication failure or insufficient permissions.",
+        "404": "Not Found - Company not found.",
+        "409": "Conflict - Update conflicts with existing data.",
+        "422": "Unprocessable Entity - Violates business constraints.",
+        "500": "Internal Server Error - Unexpected error on the server."
       },
       "body_structure": {
         "type": "object",
@@ -1328,13 +1328,13 @@
     ],
     "response": {
       "status_codes": {
-        "200": "OK — The image was successfully uploaded/updated.",
-        "400": "Bad Request — Invalid request format or body.",
-        "403": "Forbidden — Authentication failure or insufficient permissions.",
-        "404": "Not Found — Company not found.",
-        "409": "Conflict — Update conflicts with existing data.",
-        "422": "Unprocessable Entity — Image violates restrictions.",
-        "500": "Internal Server Error — Unexpected error on the server."
+        "200": "OK - The image was successfully uploaded/updated.",
+        "400": "Bad Request - Invalid request format or body.",
+        "403": "Forbidden - Authentication failure or insufficient permissions.",
+        "404": "Not Found - Company not found.",
+        "409": "Conflict - Update conflicts with existing data.",
+        "422": "Unprocessable Entity - Image violates restrictions.",
+        "500": "Internal Server Error - Unexpected error on the server."
       },
       "body_structure": {
         "type": "object",
@@ -1449,16 +1449,16 @@
     ],
     "response": {
       "status_codes": {
-        "200": "OK — Successfully retrieved list of companies.",
-        "400": "Bad Request — Malformed or invalid query.",
-        "401": "Unauthorized — Invalid or missing auth credentials.",
-        "403": "Forbidden — Insufficient permissions.",
-        "404": "Not Found — Account or resource not found.",
-        "406": "Not Acceptable — Invalid accept header.",
-        "410": "Gone — Resource no longer available.",
-        "429": "Too Many Requests — Rate limit exceeded.",
-        "500": "Internal Server Error — Server error.",
-        "503": "Service Unavailable — Try again later."
+        "200": "OK - Successfully retrieved list of companies.",
+        "400": "Bad Request - Malformed or invalid query.",
+        "401": "Unauthorized - Invalid or missing auth credentials.",
+        "403": "Forbidden - Insufficient permissions.",
+        "404": "Not Found - Account or resource not found.",
+        "406": "Not Acceptable - Invalid accept header.",
+        "410": "Gone - Resource no longer available.",
+        "429": "Too Many Requests - Rate limit exceeded.",
+        "500": "Internal Server Error - Server error.",
+        "503": "Service Unavailable - Try again later."
       },
       "body_structure": {
         "type": "object",
@@ -1592,13 +1592,13 @@
     },
     "response": {
       "status_codes": {
-        "201": "Created — Successfully created a new user.",
-        "400": "Bad Request — Malformed request or missing required fields.",
-        "403": "Forbidden — Unauthorized access.",
-        "404": "Not Found — Resource not found.",
-        "409": "Conflict — Conflicting resource state.",
-        "422": "Unprocessable Entity — Request cannot be processed due to validation errors.",
-        "500": "Internal Server Error — Server error."
+        "201": "Created - Successfully created a new user.",
+        "400": "Bad Request - Malformed request or missing required fields.",
+        "403": "Forbidden - Unauthorized access.",
+        "404": "Not Found - Resource not found.",
+        "409": "Conflict - Conflicting resource state.",
+        "422": "Unprocessable Entity - Request cannot be processed due to validation errors.",
+        "500": "Internal Server Error - Server error."
       },
       "body_structure": {
         "type": "object",
@@ -1838,13 +1838,13 @@
     },
     "response": {
       "status_codes": {
-        "201": "Created — Successfully created new users in bulk.",
-        "400": "Bad Request — Malformed request or missing required fields.",
-        "403": "Forbidden — Unauthorized access.",
-        "404": "Not Found — Resource not found.",
-        "409": "Conflict — Conflicting resource state.",
-        "422": "Unprocessable Entity — Request cannot be processed due to validation errors.",
-        "500": "Internal Server Error — Server error."
+        "201": "Created - Successfully created new users in bulk.",
+        "400": "Bad Request - Malformed request or missing required fields.",
+        "403": "Forbidden - Unauthorized access.",
+        "404": "Not Found - Resource not found.",
+        "409": "Conflict - Conflicting resource state.",
+        "422": "Unprocessable Entity - Request cannot be processed due to validation errors.",
+        "500": "Internal Server Error - Server error."
       },
       "body_structure": {
         "type": "object",
@@ -2051,13 +2051,13 @@
     ],
     "response": {
       "status_codes": {
-        "200": "OK — The request has succeeded.",
-        "400": "Bad Request — Malformed request or missing required fields.",
-        "403": "Forbidden — Unauthorized access.",
-        "404": "Not Found — Resource not found.",
-        "409": "Conflict — Conflicting resource state.",
-        "422": "Unprocessable Entity — Request cannot be processed due to validation errors.",
-        "500": "Internal Server Error — Server error."
+        "200": "OK - The request has succeeded.",
+        "400": "Bad Request - Malformed request or missing required fields.",
+        "403": "Forbidden - Unauthorized access.",
+        "404": "Not Found - Resource not found.",
+        "409": "Conflict - Conflicting resource state.",
+        "422": "Unprocessable Entity - Request cannot be processed due to validation errors.",
+        "500": "Internal Server Error - Server error."
       },
       "body_structure": {
         "type": "array",
@@ -2225,13 +2225,13 @@
     ],
     "response": {
       "status_codes": {
-        "200": "OK — The request has succeeded.",
-        "400": "Bad Request — Malformed request or missing required fields.",
-        "403": "Forbidden — Unauthorized access.",
-        "404": "Not Found — User or resource not found.",
-        "409": "Conflict — Conflicting resource state.",
-        "422": "Unprocessable Entity — Request cannot be processed due to validation errors.",
-        "500": "Internal Server Error — Server error."
+        "200": "OK - The request has succeeded.",
+        "400": "Bad Request - Malformed request or missing required fields.",
+        "403": "Forbidden - Unauthorized access.",
+        "404": "Not Found - User or resource not found.",
+        "409": "Conflict - Conflicting resource state.",
+        "422": "Unprocessable Entity - Request cannot be processed due to validation errors.",
+        "500": "Internal Server Error - Server error."
       },
       "body_structure": {
         "type": "object",
@@ -2438,13 +2438,13 @@
     ],
     "response": {
       "status_codes": {
-        "200": "OK — The request has succeeded.",
-        "400": "Bad Request — Malformed request or missing required fields.",
-        "403": "Forbidden — Unauthorized access.",
-        "404": "Not Found — User or resource not found.",
-        "409": "Conflict — Conflicting resource state.",
-        "422": "Unprocessable Entity — Request cannot be processed due to validation errors.",
-        "500": "Internal Server Error — Server error."
+        "200": "OK - The request has succeeded.",
+        "400": "Bad Request - Malformed request or missing required fields.",
+        "403": "Forbidden - Unauthorized access.",
+        "404": "Not Found - User or resource not found.",
+        "409": "Conflict - Conflicting resource state.",
+        "422": "Unprocessable Entity - Request cannot be processed due to validation errors.",
+        "500": "Internal Server Error - Server error."
       },
       "body_structure": {
         "type": "array",
@@ -2625,13 +2625,13 @@
     },
     "response": {
       "status_codes": {
-        "200": "OK — The request has succeeded.",
-        "400": "Bad Request — Malformed request or missing required fields.",
-        "403": "Forbidden — Unauthorized access.",
-        "404": "Not Found — User or resource not found.",
-        "409": "Conflict — Conflicting resource state.",
-        "422": "Unprocessable Entity — Request cannot be processed due to validation errors.",
-        "500": "Internal Server Error — Server error."
+        "200": "OK - The request has succeeded.",
+        "400": "Bad Request - Malformed request or missing required fields.",
+        "403": "Forbidden - Unauthorized access.",
+        "404": "Not Found - User or resource not found.",
+        "409": "Conflict - Conflicting resource state.",
+        "422": "Unprocessable Entity - Request cannot be processed due to validation errors.",
+        "500": "Internal Server Error - Server error."
       },
       "body_structure": {
         "type": "object",
@@ -2810,17 +2810,17 @@
     ],
     "response": {
       "status_codes": {
-        "200": "OK — List of project users returned successfully.",
-        "400": "Bad Request — Syntax or parameter error.",
-        "401": "Unauthorized — Invalid credentials.",
-        "403": "Forbidden — Access denied.",
-        "404": "Not Found — Project does not exist.",
-        "406": "Not Acceptable — Unmatched language preferences.",
-        "409": "Conflict — Resource state conflict.",
-        "410": "Gone — Target resource is no longer available.",
-        "429": "Too Many Requests — Rate limited.",
-        "500": "Internal Server Error — Something went wrong.",
-        "503": "Service Unavailable — Try again later."
+        "200": "OK - List of project users returned successfully.",
+        "400": "Bad Request - Syntax or parameter error.",
+        "401": "Unauthorized - Invalid credentials.",
+        "403": "Forbidden - Access denied.",
+        "404": "Not Found - Project does not exist.",
+        "406": "Not Acceptable - Unmatched language preferences.",
+        "409": "Conflict - Resource state conflict.",
+        "410": "Gone - Target resource is no longer available.",
+        "429": "Too Many Requests - Rate limited.",
+        "500": "Internal Server Error - Something went wrong.",
+        "503": "Service Unavailable - Try again later."
       },
       "body_structure": {
         "pagination": {
@@ -2985,17 +2985,17 @@
     ],
     "response": {
       "status_codes": {
-        "200": "OK — A list of requested project users.",
-        "400": "Bad Request — The request could not be understood due to malformed syntax.",
-        "401": "Unauthorized — Invalid authentication credentials.",
-        "403": "Forbidden — The server refuses to authorize the request.",
-        "404": "Not Found — The resource could not be found.",
-        "406": "Not Acceptable — The server cannot produce a matching response.",
-        "409": "Conflict — Conflict with the current state of the resource.",
-        "410": "Gone — Access to the resource is no longer available.",
-        "429": "Too Many Requests — Rate limit exceeded.",
-        "500": "Internal Server Error — Unexpected error on the server.",
-        "503": "Service Unavailable — Server is not ready to handle the request."
+        "200": "OK - A list of requested project users.",
+        "400": "Bad Request - The request could not be understood due to malformed syntax.",
+        "401": "Unauthorized - Invalid authentication credentials.",
+        "403": "Forbidden - The server refuses to authorize the request.",
+        "404": "Not Found - The resource could not be found.",
+        "406": "Not Acceptable - The server cannot produce a matching response.",
+        "409": "Conflict - Conflict with the current state of the resource.",
+        "410": "Gone - Access to the resource is no longer available.",
+        "429": "Too Many Requests - Rate limit exceeded.",
+        "500": "Internal Server Error - Unexpected error on the server.",
+        "503": "Service Unavailable - Server is not ready to handle the request."
       },
       "body_structure": [
         {
@@ -3098,17 +3098,17 @@
     ],
     "response": {
       "status_codes": {
-        "200": "OK — The requested user.",
-        "400": "Bad Request — Malformed request syntax.",
-        "401": "Unauthorized — Invalid or missing authentication credentials.",
-        "403": "Forbidden — Access is denied.",
-        "404": "Not Found — The specified user does not exist.",
-        "406": "Not Acceptable — Cannot produce acceptable response.",
-        "409": "Conflict — Conflict with current state of the resource.",
-        "410": "Gone — The resource is no longer available.",
-        "429": "Too Many Requests — Rate limit exceeded.",
-        "500": "Internal Server Error — Unexpected error on server.",
-        "503": "Service Unavailable — Server is not ready to handle the request."
+        "200": "OK - The requested user.",
+        "400": "Bad Request - Malformed request syntax.",
+        "401": "Unauthorized - Invalid or missing authentication credentials.",
+        "403": "Forbidden - Access is denied.",
+        "404": "Not Found - The specified user does not exist.",
+        "406": "Not Acceptable - Cannot produce acceptable response.",
+        "409": "Conflict - Conflict with current state of the resource.",
+        "410": "Gone - The resource is no longer available.",
+        "429": "Too Many Requests - Rate limit exceeded.",
+        "500": "Internal Server Error - Unexpected error on server.",
+        "503": "Service Unavailable - Server is not ready to handle the request."
       },
       "body_structure": {
         "id": "string (UUID)",
@@ -3193,17 +3193,17 @@
     ],
     "response": {
       "status_codes": {
-        "200": "OK — User information successfully retrieved.",
-        "400": "Bad Request — Invalid parameters.",
-        "401": "Unauthorized — Invalid authentication.",
-        "403": "Forbidden — Not permitted to access this user or project.",
-        "404": "Not Found — User or project not found.",
-        "406": "Not Acceptable — Invalid Accept headers.",
-        "409": "Conflict — Request conflicts with current state.",
-        "410": "Gone — The resource is no longer available.",
-        "429": "Too Many Requests — Rate limit exceeded.",
-        "500": "Internal Server Error — Unexpected server-side issue.",
-        "503": "Service Unavailable — Server unable to process request."
+        "200": "OK - User information successfully retrieved.",
+        "400": "Bad Request - Invalid parameters.",
+        "401": "Unauthorized - Invalid authentication.",
+        "403": "Forbidden - Not permitted to access this user or project.",
+        "404": "Not Found - User or project not found.",
+        "406": "Not Acceptable - Invalid Accept headers.",
+        "409": "Conflict - Request conflicts with current state.",
+        "410": "Gone - The resource is no longer available.",
+        "429": "Too Many Requests - Rate limit exceeded.",
+        "500": "Internal Server Error - Unexpected server-side issue.",
+        "503": "Service Unavailable - Server unable to process request."
       },
       "body_structure": {
         "id": "string (UUID)",
@@ -3316,13 +3316,13 @@
     ],
     "response": {
       "status_codes": {
-        "201": "Created — New project admin added successfully",
-        "400": "Bad Request — Malformed syntax or missing fields",
-        "403": "Forbidden — Auth error or insufficient permissions",
-        "404": "Not Found — Project or account not found",
-        "409": "Conflict — Duplicate or conflicting data",
-        "422": "Unprocessable Entity — Fails internal constraints",
-        "500": "Internal Server Error — Unexpected server issue"
+        "201": "Created - New project admin added successfully",
+        "400": "Bad Request - Malformed syntax or missing fields",
+        "403": "Forbidden - Auth error or insufficient permissions",
+        "404": "Not Found - Project or account not found",
+        "409": "Conflict - Duplicate or conflicting data",
+        "422": "Unprocessable Entity - Fails internal constraints",
+        "500": "Internal Server Error - Unexpected server issue"
       },
       "body_structure": {
         "id": "string (UUID)",
@@ -3402,13 +3402,13 @@
     "query_parameters": [],
     "response": {
       "status_codes": {
-        "201": "Created — Users were added successfully.",
-        "400": "Bad Request — The request could not be understood due to malformed syntax.",
-        "403": "Forbidden — Unauthorized access.",
-        "404": "Not Found — The specified account or project could not be found.",
-        "409": "Conflict — A conflict occurred with the current state of the resource.",
-        "422": "Unprocessable Entity — The request contains invalid or restricted values.",
-        "500": "Internal Server Error — An unexpected error occurred on the server."
+        "201": "Created - Users were added successfully.",
+        "400": "Bad Request - The request could not be understood due to malformed syntax.",
+        "403": "Forbidden - Unauthorized access.",
+        "404": "Not Found - The specified account or project could not be found.",
+        "409": "Conflict - A conflict occurred with the current state of the resource.",
+        "422": "Unprocessable Entity - The request contains invalid or restricted values.",
+        "500": "Internal Server Error - An unexpected error occurred on the server."
       },
       "body_structure": [
         {
@@ -3510,13 +3510,13 @@
     "query_parameters": [],
     "response": {
       "status_codes": {
-        "200": "OK — The request has succeeded.",
-        "400": "Bad Request — The request could not be understood due to malformed syntax.",
-        "403": "Forbidden — Unauthorized access.",
-        "404": "Not Found — The specified user, project, or account was not found.",
-        "409": "Conflict — The request could not be completed due to a conflict with the current resource state.",
-        "422": "Unprocessable Entity — The request contains invalid or restricted values.",
-        "500": "Internal Server Error — An unexpected error occurred."
+        "200": "OK - The request has succeeded.",
+        "400": "Bad Request - The request could not be understood due to malformed syntax.",
+        "403": "Forbidden - Unauthorized access.",
+        "404": "Not Found - The specified user, project, or account was not found.",
+        "409": "Conflict - The request could not be completed due to a conflict with the current resource state.",
+        "422": "Unprocessable Entity - The request contains invalid or restricted values.",
+        "500": "Internal Server Error - An unexpected error occurred."
       },
       "body_structure": [
         {
@@ -3571,13 +3571,13 @@
     "query_parameters": [],
     "response": {
       "status_codes": {
-        "200": "OK — The request has succeeded.",
-        "400": "Bad Request — The request could not be understood due to malformed syntax.",
-        "403": "Forbidden — Unauthorized access.",
-        "404": "Not Found — The specified resource was not found.",
-        "409": "Conflict — The request could not be completed due to a conflict with the current resource state.",
-        "422": "Unprocessable Entity — The request contains invalid or restricted values.",
-        "500": "Internal Server Error — An unexpected error occurred."
+        "200": "OK - The request has succeeded.",
+        "400": "Bad Request - The request could not be understood due to malformed syntax.",
+        "403": "Forbidden - Unauthorized access.",
+        "404": "Not Found - The specified resource was not found.",
+        "409": "Conflict - The request could not be completed due to a conflict with the current resource state.",
+        "422": "Unprocessable Entity - The request contains invalid or restricted values.",
+        "500": "Internal Server Error - An unexpected error occurred."
       },
       "body_structure": [
         {
@@ -3639,13 +3639,13 @@
     },
     "response": {
       "status_codes": {
-        "200": "OK — The request has succeeded.",
-        "400": "Bad Request — The request could not be understood due to malformed syntax.",
-        "403": "Forbidden — Unauthorized access.",
-        "404": "Not Found — The specified resource was not found.",
-        "409": "Conflict — The request could not be completed due to a conflict with the current resource state.",
-        "422": "Unprocessable Entity — The request contains invalid or restricted values.",
-        "500": "Internal Server Error — An unexpected error occurred."
+        "200": "OK - The request has succeeded.",
+        "400": "Bad Request - The request could not be understood due to malformed syntax.",
+        "403": "Forbidden - Unauthorized access.",
+        "404": "Not Found - The specified resource was not found.",
+        "409": "Conflict - The request could not be completed due to a conflict with the current resource state.",
+        "422": "Unprocessable Entity - The request contains invalid or restricted values.",
+        "500": "Internal Server Error - An unexpected error occurred."
       },
       "body_structure": {
         "business_units": [
@@ -3694,13 +3694,13 @@
     "request_body_structure": {},
     "response": {
       "status_codes": {
-        "200": "OK — The request has succeeded.",
-        "400": "Bad Request — The request could not be understood due to malformed syntax.",
-        "403": "Forbidden — Unauthorized access.",
-        "404": "Not Found — The specified resource was not found.",
-        "409": "Conflict — The request could not be completed due to a conflict with the current resource state.",
-        "422": "Unprocessable Entity — The request contains invalid or restricted values.",
-        "500": "Internal Server Error — An unexpected error occurred."
+        "200": "OK - The request has succeeded.",
+        "400": "Bad Request - The request could not be understood due to malformed syntax.",
+        "403": "Forbidden - Unauthorized access.",
+        "404": "Not Found - The specified resource was not found.",
+        "409": "Conflict - The request could not be completed due to a conflict with the current resource state.",
+        "422": "Unprocessable Entity - The request contains invalid or restricted values.",
+        "500": "Internal Server Error - An unexpected error occurred."
       },
       "body_structure": {
         "business_units": [
@@ -3755,13 +3755,13 @@
     "request_body_structure": {},
     "response": {
       "status_codes": {
-        "200": "OK — The request has succeeded.",
-        "400": "Bad Request — The request could not be understood due to malformed syntax.",
-        "403": "Forbidden — Unauthorized access.",
-        "404": "Not Found — The resource cannot be found.",
-        "409": "Conflict — The request could not be completed due to a conflict with the current resource state.",
-        "422": "Unprocessable Entity — The request contains invalid or restricted values.",
-        "500": "Internal Server Error — An unexpected error occurred."
+        "200": "OK - The request has succeeded.",
+        "400": "Bad Request - The request could not be understood due to malformed syntax.",
+        "403": "Forbidden - Unauthorized access.",
+        "404": "Not Found - The resource cannot be found.",
+        "409": "Conflict - The request could not be completed due to a conflict with the current resource state.",
+        "422": "Unprocessable Entity - The request contains invalid or restricted values.",
+        "500": "Internal Server Error - An unexpected error occurred."
       },
       "body_structure": {
         "id": "string (UUID)",
@@ -3806,57 +3806,57 @@
       }
     ],
     "request_body_structure": {
-      "description": "string — The user-entered description of the data request.",
-      "isActive": "boolean — The status of the data request (true for active, false for inactive). Default is true.",
-      "scheduleInterval": "string — Unit of the job scheduling interval (ONE_TIME, DAY, WEEK, MONTH, YEAR).",
-      "reoccuringInterval": "int — Number of scheduleInterval units between job executions.",
-      "effectiveFrom": "datetime — The start date/time for one-time or recurring job scheduling (ISO 8601 format).",
-      "effectiveTo": "datetime — The end date/time for recurring job schedules (ISO 8601 format).",
-      "serviceGroups": "array: string — List of service groups for data extraction. Required and must include at least one service group.",
-      "callbackUrl": "string — The URL where job status updates are sent, if specified.",
-      "sendEmail": "boolean — Whether to send a notification email upon job completion. Default is true.",
-      "projectId": "string — Legacy field for a single project ID (superseded by projectIdList).",
-      "projectIdList": "array: string — A list of up to 50 project IDs for data extraction.",
-      "startDate": "string — The start date for date-range extractions (ISO 8601 format).",
-      "endDate": "string — The end date for date-range extractions (ISO 8601 format).",
-      "dateRange": "string — Specifies the timeframe for scheduled data extraction. Values: TODAY, YESTERDAY, PAST_7_DAYS, MONTH_TO_DATE, LAST_MONTH.",
-      "projectStatus": "string — The status of projects included in the request (all, archived, active)."
+      "description": "string - The user-entered description of the data request.",
+      "isActive": "boolean - The status of the data request (true for active, false for inactive). Default is true.",
+      "scheduleInterval": "string - Unit of the job scheduling interval (ONE_TIME, DAY, WEEK, MONTH, YEAR).",
+      "reoccuringInterval": "int - Number of scheduleInterval units between job executions.",
+      "effectiveFrom": "datetime - The start date/time for one-time or recurring job scheduling (ISO 8601 format).",
+      "effectiveTo": "datetime - The end date/time for recurring job schedules (ISO 8601 format).",
+      "serviceGroups": "array: string - List of service groups for data extraction. Required and must include at least one service group.",
+      "callbackUrl": "string - The URL where job status updates are sent, if specified.",
+      "sendEmail": "boolean - Whether to send a notification email upon job completion. Default is true.",
+      "projectId": "string - Legacy field for a single project ID (superseded by projectIdList).",
+      "projectIdList": "array: string - A list of up to 50 project IDs for data extraction.",
+      "startDate": "string - The start date for date-range extractions (ISO 8601 format).",
+      "endDate": "string - The end date for date-range extractions (ISO 8601 format).",
+      "dateRange": "string - Specifies the timeframe for scheduled data extraction. Values: TODAY, YESTERDAY, PAST_7_DAYS, MONTH_TO_DATE, LAST_MONTH.",
+      "projectStatus": "string - The status of projects included in the request (all, archived, active)."
     },
     "response": {
       "status_codes": {
-        "201": "Created — Successfully created the data request.",
-        "400": "Bad Request — The parameters provided are invalid.",
-        "401": "Unauthorized — Invalid bearer token.",
-        "403": "Forbidden — The user does not have permission to perform this operation.",
-        "404": "Not Found — The specified resource or endpoint cannot be found.",
-        "429": "Too Many Requests — Rate limit exceeded, try again later.",
-        "500": "Internal Server Error — An unexpected error occurred on the server.",
-        "503": "Service Unavailable — Service is temporarily unavailable."
+        "201": "Created - Successfully created the data request.",
+        "400": "Bad Request - The parameters provided are invalid.",
+        "401": "Unauthorized - Invalid bearer token.",
+        "403": "Forbidden - The user does not have permission to perform this operation.",
+        "404": "Not Found - The specified resource or endpoint cannot be found.",
+        "429": "Too Many Requests - Rate limit exceeded, try again later.",
+        "500": "Internal Server Error - An unexpected error occurred on the server.",
+        "503": "Service Unavailable - Service is temporarily unavailable."
       },
       "body_structure": {
-        "id": "string (UUID) — The unique ID of the data request.",
-        "description": "string — The user-entered description of the data request.",
-        "isActive": "boolean — The status of the data request (active or inactive).",
-        "accountId": "string (UUID) — The account ID associated with the data request.",
-        "projectId": "string (UUID) — The legacy project ID for the data request.",
-        "projectIdList": "array: string — The list of project IDs included in the request.",
-        "createdBy": "string — The user ID of the request creator.",
-        "createdByEmail": "string — The email address of the request creator.",
-        "createdAt": "datetime (ISO 8601) — The date and time the data request was created.",
-        "updatedBy": "string — The user ID of the user who last updated the data request.",
-        "updatedAt": "datetime (ISO 8601) — The date and time the data request was last updated.",
-        "scheduleInterval": "string — The scheduling interval for job execution.",
-        "reoccuringInterval": "int — The interval between scheduled jobs.",
-        "effectiveFrom": "datetime (ISO 8601) — The start time for one-time or recurring job scheduling.",
-        "effectiveTo": "datetime (ISO 8601) — The end time for recurring job schedules.",
-        "lastQueuedAt": "datetime (ISO 8601) — The date and time the last job was scheduled.",
-        "serviceGroups": "array: string — The service groups from which data is extracted.",
-        "callbackUrl": "string — The callback URL specified for job status updates.",
-        "sendEmail": "boolean — Whether email notifications are sent upon job completion.",
-        "startDate": "string (ISO 8601) — The start date for data extraction.",
-        "endDate": "string (ISO 8601) — The end date for data extraction.",
-        "dateRange": "string — The time range for extracting data (e.g., TODAY, YESTERDAY).",
-        "projectStatus": "string — The status of the projects included in the request (all, archived, active)."
+        "id": "string (UUID) - The unique ID of the data request.",
+        "description": "string - The user-entered description of the data request.",
+        "isActive": "boolean - The status of the data request (active or inactive).",
+        "accountId": "string (UUID) - The account ID associated with the data request.",
+        "projectId": "string (UUID) - The legacy project ID for the data request.",
+        "projectIdList": "array: string - The list of project IDs included in the request.",
+        "createdBy": "string - The user ID of the request creator.",
+        "createdByEmail": "string - The email address of the request creator.",
+        "createdAt": "datetime (ISO 8601) - The date and time the data request was created.",
+        "updatedBy": "string - The user ID of the user who last updated the data request.",
+        "updatedAt": "datetime (ISO 8601) - The date and time the data request was last updated.",
+        "scheduleInterval": "string - The scheduling interval for job execution.",
+        "reoccuringInterval": "int - The interval between scheduled jobs.",
+        "effectiveFrom": "datetime (ISO 8601) - The start time for one-time or recurring job scheduling.",
+        "effectiveTo": "datetime (ISO 8601) - The end time for recurring job schedules.",
+        "lastQueuedAt": "datetime (ISO 8601) - The date and time the last job was scheduled.",
+        "serviceGroups": "array: string - The service groups from which data is extracted.",
+        "callbackUrl": "string - The callback URL specified for job status updates.",
+        "sendEmail": "boolean - Whether email notifications are sent upon job completion.",
+        "startDate": "string (ISO 8601) - The start date for data extraction.",
+        "endDate": "string (ISO 8601) - The end date for data extraction.",
+        "dateRange": "string - The time range for extracting data (e.g., TODAY, YESTERDAY).",
+        "projectStatus": "string - The status of the projects included in the request (all, archived, active)."
       }
     }
   },
@@ -3911,14 +3911,14 @@
     ],
     "response": {
       "status_codes": {
-        "200": "OK — Successfully retrieved the data requests.",
-        "400": "Bad Request — Invalid parameters.",
-        "401": "Unauthorized — Invalid or expired bearer token.",
-        "403": "Forbidden — Insufficient permissions for the user.",
-        "404": "Not Found — The resource or endpoint cannot be found.",
-        "429": "Too Many Requests — Rate limit exceeded.",
-        "500": "Internal Server Error — An unexpected error occurred.",
-        "503": "Service Unavailable — Service temporarily unavailable."
+        "200": "OK - Successfully retrieved the data requests.",
+        "400": "Bad Request - Invalid parameters.",
+        "401": "Unauthorized - Invalid or expired bearer token.",
+        "403": "Forbidden - Insufficient permissions for the user.",
+        "404": "Not Found - The resource or endpoint cannot be found.",
+        "429": "Too Many Requests - Rate limit exceeded.",
+        "500": "Internal Server Error - An unexpected error occurred.",
+        "503": "Service Unavailable - Service temporarily unavailable."
       },
       "body_structure": [
         {
@@ -3987,14 +3987,14 @@
     ],
     "response": {
       "status_codes": {
-        "200": "OK — Successfully returned the data request.",
-        "400": "Bad Request — Invalid parameters.",
-        "401": "Unauthorized — Invalid or expired bearer token.",
-        "403": "Forbidden — Insufficient permissions to perform the operation.",
-        "404": "Not Found — The resource or endpoint cannot be found.",
-        "429": "Too Many Requests — Rate limit exceeded.",
-        "500": "Internal Server Error — An unexpected error occurred.",
-        "503": "Service Unavailable — The service is temporarily unavailable."
+        "200": "OK - Successfully returned the data request.",
+        "400": "Bad Request - Invalid parameters.",
+        "401": "Unauthorized - Invalid or expired bearer token.",
+        "403": "Forbidden - Insufficient permissions to perform the operation.",
+        "404": "Not Found - The resource or endpoint cannot be found.",
+        "429": "Too Many Requests - Rate limit exceeded.",
+        "500": "Internal Server Error - An unexpected error occurred.",
+        "503": "Service Unavailable - The service is temporarily unavailable."
       },
       "body_structure": {
         "id": "string (UUID)",
@@ -4074,14 +4074,14 @@
     },
     "response": {
       "status_codes": {
-        "200": "OK — The specified data request was successfully updated.",
-        "400": "Bad Request — Invalid parameters.",
-        "401": "Unauthorized — Invalid or expired bearer token.",
-        "403": "Forbidden — Insufficient permissions to perform the operation.",
-        "404": "Not Found — The resource or endpoint cannot be found.",
-        "429": "Too Many Requests — Rate limit exceeded.",
-        "500": "Internal Server Error — An unexpected error occurred.",
-        "503": "Service Unavailable — The service is temporarily unavailable."
+        "200": "OK - The specified data request was successfully updated.",
+        "400": "Bad Request - Invalid parameters.",
+        "401": "Unauthorized - Invalid or expired bearer token.",
+        "403": "Forbidden - Insufficient permissions to perform the operation.",
+        "404": "Not Found - The resource or endpoint cannot be found.",
+        "429": "Too Many Requests - Rate limit exceeded.",
+        "500": "Internal Server Error - An unexpected error occurred.",
+        "503": "Service Unavailable - The service is temporarily unavailable."
       },
       "body_structure": {
         "id": "string (UUID)",
@@ -4139,14 +4139,14 @@
     ],
     "response": {
       "status_codes": {
-        "204": "No Content — The specified data request was successfully deleted.",
-        "400": "Bad Request — Invalid parameters.",
-        "401": "Unauthorized — Invalid or expired bearer token.",
-        "403": "Forbidden — Insufficient permissions to perform the operation.",
-        "404": "Not Found — The resource or endpoint cannot be found.",
-        "429": "Too Many Requests — Rate limit exceeded.",
-        "500": "Internal Server Error — An unexpected error occurred.",
-        "503": "Service Unavailable — The service is temporarily unavailable."
+        "204": "No Content - The specified data request was successfully deleted.",
+        "400": "Bad Request - Invalid parameters.",
+        "401": "Unauthorized - Invalid or expired bearer token.",
+        "403": "Forbidden - Insufficient permissions to perform the operation.",
+        "404": "Not Found - The resource or endpoint cannot be found.",
+        "429": "Too Many Requests - Rate limit exceeded.",
+        "500": "Internal Server Error - An unexpected error occurred.",
+        "503": "Service Unavailable - The service is temporarily unavailable."
       },
       "body_structure": {
         "204": "No content in response body for successful deletion."
@@ -4200,14 +4200,14 @@
     ],
     "response": {
       "status_codes": {
-        "200": "OK — Successfully retrieved the array of jobs associated with the specified data request.",
-        "400": "Bad Request — Invalid parameters.",
-        "401": "Unauthorized — Invalid or expired bearer token.",
-        "403": "Forbidden — The user does not have permission to perform this operation.",
-        "404": "Not Found — The resource or endpoint cannot be found.",
-        "429": "Too Many Requests — Rate limit exceeded.",
-        "500": "Internal Server Error — An unexpected error occurred.",
-        "503": "Service Unavailable — The service is temporarily unavailable."
+        "200": "OK - Successfully retrieved the array of jobs associated with the specified data request.",
+        "400": "Bad Request - Invalid parameters.",
+        "401": "Unauthorized - Invalid or expired bearer token.",
+        "403": "Forbidden - The user does not have permission to perform this operation.",
+        "404": "Not Found - The resource or endpoint cannot be found.",
+        "429": "Too Many Requests - Rate limit exceeded.",
+        "500": "Internal Server Error - An unexpected error occurred.",
+        "503": "Service Unavailable - The service is temporarily unavailable."
       },
       "body_structure": {
         "pagination": {
@@ -4362,14 +4362,14 @@
     ],
     "response": {
       "status_codes": {
-        "200": "OK — Successfully retrieved the array of jobs associated with the data request.",
-        "400": "Bad Request — Invalid parameters.",
-        "401": "Unauthorized — Invalid or expired bearer token.",
-        "403": "Forbidden — The user does not have permission to perform this operation.",
-        "404": "Not Found — The resource or endpoint cannot be found.",
-        "429": "Too Many Requests — Rate limit exceeded.",
-        "500": "Internal Server Error — An unexpected error occurred.",
-        "503": "Service Unavailable — The service is temporarily unavailable."
+        "200": "OK - Successfully retrieved the array of jobs associated with the data request.",
+        "400": "Bad Request - Invalid parameters.",
+        "401": "Unauthorized - Invalid or expired bearer token.",
+        "403": "Forbidden - The user does not have permission to perform this operation.",
+        "404": "Not Found - The resource or endpoint cannot be found.",
+        "429": "Too Many Requests - Rate limit exceeded.",
+        "500": "Internal Server Error - An unexpected error occurred.",
+        "503": "Service Unavailable - The service is temporarily unavailable."
       },
       "body_structure": {
         "pagination": {
@@ -4497,14 +4497,14 @@
     ],
     "response": {
       "status_codes": {
-        "200": "OK — Successfully retrieved information about the specified job.",
-        "400": "Bad Request — Invalid parameters.",
-        "401": "Unauthorized — Invalid or expired bearer token.",
-        "403": "Forbidden — The user does not have permission to perform this operation.",
-        "404": "Not Found — The resource or endpoint cannot be found.",
-        "429": "Too Many Requests — Rate limit exceeded.",
-        "500": "Internal Server Error — An unexpected error occurred.",
-        "503": "Service Unavailable — The service is temporarily unavailable."
+        "200": "OK - Successfully retrieved information about the specified job.",
+        "400": "Bad Request - Invalid parameters.",
+        "401": "Unauthorized - Invalid or expired bearer token.",
+        "403": "Forbidden - The user does not have permission to perform this operation.",
+        "404": "Not Found - The resource or endpoint cannot be found.",
+        "429": "Too Many Requests - Rate limit exceeded.",
+        "500": "Internal Server Error - An unexpected error occurred.",
+        "503": "Service Unavailable - The service is temporarily unavailable."
       },
       "body_structure": {
         "id": {
@@ -4620,14 +4620,14 @@
     ],
     "response": {
       "status_codes": {
-        "204": "No Content — The specified object was successfully deleted (i.e., the job was cancelled).",
-        "400": "Bad Request — Invalid parameters.",
-        "401": "Unauthorized — Invalid or expired bearer token.",
-        "403": "Forbidden — The user does not have permission to perform this operation.",
-        "404": "Not Found — The resource or endpoint cannot be found.",
-        "429": "Too Many Requests — Rate limit exceeded.",
-        "500": "Internal Server Error — An unexpected error occurred.",
-        "503": "Service Unavailable — The service is temporarily unavailable."
+        "204": "No Content - The specified object was successfully deleted (i.e., the job was cancelled).",
+        "400": "Bad Request - Invalid parameters.",
+        "401": "Unauthorized - Invalid or expired bearer token.",
+        "403": "Forbidden - The user does not have permission to perform this operation.",
+        "404": "Not Found - The resource or endpoint cannot be found.",
+        "429": "Too Many Requests - Rate limit exceeded.",
+        "500": "Internal Server Error - An unexpected error occurred.",
+        "503": "Service Unavailable - The service is temporarily unavailable."
       },
       "body_structure": {
         "description": "Response for status code 204 has no body."
@@ -4663,14 +4663,14 @@
     ],
     "response": {
       "status_codes": {
-        "200": "OK — Successfully returned an array of information about data extract files.",
-        "400": "Bad Request — The parameters are invalid.",
-        "401": "Unauthorized — Invalid or expired bearer token.",
-        "403": "Forbidden — The user does not have permission to perform this operation.",
-        "404": "Not Found — The resource or endpoint cannot be found, or the job did not create a data extract.",
-        "429": "Too Many Requests — Rate limit exceeded.",
-        "500": "Internal Server Error — An unexpected error occurred.",
-        "503": "Service Unavailable — The service is temporarily unavailable."
+        "200": "OK - Successfully returned an array of information about data extract files.",
+        "400": "Bad Request - The parameters are invalid.",
+        "401": "Unauthorized - Invalid or expired bearer token.",
+        "403": "Forbidden - The user does not have permission to perform this operation.",
+        "404": "Not Found - The resource or endpoint cannot be found, or the job did not create a data extract.",
+        "429": "Too Many Requests - Rate limit exceeded.",
+        "500": "Internal Server Error - An unexpected error occurred.",
+        "503": "Service Unavailable - The service is temporarily unavailable."
       },
       "body_structure": {
         "files": [
@@ -4717,19 +4717,19 @@
     ],
     "response": {
       "status_codes": {
-        "200": "OK — Successfully set up a job extract file for retrieval, with a signed URL provided.",
-        "400": "Bad Request — The parameters are invalid.",
-        "401": "Unauthorized — Invalid or expired bearer token.",
-        "403": "Forbidden — The user does not have permission to perform this operation.",
-        "404": "Not Found — The resource or endpoint cannot be found, or the file does not exist.",
-        "429": "Too Many Requests — Rate limit exceeded.",
-        "500": "Internal Server Error — An unexpected error occurred.",
-        "503": "Service Unavailable — The service is temporarily unavailable."
+        "200": "OK - Successfully set up a job extract file for retrieval, with a signed URL provided.",
+        "400": "Bad Request - The parameters are invalid.",
+        "401": "Unauthorized - Invalid or expired bearer token.",
+        "403": "Forbidden - The user does not have permission to perform this operation.",
+        "404": "Not Found - The resource or endpoint cannot be found, or the file does not exist.",
+        "429": "Too Many Requests - Rate limit exceeded.",
+        "500": "Internal Server Error - An unexpected error occurred.",
+        "503": "Service Unavailable - The service is temporarily unavailable."
       },
       "body_structure": {
         "size": "int (bytes)",
         "name": "string",
-        "signedUrl": "string (URL) — A signed URL valid for 60 seconds."
+        "signedUrl": "string (URL) - A signed URL valid for 60 seconds."
       }
     }
   },
@@ -4773,21 +4773,21 @@
     ],
     "response": {
       "status_codes": {
-        "200": "OK — The request has succeeded and returns the export job status.",
-        "400": "Bad Request — The parameters of the requested operation are invalid.",
-        "401": "Unauthorized — Invalid bearer token.",
-        "403": "Forbidden — Insufficient permissions for the operation.",
-        "404": "Not Found — The requested project, exported document, or job does not exist.",
-        "429": "Too Many Requests — Rate limit exceeded, try again later.",
-        "500": "Internal Server Error — An unknown server error occurred."
+        "200": "OK - The request has succeeded and returns the export job status.",
+        "400": "Bad Request - The parameters of the requested operation are invalid.",
+        "401": "Unauthorized - Invalid bearer token.",
+        "403": "Forbidden - Insufficient permissions for the operation.",
+        "404": "Not Found - The requested project, exported document, or job does not exist.",
+        "429": "Too Many Requests - Rate limit exceeded, try again later.",
+        "500": "Internal Server Error - An unknown server error occurred."
       },
       "body_structure": {
-        "id": "string (UUID) — The unique ID of the export job.",
-        "status": "enum: string (committed, completed, failed) — The status of the export job.",
+        "id": "string (UUID) - The unique ID of the export job.",
+        "status": "enum: string (committed, completed, failed) - The status of the export job.",
         "data": {
-          "versionUrn": "string — The Base64 encoded version ID used to download the page.",
-          "resourceId": "string — The URL-encoded ID (URN) of the exported PDF page.",
-          "signedUrl": "string — The signed URL for downloading the exported PDF page, valid for two minutes."
+          "versionUrn": "string - The Base64 encoded version ID used to download the page.",
+          "resourceId": "string - The URL-encoded ID (URN) of the exported PDF page.",
+          "signedUrl": "string - The signed URL for downloading the exported PDF page, valid for two minutes."
         }
       }
     }
@@ -4835,13 +4835,13 @@
     },
     "response": {
       "status_codes": {
-        "202": "Accepted — Successfully created an export job.",
-        "400": "Bad Request — Invalid parameters for the requested operation.",
-        "401": "Unauthorized — Invalid bearer token.",
-        "403": "Forbidden — Insufficient permission for the operation.",
-        "404": "Not Found — The requested project or exported document does not exist.",
-        "429": "Too Many Requests — Rate limit exceeded, try again later.",
-        "500": "Internal Server Error — An unknown server error occurred."
+        "202": "Accepted - Successfully created an export job.",
+        "400": "Bad Request - Invalid parameters for the requested operation.",
+        "401": "Unauthorized - Invalid bearer token.",
+        "403": "Forbidden - Insufficient permission for the operation.",
+        "404": "Not Found - The requested project or exported document does not exist.",
+        "429": "Too Many Requests - Rate limit exceeded, try again later.",
+        "500": "Internal Server Error - An unknown server error occurred."
       },
       "body_structure": {
         "id": "string (UUID)",

@@ -3627,7 +3627,7 @@
       "scheduleInterval": "string: ONE_TIME | DAY | WEEK | MONTH | YEAR",
       "reoccuringInterval": "int (required if not ONE_TIME)",
       "effectiveFrom": "datetime (ISO 8601)",
-      "effectiveTo": "datetime (ISO 8601) — required for recurring intervals",
+      "effectiveTo": "datetime (ISO 8601) - required for recurring intervals",
       "serviceGroups": [
         "string"
       ],
@@ -3644,12 +3644,12 @@
     },
     "response": {
       "status_codes": {
-        "201": "Created — Request successfully created.",
-        "400": "Bad Request — Invalid parameters.",
-        "401": "Unauthorized — Invalid bearer token.",
-        "403": "Forbidden — Insufficient permissions.",
-        "404": "Not Found — Resource doesn't exist.",
-        "429": "Too Many Requests — Rate limit exceeded.",
+        "201": "Created - Request successfully created.",
+        "400": "Bad Request - Invalid parameters.",
+        "401": "Unauthorized - Invalid bearer token.",
+        "403": "Forbidden - Insufficient permissions.",
+        "404": "Not Found - Resource doesn't exist.",
+        "429": "Too Many Requests - Rate limit exceeded.",
         "500": "Internal Server Error.",
         "503": "Service Unavailable."
       },
@@ -3730,12 +3730,12 @@
     ],
     "response": {
       "status_codes": {
-        "200": "OK — Successfully retrieved data requests.",
-        "400": "Bad Request — Invalid parameters.",
-        "401": "Unauthorized — Invalid bearer token.",
-        "403": "Forbidden — Insufficient permissions.",
-        "404": "Not Found — Resource or endpoint doesn't exist.",
-        "429": "Too Many Requests — Rate limit exceeded.",
+        "200": "OK - Successfully retrieved data requests.",
+        "400": "Bad Request - Invalid parameters.",
+        "401": "Unauthorized - Invalid bearer token.",
+        "403": "Forbidden - Insufficient permissions.",
+        "404": "Not Found - Resource or endpoint doesn't exist.",
+        "429": "Too Many Requests - Rate limit exceeded.",
         "500": "Internal Server Error.",
         "503": "Service Unavailable."
       },
@@ -3804,12 +3804,12 @@
     ],
     "response": {
       "status_codes": {
-        "200": "OK — Successfully returned the data request.",
-        "400": "Bad Request — Invalid parameters.",
-        "401": "Unauthorized — Invalid bearer token.",
-        "403": "Forbidden — Insufficient permissions.",
-        "404": "Not Found — The specified request ID or resource does not exist.",
-        "429": "Too Many Requests — Rate limit exceeded.",
+        "200": "OK - Successfully returned the data request.",
+        "400": "Bad Request - Invalid parameters.",
+        "401": "Unauthorized - Invalid bearer token.",
+        "403": "Forbidden - Insufficient permissions.",
+        "404": "Not Found - The specified request ID or resource does not exist.",
+        "429": "Too Many Requests - Rate limit exceeded.",
         "500": "Internal Server Error.",
         "503": "Service Unavailable."
       },
@@ -3892,12 +3892,12 @@
     },
     "response": {
       "status_codes": {
-        "200": "OK — Data request successfully updated.",
-        "400": "Bad Request — Invalid parameters.",
-        "401": "Unauthorized — Invalid bearer token.",
-        "403": "Forbidden — Insufficient permissions.",
-        "404": "Not Found — The specified data request ID does not exist.",
-        "429": "Too Many Requests — Rate limit exceeded.",
+        "200": "OK - Data request successfully updated.",
+        "400": "Bad Request - Invalid parameters.",
+        "401": "Unauthorized - Invalid bearer token.",
+        "403": "Forbidden - Insufficient permissions.",
+        "404": "Not Found - The specified data request ID does not exist.",
+        "429": "Too Many Requests - Rate limit exceeded.",
         "500": "Internal Server Error.",
         "503": "Service Unavailable."
       },
@@ -3959,12 +3959,12 @@
     ],
     "response": {
       "status_codes": {
-        "204": "No Content — The specified data request was successfully deleted.",
-        "400": "Bad Request — Invalid parameters.",
-        "401": "Unauthorized — Invalid bearer token.",
-        "403": "Forbidden — Insufficient permissions.",
-        "404": "Not Found — The specified data request ID does not exist.",
-        "429": "Too Many Requests — Rate limit exceeded.",
+        "204": "No Content - The specified data request was successfully deleted.",
+        "400": "Bad Request - Invalid parameters.",
+        "401": "Unauthorized - Invalid bearer token.",
+        "403": "Forbidden - Insufficient permissions.",
+        "404": "Not Found - The specified data request ID does not exist.",
+        "429": "Too Many Requests - Rate limit exceeded.",
         "500": "Internal Server Error.",
         "503": "Service Unavailable."
       },
@@ -4017,12 +4017,12 @@
     ],
     "response": {
       "status_codes": {
-        "200": "OK — Successfully retrieved an array of jobs associated with the specified data request.",
-        "400": "Bad Request — Invalid parameters.",
-        "401": "Unauthorized — Invalid bearer token.",
-        "403": "Forbidden — Insufficient permissions.",
-        "404": "Not Found — The specified data request ID does not exist.",
-        "429": "Too Many Requests — Rate limit exceeded.",
+        "200": "OK - Successfully retrieved an array of jobs associated with the specified data request.",
+        "400": "Bad Request - Invalid parameters.",
+        "401": "Unauthorized - Invalid bearer token.",
+        "403": "Forbidden - Insufficient permissions.",
+        "404": "Not Found - The specified data request ID does not exist.",
+        "429": "Too Many Requests - Rate limit exceeded.",
         "500": "Internal Server Error.",
         "503": "Service Unavailable."
       },
@@ -4114,12 +4114,12 @@
     ],
     "response": {
       "status_codes": {
-        "200": "OK — Successfully retrieved an array of jobs associated with the specified data request.",
-        "400": "Bad Request — Invalid parameters.",
-        "401": "Unauthorized — Invalid bearer token.",
-        "403": "Forbidden — Insufficient permissions.",
-        "404": "Not Found — The resource or endpoint cannot be found.",
-        "429": "Too Many Requests — Rate limit exceeded.",
+        "200": "OK - Successfully retrieved an array of jobs associated with the specified data request.",
+        "400": "Bad Request - Invalid parameters.",
+        "401": "Unauthorized - Invalid bearer token.",
+        "403": "Forbidden - Insufficient permissions.",
+        "404": "Not Found - The resource or endpoint cannot be found.",
+        "429": "Too Many Requests - Rate limit exceeded.",
         "500": "Internal Server Error.",
         "503": "Service Unavailable."
       },
@@ -4184,12 +4184,12 @@
     ],
     "response": {
       "status_codes": {
-        "200": "OK — Successfully retrieved information about the specified job.",
-        "400": "Bad Request — Invalid parameters.",
-        "401": "Unauthorized — Invalid bearer token.",
-        "403": "Forbidden — Insufficient permissions.",
-        "404": "Not Found — The resource or endpoint cannot be found.",
-        "429": "Too Many Requests — Rate limit exceeded.",
+        "200": "OK - Successfully retrieved information about the specified job.",
+        "400": "Bad Request - Invalid parameters.",
+        "401": "Unauthorized - Invalid bearer token.",
+        "403": "Forbidden - Insufficient permissions.",
+        "404": "Not Found - The resource or endpoint cannot be found.",
+        "429": "Too Many Requests - Rate limit exceeded.",
         "500": "Internal Server Error.",
         "503": "Service Unavailable."
       },
@@ -4244,12 +4244,12 @@
     ],
     "response": {
       "status_codes": {
-        "204": "No Content — The specified object is successfully deleted.",
-        "400": "Bad Request — Invalid parameters.",
-        "401": "Unauthorized — Invalid bearer token.",
-        "403": "Forbidden — Insufficient permissions.",
-        "404": "Not Found — The resource or endpoint cannot be found.",
-        "429": "Too Many Requests — Rate limit exceeded.",
+        "204": "No Content - The specified object is successfully deleted.",
+        "400": "Bad Request - Invalid parameters.",
+        "401": "Unauthorized - Invalid bearer token.",
+        "403": "Forbidden - Insufficient permissions.",
+        "404": "Not Found - The resource or endpoint cannot be found.",
+        "429": "Too Many Requests - Rate limit exceeded.",
         "500": "Internal Server Error.",
         "503": "Service Unavailable."
       },
@@ -4285,12 +4285,12 @@
     ],
     "response": {
       "status_codes": {
-        "200": "OK — Successfully returned an array of information about data extract files for the specified job.",
-        "400": "Bad Request — Invalid parameters.",
-        "401": "Unauthorized — Invalid bearer token.",
-        "403": "Forbidden — Insufficient permissions.",
-        "404": "Not Found — The requested resource or endpoint cannot be found or the job failed to create a data extract.",
-        "429": "Too Many Requests — Rate limit exceeded.",
+        "200": "OK - Successfully returned an array of information about data extract files for the specified job.",
+        "400": "Bad Request - Invalid parameters.",
+        "401": "Unauthorized - Invalid bearer token.",
+        "403": "Forbidden - Insufficient permissions.",
+        "404": "Not Found - The requested resource or endpoint cannot be found or the job failed to create a data extract.",
+        "429": "Too Many Requests - Rate limit exceeded.",
         "500": "Internal Server Error.",
         "503": "Service Unavailable."
       },
@@ -4337,12 +4337,12 @@
     ],
     "response": {
       "status_codes": {
-        "200": "OK — Successfully set up a job extract file for retrieval from a returned signed URL.",
-        "400": "Bad Request — Invalid parameters.",
-        "401": "Unauthorized — Invalid bearer token.",
-        "403": "Forbidden — Insufficient permissions.",
-        "404": "Not Found — The requested resource or endpoint cannot be found.",
-        "429": "Too Many Requests — Rate limit exceeded.",
+        "200": "OK - Successfully set up a job extract file for retrieval from a returned signed URL.",
+        "400": "Bad Request - Invalid parameters.",
+        "401": "Unauthorized - Invalid bearer token.",
+        "403": "Forbidden - Insufficient permissions.",
+        "404": "Not Found - The requested resource or endpoint cannot be found.",
+        "429": "Too Many Requests - Rate limit exceeded.",
         "500": "Internal Server Error.",
         "503": "Service Unavailable."
       },
@@ -4404,12 +4404,12 @@
     },
     "response": {
       "status_codes": {
-        "202": "Accepted — Successfully created an export job.",
-        "400": "Bad Request — Invalid parameters.",
-        "401": "Unauthorized — Invalid bearer token.",
-        "403": "Forbidden — Insufficient permissions.",
-        "404": "Not Found — The resources requested do not exist.",
-        "422": "Unprocessable Entity — The total file size exceeds the 10GB limit.",
+        "202": "Accepted - Successfully created an export job.",
+        "400": "Bad Request - Invalid parameters.",
+        "401": "Unauthorized - Invalid bearer token.",
+        "403": "Forbidden - Insufficient permissions.",
+        "404": "Not Found - The resources requested do not exist.",
+        "422": "Unprocessable Entity - The total file size exceeds the 10GB limit.",
         "500": "Internal Server Error."
       },
       "body_structure": [
@@ -4454,12 +4454,12 @@
     ],
     "response": {
       "status_codes": {
-        "200": "OK — Successfully retrieved the export job status.",
-        "400": "Bad Request — Invalid parameters.",
-        "401": "Unauthorized — Invalid bearer token.",
-        "403": "Forbidden — Insufficient permissions.",
-        "404": "Not Found — The project, user, or export job is not found.",
-        "500": "Internal Server Error — An unknown error occurred on the server."
+        "200": "OK - Successfully retrieved the export job status.",
+        "400": "Bad Request - Invalid parameters.",
+        "401": "Unauthorized - Invalid bearer token.",
+        "403": "Forbidden - Insufficient permissions.",
+        "404": "Not Found - The project, user, or export job is not found.",
+        "500": "Internal Server Error - An unknown error occurred on the server."
       },
       "body_structure": {
         "id": "string (UUID of the export job)",
@@ -4518,11 +4518,11 @@
     ],
     "response": {
       "status_codes": {
-        "200": "OK — Successfully returned the media details.",
-        "400": "Bad Request — The request could not be understood by the server.",
-        "403": "Forbidden — The request lacked valid authentication credentials.",
-        "404": "Not Found — The resource could not be found.",
-        "410": "Gone — The resource was deleted and cannot be returned."
+        "200": "OK - Successfully returned the media details.",
+        "400": "Bad Request - The request could not be understood by the server.",
+        "403": "Forbidden - The request lacked valid authentication credentials.",
+        "404": "Not Found - The resource could not be found.",
+        "410": "Gone - The resource was deleted and cannot be returned."
       },
       "body_structure": {
         "createdAt": "string (ISO 8601 Date time format in UTC, when the media was created)",
@@ -4622,9 +4622,9 @@
     },
     "response": {
       "status_codes": {
-        "200": "OK — Successfully returned the filtered media.",
-        "400": "Bad Request — The request was malformed or missing required parameters.",
-        "403": "Forbidden — Invalid or missing authentication credentials."
+        "200": "OK - Successfully returned the filtered media.",
+        "400": "Bad Request - The request was malformed or missing required parameters.",
+        "403": "Forbidden - Invalid or missing authentication credentials."
       },
       "body_structure": {
         "pagination": {
@@ -4706,13 +4706,13 @@
     },
     "response": {
       "status_codes": {
-        "201": "Created — Successfully created the version set.",
-        "400": "Bad Request — Invalid parameters.",
-        "403": "Forbidden — The user or client does not have permission.",
-        "404": "Not Found — The resource was not found.",
-        "409": "Conflict — A conflict with the current state of the resource.",
-        "429": "Too Many Requests — The server received too many requests.",
-        "500": "Internal Server Error — Unexpected error on the server."
+        "201": "Created - Successfully created the version set.",
+        "400": "Bad Request - Invalid parameters.",
+        "403": "Forbidden - The user or client does not have permission.",
+        "404": "Not Found - The resource was not found.",
+        "409": "Conflict - A conflict with the current state of the resource.",
+        "429": "Too Many Requests - The server received too many requests.",
+        "500": "Internal Server Error - Unexpected error on the server."
       },
       "body_structure": {
         "id": {
@@ -4819,12 +4819,12 @@
     ],
     "response": {
       "status_codes": {
-        "200": "OK — Successfully retrieved the list of version sets.",
-        "400": "Bad Request — Invalid parameters.",
-        "403": "Forbidden — The user or client does not have permission.",
-        "404": "Not Found — The resource was not found.",
-        "429": "Too Many Requests — The server received too many requests.",
-        "500": "Internal Server Error — Unexpected error on the server."
+        "200": "OK - Successfully retrieved the list of version sets.",
+        "400": "Bad Request - Invalid parameters.",
+        "403": "Forbidden - The user or client does not have permission.",
+        "404": "Not Found - The resource was not found.",
+        "429": "Too Many Requests - The server received too many requests.",
+        "500": "Internal Server Error - Unexpected error on the server."
       },
       "body_structure": {
         "results": {
@@ -4924,13 +4924,13 @@
     },
     "response": {
       "status_codes": {
-        "200": "OK — Successfully updated the version set.",
-        "400": "Bad Request — Invalid parameters.",
-        "403": "Forbidden — The user or client does not have permission.",
-        "404": "Not Found — The resource was not found.",
-        "409": "Conflict — The request could not be completed due to a conflict with the current state.",
-        "429": "Too Many Requests — The server received too many requests.",
-        "500": "Internal Server Error — Unexpected error on the server."
+        "200": "OK - Successfully updated the version set.",
+        "400": "Bad Request - Invalid parameters.",
+        "403": "Forbidden - The user or client does not have permission.",
+        "404": "Not Found - The resource was not found.",
+        "409": "Conflict - The request could not be completed due to a conflict with the current state.",
+        "429": "Too Many Requests - The server received too many requests.",
+        "500": "Internal Server Error - Unexpected error on the server."
       },
       "body_structure": {
         "id": {
@@ -5011,12 +5011,12 @@
     },
     "response": {
       "status_codes": {
-        "200": "OK — Successfully retrieved the list of version sets.",
-        "400": "Bad Request — Invalid parameters.",
-        "403": "Forbidden — The user or client does not have permission.",
-        "404": "Not Found — The resource was not found.",
-        "429": "Too Many Requests — The server received too many requests.",
-        "500": "Internal Server Error — Unexpected error on the server."
+        "200": "OK - Successfully retrieved the list of version sets.",
+        "400": "Bad Request - Invalid parameters.",
+        "403": "Forbidden - The user or client does not have permission.",
+        "404": "Not Found - The resource was not found.",
+        "429": "Too Many Requests - The server received too many requests.",
+        "500": "Internal Server Error - Unexpected error on the server."
       },
       "body_structure": {
         "results": {
@@ -5103,12 +5103,12 @@
     },
     "response": {
       "status_codes": {
-        "204": "No Content — Successfully deleted the list of version sets.",
-        "400": "Bad Request — Invalid parameters.",
-        "403": "Forbidden — The user or client does not have permission.",
-        "404": "Not Found — The resource was not found.",
-        "429": "Too Many Requests — The server received too many requests.",
-        "500": "Internal Server Error — Unexpected error on the server."
+        "204": "No Content - Successfully deleted the list of version sets.",
+        "400": "Bad Request - Invalid parameters.",
+        "403": "Forbidden - The user or client does not have permission.",
+        "404": "Not Found - The resource was not found.",
+        "429": "Too Many Requests - The server received too many requests.",
+        "500": "Internal Server Error - Unexpected error on the server."
       },
       "body_structure": {
         "204": "No content returned for successful deletion."
@@ -5151,12 +5151,12 @@
     },
     "response": {
       "status_codes": {
-        "201": "Created — Successfully created a storage location.",
-        "400": "Bad Request — Invalid parameters.",
-        "403": "Forbidden — The user or client does not have permission.",
-        "404": "Not Found — The resource was not found.",
-        "429": "Too Many Requests — The server received too many requests.",
-        "500": "Internal Server Error — Unexpected error on the server."
+        "201": "Created - Successfully created a storage location.",
+        "400": "Bad Request - Invalid parameters.",
+        "403": "Forbidden - The user or client does not have permission.",
+        "404": "Not Found - The resource was not found.",
+        "429": "Too Many Requests - The server received too many requests.",
+        "500": "Internal Server Error - Unexpected error on the server."
       },
       "body_structure": {
         "urn": "string",
@@ -5207,12 +5207,12 @@
     },
     "response": {
       "status_codes": {
-        "201": "Created — Successfully started the upload.",
-        "400": "Bad Request — Invalid parameters.",
-        "403": "Forbidden — The user or client does not have permission.",
-        "404": "Not Found — The resource was not found.",
-        "429": "Too Many Requests — The server received too many requests.",
-        "500": "Internal Server Error — Unexpected error on the server."
+        "201": "Created - Successfully started the upload.",
+        "400": "Bad Request - Invalid parameters.",
+        "403": "Forbidden - The user or client does not have permission.",
+        "404": "Not Found - The resource was not found.",
+        "429": "Too Many Requests - The server received too many requests.",
+        "500": "Internal Server Error - Unexpected error on the server."
       },
       "body_structure": {
         "id": "string",
@@ -5277,12 +5277,12 @@
     ],
     "response": {
       "status_codes": {
-        "200": "OK — Successfully retrieved a list of uploads.",
-        "400": "Bad Request — Invalid parameters.",
-        "403": "Forbidden — The user or client does not have permission.",
-        "404": "Not Found — The resource was not found.",
-        "429": "Too Many Requests — The server received too many requests.",
-        "500": "Internal Server Error — Unexpected error on the server."
+        "200": "OK - Successfully retrieved a list of uploads.",
+        "400": "Bad Request - Invalid parameters.",
+        "403": "Forbidden - The user or client does not have permission.",
+        "404": "Not Found - The resource was not found.",
+        "429": "Too Many Requests - The server received too many requests.",
+        "500": "Internal Server Error - Unexpected error on the server."
       },
       "body_structure": {
         "results": {
@@ -5344,12 +5344,12 @@
     ],
     "response": {
       "status_codes": {
-        "200": "OK — Successfully retrieved the specific upload status.",
-        "400": "Bad Request — Invalid parameters.",
-        "403": "Forbidden — The user or client does not have permission.",
-        "404": "Not Found — The resource was not found.",
-        "429": "Too Many Requests — The server received too many requests.",
-        "500": "Internal Server Error — Unexpected error on the server."
+        "200": "OK - Successfully retrieved the specific upload status.",
+        "400": "Bad Request - Invalid parameters.",
+        "403": "Forbidden - The user or client does not have permission.",
+        "404": "Not Found - The resource was not found.",
+        "429": "Too Many Requests - The server received too many requests.",
+        "500": "Internal Server Error - Unexpected error on the server."
       },
       "body_structure": {
         "id": "string: UUID",
@@ -5414,12 +5414,12 @@
     ],
     "response": {
       "status_codes": {
-        "200": "OK — Successfully retrieved review sheets.",
-        "400": "Bad Request — Invalid parameters.",
-        "403": "Forbidden — Access denied.",
-        "404": "Not Found — Resource not found.",
-        "429": "Too Many Requests — Rate limit exceeded.",
-        "500": "Internal Server Error — Unexpected server error."
+        "200": "OK - Successfully retrieved review sheets.",
+        "400": "Bad Request - Invalid parameters.",
+        "403": "Forbidden - Access denied.",
+        "404": "Not Found - Resource not found.",
+        "429": "Too Many Requests - Rate limit exceeded.",
+        "500": "Internal Server Error - Unexpected server error."
       },
       "body_structure": {
         "results": [
@@ -5497,12 +5497,12 @@
     },
     "response": {
       "status_codes": {
-        "200": "OK — Successfully updated the review sheets.",
-        "400": "Bad Request — Invalid input parameters.",
-        "403": "Forbidden — Permission denied.",
-        "404": "Not Found — Resource not found.",
-        "429": "Too Many Requests — Rate limit exceeded.",
-        "500": "Internal Server Error — Unexpected server error."
+        "200": "OK - Successfully updated the review sheets.",
+        "400": "Bad Request - Invalid input parameters.",
+        "403": "Forbidden - Permission denied.",
+        "404": "Not Found - Resource not found.",
+        "429": "Too Many Requests - Rate limit exceeded.",
+        "500": "Internal Server Error - Unexpected server error."
       },
       "body_structure": {
         "results": [
@@ -5556,12 +5556,12 @@
     "body_structure": null,
     "response": {
       "status_codes": {
-        "202": "Accepted — The request was accepted and publishing has started.",
-        "400": "Bad Request — Invalid parameters.",
-        "403": "Forbidden — Authorization failed.",
-        "404": "Not Found — Resource not found.",
-        "429": "Too Many Requests — Rate limit exceeded.",
-        "500": "Internal Server Error — Something went wrong on the server."
+        "202": "Accepted - The request was accepted and publishing has started.",
+        "400": "Bad Request - Invalid parameters.",
+        "403": "Forbidden - Authorization failed.",
+        "404": "Not Found - Resource not found.",
+        "429": "Too Many Requests - Rate limit exceeded.",
+        "500": "Internal Server Error - Something went wrong on the server."
       },
       "body_structure": null
     }
@@ -5616,12 +5616,12 @@
     },
     "response": {
       "status_codes": {
-        "200": "OK — Successfully retrieved thumbnails.",
-        "400": "Bad Request — Invalid parameters.",
-        "403": "Forbidden — Permission denied.",
-        "404": "Not Found — Resource not found or thumbnails expired.",
-        "429": "Too Many Requests — Rate limit exceeded.",
-        "500": "Internal Server Error — Unexpected server error."
+        "200": "OK - Successfully retrieved thumbnails.",
+        "400": "Bad Request - Invalid parameters.",
+        "403": "Forbidden - Permission denied.",
+        "404": "Not Found - Resource not found or thumbnails expired.",
+        "429": "Too Many Requests - Rate limit exceeded.",
+        "500": "Internal Server Error - Unexpected server error."
       },
       "body_structure": {
         "results": [
@@ -5716,12 +5716,12 @@
     ],
     "response": {
       "status_codes": {
-        "200": "OK — Successfully retrieved the list of sheets.",
-        "400": "Bad Request — Invalid parameters.",
-        "403": "Forbidden — Permission denied.",
-        "404": "Not Found — Resource not found.",
-        "429": "Too Many Requests — Rate limit exceeded.",
-        "500": "Internal Server Error — Unexpected server error."
+        "200": "OK - Successfully retrieved the list of sheets.",
+        "400": "Bad Request - Invalid parameters.",
+        "403": "Forbidden - Permission denied.",
+        "404": "Not Found - Resource not found.",
+        "429": "Too Many Requests - Rate limit exceeded.",
+        "500": "Internal Server Error - Unexpected server error."
       },
       "body_structure": {
         "results": [
@@ -5812,12 +5812,12 @@
     },
     "response": {
       "status_codes": {
-        "200": "OK — Successfully retrieved the sheets.",
-        "400": "Bad Request — Invalid parameters.",
-        "403": "Forbidden — Access denied.",
-        "404": "Not Found — Some or all requested sheets not found.",
-        "429": "Too Many Requests — Rate limit exceeded.",
-        "500": "Internal Server Error — An error occurred on the server."
+        "200": "OK - Successfully retrieved the sheets.",
+        "400": "Bad Request - Invalid parameters.",
+        "403": "Forbidden - Access denied.",
+        "404": "Not Found - Some or all requested sheets not found.",
+        "429": "Too Many Requests - Rate limit exceeded.",
+        "500": "Internal Server Error - An error occurred on the server."
       },
       "body_structure": {
         "results": [
@@ -5923,13 +5923,13 @@
     },
     "response": {
       "status_codes": {
-        "200": "OK — Sheets updated successfully.",
-        "400": "Bad Request — Invalid parameters provided.",
-        "403": "Forbidden — Permission denied for operation.",
-        "404": "Not Found — One or more sheets not found.",
-        "409": "Conflict — Conflict with current state of target resource.",
-        "429": "Too Many Requests — Rate limit exceeded.",
-        "500": "Internal Server Error — Unexpected error on server."
+        "200": "OK - Sheets updated successfully.",
+        "400": "Bad Request - Invalid parameters provided.",
+        "403": "Forbidden - Permission denied for operation.",
+        "404": "Not Found - One or more sheets not found.",
+        "409": "Conflict - Conflict with current state of target resource.",
+        "429": "Too Many Requests - Rate limit exceeded.",
+        "500": "Internal Server Error - Unexpected error on server."
       },
       "body_structure": {
         "results": [
@@ -5987,12 +5987,12 @@
     },
     "response": {
       "status_codes": {
-        "204": "No Content — Sheets deleted successfully.",
-        "400": "Bad Request — Invalid parameters provided.",
-        "403": "Forbidden — Permission denied for operation.",
-        "404": "Not Found — One or more sheets not found.",
-        "429": "Too Many Requests — Rate limit exceeded.",
-        "500": "Internal Server Error — Unexpected error on server."
+        "204": "No Content - Sheets deleted successfully.",
+        "400": "Bad Request - Invalid parameters provided.",
+        "403": "Forbidden - Permission denied for operation.",
+        "404": "Not Found - One or more sheets not found.",
+        "429": "Too Many Requests - Rate limit exceeded.",
+        "500": "Internal Server Error - Unexpected error on server."
       },
       "body_structure": null
     }
@@ -6044,13 +6044,13 @@
     },
     "response": {
       "status_codes": {
-        "200": "OK — Sheets restored successfully.",
-        "400": "Bad Request — Invalid parameters.",
-        "403": "Forbidden — Insufficient permissions.",
-        "404": "Not Found — Sheets not found.",
-        "409": "Conflict — A sheet with the same number exists in the version set.",
-        "429": "Too Many Requests — Rate limit exceeded.",
-        "500": "Internal Server Error — Unexpected server error."
+        "200": "OK - Sheets restored successfully.",
+        "400": "Bad Request - Invalid parameters.",
+        "403": "Forbidden - Insufficient permissions.",
+        "404": "Not Found - Sheets not found.",
+        "409": "Conflict - A sheet with the same number exists in the version set.",
+        "429": "Too Many Requests - Rate limit exceeded.",
+        "500": "Internal Server Error - Unexpected server error."
       },
       "body_structure": {
         "results": [
@@ -6134,12 +6134,12 @@
     },
     "response": {
       "status_codes": {
-        "202": "Accepted — Export job created. Response includes export job ID.",
-        "400": "Bad Request — Invalid parameters. Common errors: failed token parse, missing user ID.",
-        "401": "Unauthorized — Bearer token invalid.",
-        "403": "Forbidden — User or token lacks necessary permissions.",
-        "404": "Not Found — Project, user, or sheet not found.",
-        "500": "Internal Server Error — Unexpected error on the server."
+        "202": "Accepted - Export job created. Response includes export job ID.",
+        "400": "Bad Request - Invalid parameters. Common errors: failed token parse, missing user ID.",
+        "401": "Unauthorized - Bearer token invalid.",
+        "403": "Forbidden - User or token lacks necessary permissions.",
+        "404": "Not Found - Project, user, or sheet not found.",
+        "500": "Internal Server Error - Unexpected error on the server."
       },
       "body_structure": {
         "id": "string (UUID)",
@@ -6186,12 +6186,12 @@
     ],
     "response": {
       "status_codes": {
-        "200": "OK — Successfully retrieved export status and signed URL.",
-        "400": "Bad Request — Invalid parameters.",
-        "401": "Unauthorized — Invalid bearer token.",
-        "403": "Forbidden — Lack of permissions for the user to access the resource.",
-        "404": "Not Found — The project, export job, or resource was not found.",
-        "500": "Internal Server Error — Unknown error on the server."
+        "200": "OK - Successfully retrieved export status and signed URL.",
+        "400": "Bad Request - Invalid parameters.",
+        "401": "Unauthorized - Invalid bearer token.",
+        "403": "Forbidden - Lack of permissions for the user to access the resource.",
+        "404": "Not Found - The project, export job, or resource was not found.",
+        "500": "Internal Server Error - Unknown error on the server."
       },
       "body_structure": {
         "id": "string (UUID)",
@@ -6256,12 +6256,12 @@
     ],
     "response": {
       "status_codes": {
-        "200": "OK — Successfully retrieved the collections data.",
-        "400": "Bad Request — Invalid parameters.",
-        "401": "Unauthorized — Invalid bearer token.",
-        "403": "Forbidden — Lack of permissions for the user to access the resource.",
-        "404": "Not Found — The project or collection does not exist.",
-        "500": "Internal Server Error — Unknown error on the server."
+        "200": "OK - Successfully retrieved the collections data.",
+        "400": "Bad Request - Invalid parameters.",
+        "401": "Unauthorized - Invalid bearer token.",
+        "403": "Forbidden - Lack of permissions for the user to access the resource.",
+        "404": "Not Found - The project or collection does not exist.",
+        "500": "Internal Server Error - Unknown error on the server."
       },
       "body_structure": {
         "results": [
@@ -6323,12 +6323,12 @@
     ],
     "response": {
       "status_codes": {
-        "200": "OK — Successfully retrieved the collection data.",
-        "400": "Bad Request — Invalid parameters.",
-        "401": "Unauthorized — Invalid bearer token.",
-        "403": "Forbidden — Lack of permissions for the user to access the resource.",
-        "404": "Not Found — The project or collection does not exist.",
-        "500": "Internal Server Error — Unknown error on the server."
+        "200": "OK - Successfully retrieved the collection data.",
+        "400": "Bad Request - Invalid parameters.",
+        "401": "Unauthorized - Invalid bearer token.",
+        "403": "Forbidden - Lack of permissions for the user to access the resource.",
+        "404": "Not Found - The project or collection does not exist.",
+        "500": "Internal Server Error - Unknown error on the server."
       },
       "body_structure": {
         "id": "string (UUID)",

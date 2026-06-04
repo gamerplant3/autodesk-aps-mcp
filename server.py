@@ -1,84 +1,158 @@
+"""Autodesk APS MCP server: offline catalog, resources, and live read access."""
+
+from __future__ import annotations
+
 import json
-import os
-from pathlib import Path
-from typing import List, Dict, Any
+from typing import Any
+
 from fastmcp import FastMCP
 
-# start FastMCP
+from api_store import get_store
+from aps_auth import get_auth
+from aps_live import LiveApiError
+from aps_live import aps_live_get as execute_live_get
+
 mcp = FastMCP("Autodesk APS Reference")
 
-# JSON data folder
-DATA_DIR = Path(__file__).parent / "data"
+# Load catalog once at import so tools/resources do not re-read JSON per call.
+_STORE = get_store()
+_STORE.reload()
 
-def load_all_apis() -> List[Dict[str, Any]]:
-    """If you want to load all API definitions"""
-    all_apis = []
-    if not DATA_DIR.exists():
-        return []
-    
-    for file in DATA_DIR.glob("*.json"):
-        try:
-            with open(file, "r", encoding="utf-8") as f:
-                data = json.load(f)
-                if isinstance(data, list):
-                    all_apis.extend(data)
-                elif isinstance(data, dict):
-                    all_apis.append(data)
-        except Exception as e:
-            print(f"Error reading {file.name}: {e}")
-            
-    return all_apis
+
+def _json(data: Any) -> str:
+    return json.dumps(data, indent=2)
+
+
+# --- MCP resources (browse without tool calls) ---
+
+
+@mcp.resource(
+    "aps://catalog",
+    name="APSCatalogOverview",
+    description="Snapshot metadata and API group counts for the offline APS catalog.",
+    mime_type="application/json",
+)
+def resource_catalog_overview() -> str:
+    info = _STORE.get_catalog_info()
+    auth = get_auth()
+    payload = info.to_dict()
+    payload["live_reads_available"] = auth.is_configured()
+    return _json(payload)
+
+
+@mcp.resource(
+    "aps://catalog/groups",
+    name="APSCatalogGroups",
+    description="List of API groups in the offline catalog with endpoint counts.",
+    mime_type="application/json",
+)
+def resource_catalog_groups() -> str:
+    return _json({"groups": _STORE.list_groups()})
+
+
+@mcp.resource(
+    "aps://catalog/{group_slug}",
+    name="APSCatalogGroupEndpoints",
+    description="Summaries of all endpoints in one API group (use group slug, e.g. acc, bim-360).",
+    mime_type="application/json",
+)
+def resource_group_catalog(group_slug: str) -> str:
+    return _json(_STORE.get_group_catalog(group_slug))
+
+
+# --- Catalog tools ---
+
 
 @mcp.tool()
-def search_autodesk_endpoints(keyword: str) -> str:
+def get_catalog_info() -> str:
+    """Returns offline catalog version, group counts, and stale-data guidance."""
+    info = _STORE.get_catalog_info()
+    payload = info.to_dict()
+    payload["live_reads_available"] = get_auth().is_configured()
+    return _json(payload)
+
+
+@mcp.tool()
+def list_api_groups() -> str:
+    """Lists API groups in the offline catalog with endpoint counts and slugs."""
+    return _json({"groups": _STORE.list_groups()})
+
+
+@mcp.tool()
+def list_endpoints(
+    group: str | None = None,
+    method: str | None = None,
+    limit: int = 50,
+    offset: int = 0,
+) -> str:
+    """Lists endpoint summaries, optionally filtered by group or HTTP method."""
+    return _json(_STORE.list_endpoints(group=group, method=method, limit=limit, offset=offset))
+
+
+@mcp.tool()
+def search_autodesk_endpoints(
+    keyword: str,
+    group: str | None = None,
+    method: str | None = None,
+    scope: str | None = None,
+    limit: int = 25,
+) -> str:
     """
-    Search for Autodesk APS endpoints using keywords. 
-    Matches against the group, endpoint name, description, and URL.
+    Search offline APS endpoint specs by keyword.
+    Optional filters: group, method, oauth scope substring.
     """
-    apis = load_all_apis()
-    results = []
-    keyword_lower = keyword.lower()
-    
-    for api in apis:
-        # Pull searchable text
-        name = api.get("name", "")
-        group = api.get("group", "")
-        url = api.get("url", "")
-        desc = api.get("description", "")
-        
-        if (keyword_lower in name.lower() or 
-            keyword_lower in group.lower() or 
-            keyword_lower in url.lower() or 
-            keyword_lower in desc.lower()):
-            
-            # Return a summary of matching endpoints
-            results.append(
-                f"Group: {group}\n"
-                f"Name: {name}\n"
-                f"HTTP Method: {api.get('method')}\n"
-                f"URL: {url}\n"
-                f"Summary: {desc[:120]}...\n"
-                f"---"
-            )
-            
-    if not results:
-        return f"No Autodesk endpoints found matching the keyword: '{keyword}'"
-        
-    return f"Found {len(results)} matching endpoints:\n\n" + "\n".join(results)
+    return _json(_STORE.search(keyword, group=group, method=method, scope=scope, limit=limit))
+
 
 @mcp.tool()
 def get_endpoint_details(endpoint_name: str) -> str:
+    """Returns full offline spec for an endpoint (exact or fuzzy name match)."""
+    result = _STORE.get_by_name(endpoint_name)
+    if result.get("match_type") == "exact":
+        return _json(result["endpoint"])
+    return _json(result)
+
+
+@mcp.tool()
+def get_endpoint_by_url(url_fragment: str) -> str:
+    """Find offline endpoint specs whose URL contains the given fragment."""
+    return _json(_STORE.get_by_url_fragment(url_fragment))
+
+
+# --- Live APS tools ---
+
+
+@mcp.tool()
+def aps_auth_status() -> str:
+    """Reports whether .env APS credentials are configured for live API reads."""
+    return _json(get_auth().status())
+
+
+@mcp.tool()
+def aps_live_get(
+    url: str,
+    query_parameters: dict[str, str] | None = None,
+    scopes: str | None = None,
+) -> str:
     """
-    Retrieves the full headers, query parameters, URI parameters, and response structures.
+    Perform a read-only GET against developer.api.autodesk.com using .env credentials.
+    Uses APS_ACCESS_TOKEN if set; otherwise obtains a two-legged token (APS_CLIENT_ID/SECRET).
     """
-    apis = load_all_apis()
-    
-    for api in apis:
-        if api.get("name", "").lower() == endpoint_name.lower():
-            # Return the full clean JSON structure back to the LLM
-            return json.dumps(api, indent=2)
-            
-    return f"Could not find exact endpoint named '{endpoint_name}'."
+    try:
+        return _json(
+            execute_live_get(
+                url,
+                query_parameters=query_parameters,
+                scopes=scopes,
+            )
+        )
+    except LiveApiError as exc:
+        return _json({"error": str(exc)})
+
+
+def main() -> None:
+    mcp.run()
+
 
 if __name__ == "__main__":
-    mcp.run()
+    main()

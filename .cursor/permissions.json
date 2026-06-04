@@ -1,0 +1,13 @@
+{
+  "mcpAllowlist": [
+    "autodesk-aps:*"
+  ],
+  "autoRun": {
+    "allow_instructions": [
+      "Auto-run autodesk-aps MCP tools for APS API lookup and read-only live GET requests."
+    ],
+    "block_instructions": [
+      "Block terminal and file-edit operations unless the user explicitly requests implementation work in the repo."
+    ]
+  }
+}

@@ -1,0 +1,11 @@
+---
+description: APS MCP-only - use autodesk-aps tools/resources, not repo files
+alwaysApply: true
+---# Autodesk APS MCP-only
+
+When answering APS/API questions (or when using `/autodesk-aps`):
+
+- Answer APS questions **only** via the **`autodesk-aps`** MCP server.
+- Do **not** read `data/*.json`, `examples/`, or `server.py` unless the user asks about MCP server code.
+- Prefer MCP resources `aps://catalog/*` for browsing; use tools for search, details, auth status, and live GET.
+- Always name the MCP tool(s) used in the response.

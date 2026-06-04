@@ -38,9 +38,9 @@
     ],
     "response": {
       "status_codes": {
-        "200": "OK — Successfully retrieved the collection of accessible hubs.",
-        "401": "Unauthorized — The Authorization header is invalid or missing.",
-        "403": "Forbidden — The request is valid but permission is denied."
+        "200": "OK - Successfully retrieved the collection of accessible hubs.",
+        "401": "Unauthorized - The Authorization header is invalid or missing.",
+        "403": "Forbidden - The request is valid but permission is denied."
       },
       "body_structure": {
         "jsonapi": {
@@ -111,10 +111,10 @@
     ],
     "response": {
       "status_codes": {
-        "200": "OK — Successfully retrieved the specific hub data.",
-        "400": "Bad Request — Malformed syntax or missing headers.",
-        "403": "Forbidden — Permission denied or application not white-listed.",
-        "404": "Not Found — The specified hub ID was not found."
+        "200": "OK - Successfully retrieved the specific hub data.",
+        "400": "Bad Request - Malformed syntax or missing headers.",
+        "403": "Forbidden - Permission denied or application not white-listed.",
+        "404": "Not Found - The specified hub ID was not found."
       },
       "body_structure": {
         "jsonapi": {
@@ -206,11 +206,11 @@
     ],
     "response": {
       "status_codes": {
-        "200": "OK — The request has succeeded.",
-        "400": "Bad Request — The request could not be understood by the server due to malformed syntax.",
-        "401": "Unauthorized — Invalid or missing authorization token.",
-        "403": "Forbidden — Insufficient permissions to access the hub.",
-        "404": "Not Found — The resource or endpoint cannot be found."
+        "200": "OK - The request has succeeded.",
+        "400": "Bad Request - The request could not be understood by the server due to malformed syntax.",
+        "401": "Unauthorized - Invalid or missing authorization token.",
+        "403": "Forbidden - Insufficient permissions to access the hub.",
+        "404": "Not Found - The resource or endpoint cannot be found."
       },
       "body_structure": [
         {
@@ -272,10 +272,10 @@
     "query_parameters": [],
     "response": {
       "status_codes": {
-        "200": "OK — The request has succeeded.",
-        "400": "Bad Request — The request could not be understood by the server due to malformed syntax.",
-        "403": "Forbidden — Insufficient permissions to access the project.",
-        "404": "Not Found — The specified project or hub could not be found."
+        "200": "OK - The request has succeeded.",
+        "400": "Bad Request - The request could not be understood by the server due to malformed syntax.",
+        "403": "Forbidden - Insufficient permissions to access the project.",
+        "404": "Not Found - The specified project or hub could not be found."
       },
       "body_structure": [
         {
@@ -339,10 +339,10 @@
     "query_parameters": [],
     "response": {
       "status_codes": {
-        "200": "OK — Successfully retrieved the hub associated with the specified project.",
-        "400": "Bad Request — Malformed syntax or missing headers.",
-        "403": "Forbidden — Insufficient permissions or application not white-listed.",
-        "404": "Not Found — The specified hub or project does not exist."
+        "200": "OK - Successfully retrieved the hub associated with the specified project.",
+        "400": "Bad Request - Malformed syntax or missing headers.",
+        "403": "Forbidden - Insufficient permissions or application not white-listed.",
+        "404": "Not Found - The specified hub or project does not exist."
       },
       "body_structure": [
         {
@@ -414,10 +414,10 @@
     ],
     "response": {
       "status_codes": {
-        "200": "OK — Successfully retrieved the top folders.",
-        "400": "Bad Request — Malformed syntax or missing headers.",
-        "403": "Forbidden — Access denied due to permissions.",
-        "404": "Not Found — The specified hub or project does not exist."
+        "200": "OK - Successfully retrieved the top folders.",
+        "400": "Bad Request - Malformed syntax or missing headers.",
+        "403": "Forbidden - Access denied due to permissions.",
+        "404": "Not Found - The specified hub or project does not exist."
       },
       "body_structure": [
         {
@@ -503,10 +503,10 @@
     "query_parameters": [],
     "response": {
       "status_codes": {
-        "200": "OK — Successfully retrieved download details.",
-        "400": "Bad Request — Malformed syntax or missing headers.",
-        "403": "Forbidden — Access denied due to permissions.",
-        "404": "Not Found — The specified download or project does not exist."
+        "200": "OK - Successfully retrieved download details.",
+        "400": "Bad Request - Malformed syntax or missing headers.",
+        "403": "Forbidden - Access denied due to permissions.",
+        "404": "Not Found - The specified download or project does not exist."
       },
       "body_structure": [
         {
@@ -579,11 +579,11 @@
     ],
     "response": {
       "status_codes": {
-        "200": "OK — Job details retrieved successfully.",
-        "303": "Redirect — The request was redirected to a new location.",
-        "400": "Bad Request — Malformed syntax or missing headers.",
-        "403": "Forbidden — Permission denied or application not white-listed.",
-        "404": "Not Found — The specified job or project could not be found."
+        "200": "OK - Job details retrieved successfully.",
+        "303": "Redirect - The request was redirected to a new location.",
+        "400": "Bad Request - Malformed syntax or missing headers.",
+        "403": "Forbidden - Permission denied or application not white-listed.",
+        "404": "Not Found - The specified job or project could not be found."
       },
       "body_structure": [
         {
@@ -648,10 +648,10 @@
     "query_parameters": [],
     "response": {
       "status_codes": {
-        "202": "Accepted — Job was successfully created.",
-        "400": "Bad Request — The request had malformed syntax or missing fields.",
-        "403": "Forbidden — The request is not permitted due to access restrictions or lack of whitelisting.",
-        "404": "Not Found — The specified project or version does not exist."
+        "202": "Accepted - Job was successfully created.",
+        "400": "Bad Request - The request had malformed syntax or missing fields.",
+        "403": "Forbidden - The request is not permitted due to access restrictions or lack of whitelisting.",
+        "404": "Not Found - The specified project or version does not exist."
       },
       "body_structure": [
         {
@@ -710,10 +710,10 @@
     "query_parameters": [],
     "response": {
       "status_codes": {
-        "201": "Created — The storage location was successfully created.",
-        "400": "Bad Request — The request had malformed syntax or missing fields.",
-        "403": "Forbidden — The request is not permitted due to access restrictions or lack of whitelisting.",
-        "404": "Not Found — The specified project was not found."
+        "201": "Created - The storage location was successfully created.",
+        "400": "Bad Request - The request had malformed syntax or missing fields.",
+        "403": "Forbidden - The request is not permitted due to access restrictions or lack of whitelisting.",
+        "404": "Not Found - The specified project was not found."
       },
       "body_structure": [
         {
@@ -778,11 +778,11 @@
     "query_parameters": [],
     "response": {
       "status_codes": {
-        "200": "OK — The request was successful and the folder data is returned.",
-        "304": "Not Modified — The folder has not been modified since the specified date.",
-        "400": "Bad Request — The request had malformed syntax or missing parameters.",
-        "403": "Forbidden — The request was not authorized due to insufficient permissions.",
-        "404": "Not Found — The specified folder or project was not found."
+        "200": "OK - The request was successful and the folder data is returned.",
+        "304": "Not Modified - The folder has not been modified since the specified date.",
+        "400": "Bad Request - The request had malformed syntax or missing parameters.",
+        "403": "Forbidden - The request was not authorized due to insufficient permissions.",
+        "404": "Not Found - The specified folder or project was not found."
       },
       "body_structure": [
         {
@@ -895,10 +895,10 @@
     ],
     "response": {
       "status_codes": {
-        "200": "OK — The folder contents were successfully retrieved.",
-        "400": "Bad Request — The request had malformed syntax or missing parameters.",
-        "403": "Forbidden — The request was not authorized due to insufficient permissions.",
-        "404": "Not Found — The specified folder or project was not found."
+        "200": "OK - The folder contents were successfully retrieved.",
+        "400": "Bad Request - The request had malformed syntax or missing parameters.",
+        "403": "Forbidden - The request was not authorized due to insufficient permissions.",
+        "404": "Not Found - The specified folder or project was not found."
       },
       "body_structure": [
         {
@@ -1013,10 +1013,10 @@
     ],
     "response": {
       "status_codes": {
-        "200": "OK — The parent folder was successfully retrieved.",
-        "400": "Bad Request — The request had malformed syntax or missing parameters.",
-        "403": "Forbidden — The request was not authorized due to insufficient permissions.",
-        "404": "Not Found — The specified folder or project was not found."
+        "200": "OK - The parent folder was successfully retrieved.",
+        "400": "Bad Request - The request had malformed syntax or missing parameters.",
+        "403": "Forbidden - The request was not authorized due to insufficient permissions.",
+        "404": "Not Found - The specified folder or project was not found."
       },
       "body_structure": {
         "jsonapi": {
@@ -1098,10 +1098,10 @@
     ],
     "response": {
       "status_codes": {
-        "200": "OK — The ref resources were successfully retrieved.",
-        "400": "Bad Request — The request had malformed syntax or missing parameters.",
-        "403": "Forbidden — The request was not authorized due to insufficient permissions.",
-        "404": "Not Found — The specified folder or project was not found."
+        "200": "OK - The ref resources were successfully retrieved.",
+        "400": "Bad Request - The request had malformed syntax or missing parameters.",
+        "403": "Forbidden - The request was not authorized due to insufficient permissions.",
+        "404": "Not Found - The specified folder or project was not found."
       },
       "body_structure": {
         "jsonapi": {
@@ -1221,10 +1221,10 @@
     ],
     "response": {
       "status_codes": {
-        "200": "OK — The collection of links associated with the folder was successfully retrieved.",
-        "400": "Bad Request — The request had malformed syntax or missing parameters.",
-        "403": "Forbidden — The request was not authorized due to insufficient permissions.",
-        "404": "Not Found — The specified folder or project was not found."
+        "200": "OK - The collection of links associated with the folder was successfully retrieved.",
+        "400": "Bad Request - The request had malformed syntax or missing parameters.",
+        "403": "Forbidden - The request was not authorized due to insufficient permissions.",
+        "404": "Not Found - The specified folder or project was not found."
       },
       "body_structure": {
         "jsonapi": {
@@ -1313,10 +1313,10 @@
     ],
     "response": {
       "status_codes": {
-        "200": "OK — The collection of custom relationships for the folder was successfully retrieved.",
-        "400": "Bad Request — The request had malformed syntax or missing parameters.",
-        "403": "Forbidden — The request was not authorized due to insufficient permissions.",
-        "404": "Not Found — The specified folder or project was not found."
+        "200": "OK - The collection of custom relationships for the folder was successfully retrieved.",
+        "400": "Bad Request - The request had malformed syntax or missing parameters.",
+        "403": "Forbidden - The request was not authorized due to insufficient permissions.",
+        "404": "Not Found - The specified folder or project was not found."
       },
       "body_structure": {
         "jsonapi": {
@@ -1418,10 +1418,10 @@
     ],
     "response": {
       "status_codes": {
-        "200": "OK — The search results were successfully retrieved.",
-        "400": "Bad Request — The request was malformed or missing required parameters.",
-        "403": "Forbidden — The request was not authorized due to insufficient permissions.",
-        "404": "Not Found — The specified folder or project was not found."
+        "200": "OK - The search results were successfully retrieved.",
+        "400": "Bad Request - The request was malformed or missing required parameters.",
+        "403": "Forbidden - The request was not authorized due to insufficient permissions.",
+        "404": "Not Found - The specified folder or project was not found."
       },
       "body_structure": {
         "jsonapi": {
@@ -1541,12 +1541,12 @@
     },
     "response": {
       "status_codes": {
-        "201": "Created — The folder was successfully created.",
-        "400": "Bad Request — The request was malformed or missing required parameters.",
-        "403": "Forbidden — The request was not authorized due to insufficient permissions.",
-        "404": "Not Found — The specified project or folder was not found.",
-        "409": "Conflict — The folder already exists or has been modified.",
-        "423": "Locked — The resource is locked or being modified."
+        "201": "Created - The folder was successfully created.",
+        "400": "Bad Request - The request was malformed or missing required parameters.",
+        "403": "Forbidden - The request was not authorized due to insufficient permissions.",
+        "404": "Not Found - The specified project or folder was not found.",
+        "409": "Conflict - The folder already exists or has been modified.",
+        "423": "Locked - The resource is locked or being modified."
       },
       "body_structure": {
         "jsonapi": {
@@ -1635,10 +1635,10 @@
     },
     "response": {
       "status_codes": {
-        "204": "No Content — The relationship was successfully created.",
-        "400": "Bad Request — The request was malformed or missing required parameters.",
-        "403": "Forbidden — The request was not authorized due to insufficient permissions.",
-        "404": "Not Found — The specified resource was not found."
+        "204": "No Content - The relationship was successfully created.",
+        "400": "Bad Request - The request was malformed or missing required parameters.",
+        "403": "Forbidden - The request was not authorized due to insufficient permissions.",
+        "404": "Not Found - The specified resource was not found."
       },
       "body_structure": {
         "response_code": 204,
@@ -1704,11 +1704,11 @@
     },
     "response": {
       "status_codes": {
-        "200": "OK — Folder successfully renamed or modified.",
-        "400": "Bad Request — The request was malformed or missing required parameters.",
-        "403": "Forbidden — The request was not authorized due to insufficient permissions.",
-        "404": "Not Found — The specified folder or project was not found.",
-        "423": "Locked — The folder is locked and cannot be modified."
+        "200": "OK - Folder successfully renamed or modified.",
+        "400": "Bad Request - The request was malformed or missing required parameters.",
+        "403": "Forbidden - The request was not authorized due to insufficient permissions.",
+        "404": "Not Found - The specified folder or project was not found.",
+        "423": "Locked - The folder is locked and cannot be modified."
       },
       "body_structure": {
         "response_code": 200,
@@ -1758,10 +1758,10 @@
     ],
     "response": {
       "status_codes": {
-        "200": "OK — Successfully retrieved metadata for the item.",
-        "400": "Bad Request — The request was malformed or missing required parameters.",
-        "403": "Forbidden — The request was not authorized due to insufficient permissions.",
-        "404": "Not Found — The specified item or project was not found."
+        "200": "OK - Successfully retrieved metadata for the item.",
+        "400": "Bad Request - The request was malformed or missing required parameters.",
+        "403": "Forbidden - The request was not authorized due to insufficient permissions.",
+        "404": "Not Found - The specified item or project was not found."
       },
       "body_structure": {
         "jsonapi": {
@@ -1855,10 +1855,10 @@
     ],
     "response": {
       "status_codes": {
-        "200": "OK — Successfully retrieved the parent folder of the item.",
-        "400": "Bad Request — The request was malformed or missing required parameters.",
-        "403": "Forbidden — The request was not authorized due to insufficient permissions.",
-        "404": "Not Found — The specified item or folder was not found."
+        "200": "OK - Successfully retrieved the parent folder of the item.",
+        "400": "Bad Request - The request was malformed or missing required parameters.",
+        "403": "Forbidden - The request was not authorized due to insufficient permissions.",
+        "404": "Not Found - The specified item or folder was not found."
       },
       "body_structure": {
         "jsonapi": {
@@ -1941,10 +1941,10 @@
     ],
     "response": {
       "status_codes": {
-        "200": "OK — Successfully retrieved a collection of resources linked to the item.",
-        "400": "Bad Request — The request was malformed or missing required parameters.",
-        "403": "Forbidden — The request was not authorized due to insufficient permissions.",
-        "404": "Not Found — The specified item or folder was not found."
+        "200": "OK - Successfully retrieved a collection of resources linked to the item.",
+        "400": "Bad Request - The request was malformed or missing required parameters.",
+        "403": "Forbidden - The request was not authorized due to insufficient permissions.",
+        "404": "Not Found - The specified item or folder was not found."
       },
       "body_structure": {
         "jsonapi": {
@@ -2074,10 +2074,10 @@
     ],
     "response": {
       "status_codes": {
-        "200": "OK — Successfully retrieved the links collection associated with the item.",
-        "400": "Bad Request — The request was malformed or missing required parameters.",
-        "403": "Forbidden — The request was not authorized due to insufficient permissions.",
-        "404": "Not Found — The specified item or resource was not found."
+        "200": "OK - Successfully retrieved the links collection associated with the item.",
+        "400": "Bad Request - The request was malformed or missing required parameters.",
+        "403": "Forbidden - The request was not authorized due to insufficient permissions.",
+        "404": "Not Found - The specified item or resource was not found."
       },
       "body_structure": {
         "jsonapi": {
@@ -2163,10 +2163,10 @@
     ],
     "response": {
       "status_codes": {
-        "200": "OK — Successfully retrieved the custom relationships (refs) associated with the item.",
-        "400": "Bad Request — The request was malformed or missing required parameters.",
-        "403": "Forbidden — The request was not authorized due to insufficient permissions.",
-        "404": "Not Found — The specified resource or relationship was not found."
+        "200": "OK - Successfully retrieved the custom relationships (refs) associated with the item.",
+        "400": "Bad Request - The request was malformed or missing required parameters.",
+        "403": "Forbidden - The request was not authorized due to insufficient permissions.",
+        "404": "Not Found - The specified resource or relationship was not found."
       },
       "body_structure": {
         "jsonapi": {
@@ -2235,10 +2235,10 @@
     ],
     "response": {
       "status_codes": {
-        "200": "OK — Successful retrieval of the tip version of the item.",
-        "400": "Bad Request — The request was malformed or missing required parameters.",
-        "403": "Forbidden — The request was unauthorized due to insufficient permissions.",
-        "404": "Not Found — The specified resource (item or version) was not found."
+        "200": "OK - Successful retrieval of the tip version of the item.",
+        "400": "Bad Request - The request was malformed or missing required parameters.",
+        "403": "Forbidden - The request was unauthorized due to insufficient permissions.",
+        "404": "Not Found - The specified resource (item or version) was not found."
       },
       "body_structure": {
         "jsonapi": {
@@ -2331,10 +2331,10 @@
     ],
     "response": {
       "status_codes": {
-        "200": "OK — Successful retrieval of the versions collection for the item.",
-        "400": "Bad Request — The request was malformed or missing required parameters.",
-        "403": "Forbidden — The request was unauthorized due to insufficient permissions.",
-        "404": "Not Found — The specified resource (item or versions) was not found."
+        "200": "OK - Successful retrieval of the versions collection for the item.",
+        "400": "Bad Request - The request was malformed or missing required parameters.",
+        "403": "Forbidden - The request was unauthorized due to insufficient permissions.",
+        "404": "Not Found - The specified resource (item or versions) was not found."
       },
       "body_structure": {
         "jsonapi": {
@@ -2442,12 +2442,12 @@
     },
     "response": {
       "status_codes": {
-        "201": "Created — The item was successfully created or copied.",
-        "400": "Bad Request — The request was malformed or missing required parameters.",
-        "403": "Forbidden — The request was unauthorized due to insufficient permissions.",
-        "404": "Not Found — The specified resource was not found.",
-        "409": "Conflict — The resource already exists or is in an invalid state.",
-        "423": "Locked — The source or destination resource is locked or being modified."
+        "201": "Created - The item was successfully created or copied.",
+        "400": "Bad Request - The request was malformed or missing required parameters.",
+        "403": "Forbidden - The request was unauthorized due to insufficient permissions.",
+        "404": "Not Found - The specified resource was not found.",
+        "409": "Conflict - The resource already exists or is in an invalid state.",
+        "423": "Locked - The source or destination resource is locked or being modified."
       },
       "body_structure": {
         "jsonapi": {
@@ -2535,10 +2535,10 @@
     },
     "response": {
       "status_codes": {
-        "204": "No Content — The reference was successfully created between the resources.",
-        "400": "Bad Request — The request was malformed or missing required parameters.",
-        "403": "Forbidden — The request was unauthorized due to insufficient permissions.",
-        "404": "Not Found — The specified resource was not found."
+        "204": "No Content - The reference was successfully created between the resources.",
+        "400": "Bad Request - The request was malformed or missing required parameters.",
+        "403": "Forbidden - The request was unauthorized due to insufficient permissions.",
+        "404": "Not Found - The specified resource was not found."
       },
       "body_structure": {}
     }
@@ -2595,11 +2595,11 @@
     },
     "response": {
       "status_codes": {
-        "200": "OK — Successful update of a specific item’s properties.",
-        "400": "Bad Request — The request was malformed or missing required parameters.",
-        "403": "Forbidden — The request was unauthorized due to insufficient permissions.",
-        "404": "Not Found — The specified resource was not found.",
-        "423": "Locked — The source or destination resource is locked or being modified."
+        "200": "OK - Successful update of a specific item’s properties.",
+        "400": "Bad Request - The request was malformed or missing required parameters.",
+        "403": "Forbidden - The request was unauthorized due to insufficient permissions.",
+        "404": "Not Found - The specified resource was not found.",
+        "423": "Locked - The source or destination resource is locked or being modified."
       },
       "body_structure": {
         "jsonapi": {
@@ -2654,10 +2654,10 @@
     ],
     "response": {
       "status_codes": {
-        "200": "OK — Successful retrieval of a specific version.",
-        "400": "Bad Request — The request could not be understood by the server due to malformed syntax or missing request headers.",
-        "403": "Forbidden — The request was successfully validated but permission is not granted or the application has not been white-listed.",
-        "404": "Not Found — The specified resource was not found."
+        "200": "OK - Successful retrieval of a specific version.",
+        "400": "Bad Request - The request could not be understood by the server due to malformed syntax or missing request headers.",
+        "403": "Forbidden - The request was successfully validated but permission is not granted or the application has not been white-listed.",
+        "404": "Not Found - The specified resource was not found."
       },
       "body_structure": {
         "jsonapi": {
@@ -2710,10 +2710,10 @@
     ],
     "response": {
       "status_codes": {
-        "200": "OK — Successful retrieval of the available download formats for a specific version.",
-        "400": "Bad Request — The request could not be understood by the server due to malformed syntax or missing request headers.",
-        "403": "Forbidden — The request was successfully validated but permission is not granted or the application has not been white-listed.",
-        "404": "Not Found — The specified resource was not found."
+        "200": "OK - Successful retrieval of the available download formats for a specific version.",
+        "400": "Bad Request - The request could not be understood by the server due to malformed syntax or missing request headers.",
+        "403": "Forbidden - The request was successfully validated but permission is not granted or the application has not been white-listed.",
+        "404": "Not Found - The specified resource was not found."
       },
       "body_structure": {
         "jsonapi": {
@@ -2772,10 +2772,10 @@
     ],
     "response": {
       "status_codes": {
-        "200": "OK — Successful retrieval of the available downloads collection associated with a specific version.",
-        "400": "Bad Request — The request could not be understood by the server due to malformed syntax or missing request headers.",
-        "403": "Forbidden — The request was successfully validated but permission is not granted or the application has not been white-listed.",
-        "404": "Not Found — The specified resource was not found."
+        "200": "OK - Successful retrieval of the available downloads collection associated with a specific version.",
+        "400": "Bad Request - The request could not be understood by the server due to malformed syntax or missing request headers.",
+        "403": "Forbidden - The request was successfully validated but permission is not granted or the application has not been white-listed.",
+        "404": "Not Found - The specified resource was not found."
       },
       "body_structure": {
         "jsonapi": {
@@ -2830,32 +2830,32 @@
     ],
     "response": {
       "status_codes": {
-        "200": "OK — Successful retrieval of a specific item.",
-        "400": "Bad Request — Malformed syntax or missing request headers.",
-        "403": "Forbidden — Valid request but insufficient permissions or app not whitelisted.",
-        "404": "Not Found — The specified resource was not found."
+        "200": "OK - Successful retrieval of a specific item.",
+        "400": "Bad Request - Malformed syntax or missing request headers.",
+        "403": "Forbidden - Valid request but insufficient permissions or app not whitelisted.",
+        "404": "Not Found - The specified resource was not found."
       },
       "body_structure": {
         "jsonapi": {
-          "version": "enum:string — The version of JSON API. Will always be: 1.0"
+          "version": "enum:string - The version of JSON API. Will always be: 1.0"
         },
         "links": {
-          "self": "string — Information on links to this resource."
+          "self": "string - Information on links to this resource."
         },
         "data": {
-          "type": "enum:string — The type of this resource. Will always be: items",
-          "id": "string — The unique identifier of the item.",
-          "attributes": "object — Attributes of the latest version of an item.",
-          "relationships": "object — Information on other resources that share a relationship with this item.",
-          "links": "object — Information on links to this resource."
+          "type": "enum:string - The type of this resource. Will always be: items",
+          "id": "string - The unique identifier of the item.",
+          "attributes": "object - Attributes of the latest version of an item.",
+          "relationships": "object - Information on other resources that share a relationship with this item.",
+          "links": "object - Information on links to this resource."
         },
         "included": [
           {
-            "type": "enum:string — The type of this resource. Will always be: versions",
-            "id": "string — The id of the resource.",
-            "attributes": "object — The attributes of the resource.",
-            "relationships": "object — Information on other resources that share a relationship with this resource.",
-            "links": "object — Information on links to this resource."
+            "type": "enum:string - The type of this resource. Will always be: versions",
+            "id": "string - The id of the resource.",
+            "attributes": "object - The attributes of the resource.",
+            "relationships": "object - Information on other resources that share a relationship with this resource.",
+            "links": "object - Information on links to this resource."
           }
         ]
       }
@@ -2912,30 +2912,30 @@
     ],
     "response": {
       "status_codes": {
-        "200": "OK — Successful retrieval of a resource collection.",
-        "400": "Bad Request — Malformed syntax or missing request headers.",
-        "403": "Forbidden — Valid request but insufficient permissions or app not whitelisted.",
-        "404": "Not Found — The specified resource was not found."
+        "200": "OK - Successful retrieval of a resource collection.",
+        "400": "Bad Request - Malformed syntax or missing request headers.",
+        "403": "Forbidden - Valid request but insufficient permissions or app not whitelisted.",
+        "404": "Not Found - The specified resource was not found."
       },
       "body_structure": {
         "jsonapi": {
-          "version": "enum:string — The version of JSON API. Will always be: 1.0"
+          "version": "enum:string - The version of JSON API. Will always be: 1.0"
         },
         "links": {
-          "self": "string — Information on links to this resource."
+          "self": "string - Information on links to this resource."
         },
         "data": [
           {
-            "type": "enum:string — The type of this resource. Possible values: folders, items, versions",
-            "id": "string — The id of the resource.",
-            "attributes": "object — The attributes of the data object."
+            "type": "enum:string - The type of this resource. Possible values: folders, items, versions",
+            "id": "string - The id of the resource.",
+            "attributes": "object - The attributes of the data object."
           }
         ],
         "included": [
           {
-            "type": "enum:string — The type of this resource. Possible values: folders, items, versions",
-            "id": "string — The id of the resource.",
-            "meta": "object — The meta-information of the refs of this resource."
+            "type": "enum:string - The type of this resource. Possible values: folders, items, versions",
+            "id": "string - The id of the resource.",
+            "meta": "object - The meta-information of the refs of this resource."
           }
         ]
       }
@@ -2976,23 +2976,23 @@
     "query_parameters": [],
     "response": {
       "status_codes": {
-        "200": "OK — Successful retrieval of the links collection associated with a specific resource.",
-        "400": "Bad Request — Malformed syntax or missing request headers.",
-        "403": "Forbidden — Valid request but insufficient permissions or app not whitelisted.",
-        "404": "Not Found — The specified resource was not found."
+        "200": "OK - Successful retrieval of the links collection associated with a specific resource.",
+        "400": "Bad Request - Malformed syntax or missing request headers.",
+        "403": "Forbidden - Valid request but insufficient permissions or app not whitelisted.",
+        "404": "Not Found - The specified resource was not found."
       },
       "body_structure": {
         "jsonapi": {
-          "version": "enum:string — The version of JSON API. Will always be: 1.0"
+          "version": "enum:string - The version of JSON API. Will always be: 1.0"
         },
         "links": {
-          "self": "string — Information on links to this resource."
+          "self": "string - Information on links to this resource."
         },
         "data": [
           {
-            "type": "enum:string — The type of this resource. Will always be: links",
-            "id": "string — The id of the resource.",
-            "meta": "object — The meta-information of the links of this resource."
+            "type": "enum:string - The type of this resource. Will always be: links",
+            "id": "string - The id of the resource.",
+            "meta": "object - The meta-information of the links of this resource."
           }
         ]
       }
@@ -3059,29 +3059,29 @@
     ],
     "response": {
       "status_codes": {
-        "200": "OK — Successful retrieval of the refs collection associated with a specific resource.",
-        "400": "Bad Request — Malformed syntax or missing request headers.",
-        "403": "Forbidden — Valid request but insufficient permissions or app not whitelisted.",
-        "404": "Not Found — The specified resource was not found."
+        "200": "OK - Successful retrieval of the refs collection associated with a specific resource.",
+        "400": "Bad Request - Malformed syntax or missing request headers.",
+        "403": "Forbidden - Valid request but insufficient permissions or app not whitelisted.",
+        "404": "Not Found - The specified resource was not found."
       },
       "body_structure": {
         "jsonapi": {
-          "version": "enum:string — The version of JSON API. Will always be: 1.0"
+          "version": "enum:string - The version of JSON API. Will always be: 1.0"
         },
         "links": {
-          "self": "string — Information on links to this resource."
+          "self": "string - Information on links to this resource."
         },
         "data": [
           {
-            "type": "enum:string — The type of this resource. Possible values: folders, items, versions",
-            "id": "string — The id of the resource.",
-            "meta": "object — The meta-information of the refs of this resource."
+            "type": "enum:string - The type of this resource. Possible values: folders, items, versions",
+            "id": "string - The id of the resource.",
+            "meta": "object - The meta-information of the refs of this resource."
           }
         ],
         "included": [
           {
-            "type": "enum:string — The type of this resource. Possible values: folders, items, versions",
-            "id": "string — The id of the resource."
+            "type": "enum:string - The type of this resource. Possible values: folders, items, versions",
+            "id": "string - The id of the resource."
           }
         ]
       }
@@ -3160,12 +3160,12 @@
     },
     "response": {
       "status_codes": {
-        "201": "Created — Successful creation of the version.",
-        "400": "Bad Request — Check for malformed syntax or missing fields.",
-        "403": "Forbidden — Permission denied or app not whitelisted.",
-        "404": "Not Found — Specified item or project does not exist.",
-        "409": "Conflict — Version already exists or conflict in update state.",
-        "423": "Locked — Resource is locked or currently being modified."
+        "201": "Created - Successful creation of the version.",
+        "400": "Bad Request - Check for malformed syntax or missing fields.",
+        "403": "Forbidden - Permission denied or app not whitelisted.",
+        "404": "Not Found - Specified item or project does not exist.",
+        "409": "Conflict - Version already exists or conflict in update state.",
+        "423": "Locked - Resource is locked or currently being modified."
       },
       "body_structure": {
         "jsonapi": {
@@ -3173,7 +3173,7 @@
         },
         "data": {
           "type": "versions",
-          "id": "string — New version ID",
+          "id": "string - New version ID",
           "attributes": {
             "name": "string",
             "createTime": "timestamp"
@@ -3197,7 +3197,7 @@
           }
         ],
         "meta": {
-          "bim360DmCommandId": "string — Used to check processing status."
+          "bim360DmCommandId": "string - Used to check processing status."
         }
       }
     }
@@ -3245,7 +3245,7 @@
       },
       "data": {
         "type": "refs",
-        "id": "string — ID of the referenced resource",
+        "id": "string - ID of the referenced resource",
         "meta": {
           "additional_info": "any meta-information related to the reference"
         }
@@ -3253,10 +3253,10 @@
     },
     "response": {
       "status_codes": {
-        "204": "No Content — Successful creation of a reference between two resources.",
-        "400": "Bad Request — The request could not be understood due to malformed syntax or missing fields.",
-        "403": "Forbidden — Permission denied or app not whitelisted.",
-        "404": "Not Found — The specified resource does not exist."
+        "204": "No Content - Successful creation of a reference between two resources.",
+        "400": "Bad Request - The request could not be understood due to malformed syntax or missing fields.",
+        "403": "Forbidden - Permission denied or app not whitelisted.",
+        "404": "Not Found - The specified resource does not exist."
       },
       "body_structure": {
         "204": "No body content for the 204 response. The request is considered successful with no additional data returned."
@@ -3306,7 +3306,7 @@
       },
       "data": {
         "type": "versions",
-        "id": "string — The ID of the version resource being updated",
+        "id": "string - The ID of the version resource being updated",
         "attributes": {
           "any_property_to_update": "new_value"
         },
@@ -3322,11 +3322,11 @@
     },
     "response": {
       "status_codes": {
-        "200": "OK — The version was successfully updated.",
-        "400": "Bad Request — The request could not be understood due to malformed syntax or missing request headers.",
-        "403": "Forbidden — Permission denied or app not whitelisted.",
-        "404": "Not Found — The specified version was not found.",
-        "423": "Locked — The resource is locked or being modified."
+        "200": "OK - The version was successfully updated.",
+        "400": "Bad Request - The request could not be understood due to malformed syntax or missing request headers.",
+        "403": "Forbidden - Permission denied or app not whitelisted.",
+        "404": "Not Found - The specified version was not found.",
+        "423": "Locked - The resource is locked or being modified."
       },
       "body_structure": {
         "200": {
@@ -3334,11 +3334,11 @@
             "version": "1.0"
           },
           "links": {
-            "self": "string — URI to the updated resource"
+            "self": "string - URI to the updated resource"
           },
           "data": {
             "type": "versions",
-            "id": "string — The ID of the updated version",
+            "id": "string - The ID of the updated version",
             "attributes": {
               "any_property": "new_value"
             },
@@ -3413,10 +3413,10 @@
     },
     "response": {
       "status_codes": {
-        "200": "OK — The permissions for the specified resources were successfully checked.",
-        "400": "Bad Input — The request could not be understood due to malformed syntax or missing request headers.",
-        "403": "Forbidden — Permission denied or app not whitelisted.",
-        "404": "Not Found — The specified resource was not found."
+        "200": "OK - The permissions for the specified resources were successfully checked.",
+        "400": "Bad Input - The request could not be understood due to malformed syntax or missing request headers.",
+        "403": "Forbidden - Permission denied or app not whitelisted.",
+        "404": "Not Found - The specified resource was not found."
       },
       "body_structure": {
         "200": {
@@ -3523,10 +3523,10 @@
     },
     "response": {
       "status_codes": {
-        "200": "OK — The custom relationships for the specified versions were successfully retrieved.",
-        "400": "Bad Input — The request could not be understood due to malformed syntax or missing request headers.",
-        "403": "Forbidden — Permission denied or app not whitelisted.",
-        "404": "Not Found — The specified resource was not found."
+        "200": "OK - The custom relationships for the specified versions were successfully retrieved.",
+        "400": "Bad Input - The request could not be understood due to malformed syntax or missing request headers.",
+        "403": "Forbidden - Permission denied or app not whitelisted.",
+        "404": "Not Found - The specified resource was not found."
       },
       "body_structure": {
         "200": {
@@ -3657,10 +3657,10 @@
     },
     "response": {
       "status_codes": {
-        "200": "OK — Metadata for the latest version of the specified items retrieved successfully.",
-        "400": "Bad Input — The request could not be understood due to malformed syntax or missing request headers.",
-        "403": "Forbidden — Permission denied or app not whitelisted.",
-        "404": "Not Found — The specified resource was not found."
+        "200": "OK - Metadata for the latest version of the specified items retrieved successfully.",
+        "400": "Bad Input - The request could not be understood due to malformed syntax or missing request headers.",
+        "403": "Forbidden - Permission denied or app not whitelisted.",
+        "404": "Not Found - The specified resource was not found."
       },
       "body_structure": {
         "200": {
@@ -3787,10 +3787,10 @@
     },
     "response": {
       "status_codes": {
-        "200": "OK — The model was successfully published.",
-        "400": "Bad Input — The request could not be understood due to malformed syntax or missing request headers.",
-        "403": "Forbidden — Permission denied or app not whitelisted.",
-        "404": "Not Found — The specified resource was not found."
+        "200": "OK - The model was successfully published.",
+        "400": "Bad Input - The request could not be understood due to malformed syntax or missing request headers.",
+        "403": "Forbidden - Permission denied or app not whitelisted.",
+        "404": "Not Found - The specified resource was not found."
       },
       "body_structure": {
         "200": {
@@ -3868,10 +3868,10 @@
     },
     "response": {
       "status_codes": {
-        "200": "OK — The model was successfully published without links.",
-        "400": "Bad Input — The request could not be understood due to malformed syntax or missing request headers.",
-        "403": "Forbidden — Permission denied or app not whitelisted.",
-        "404": "Not Found — The specified resource was not found."
+        "200": "OK - The model was successfully published without links.",
+        "400": "Bad Input - The request could not be understood due to malformed syntax or missing request headers.",
+        "403": "Forbidden - Permission denied or app not whitelisted.",
+        "404": "Not Found - The specified resource was not found."
       },
       "body_structure": {
         "200": {
@@ -3949,10 +3949,10 @@
     },
     "response": {
       "status_codes": {
-        "200": "OK — The model verification was successful.",
-        "400": "Bad Input — The request could not be understood due to malformed syntax or missing request headers.",
-        "403": "Forbidden — Permission denied or app not whitelisted.",
-        "404": "Not Found — The specified resource was not found."
+        "200": "OK - The model verification was successful.",
+        "400": "Bad Input - The request could not be understood due to malformed syntax or missing request headers.",
+        "403": "Forbidden - Permission denied or app not whitelisted.",
+        "404": "Not Found - The specified resource was not found."
       },
       "body_structure": {
         "200": {
@@ -4041,12 +4041,12 @@
     },
     "response": {
       "status_codes": {
-        "200": "OK — Bucket successfully created.",
-        "400": "BAD REQUEST — Malformed syntax or missing headers.",
-        "401": "UNAUTHORIZED — Invalid token or unacceptable token scope.",
-        "403": "FORBIDDEN — Permissions are not granted.",
-        "409": "CONFLICT — Bucket key already exists.",
-        "500": "INTERNAL SERVER ERROR — Server error during request processing."
+        "200": "OK - Bucket successfully created.",
+        "400": "BAD REQUEST - Malformed syntax or missing headers.",
+        "401": "UNAUTHORIZED - Invalid token or unacceptable token scope.",
+        "403": "FORBIDDEN - Permissions are not granted.",
+        "409": "CONFLICT - Bucket key already exists.",
+        "500": "INTERNAL SERVER ERROR - Server error during request processing."
       },
       "body_structure": {
         "200": {
@@ -4136,12 +4136,12 @@
     ],
     "response": {
       "status_codes": {
-        "200": "OK — Returns the list of buckets owned by the application.",
-        "400": "BAD REQUEST — Malformed request or missing headers.",
-        "401": "UNAUTHORIZED — Invalid token or unacceptable token scope.",
-        "403": "FORBIDDEN — Permissions are not granted.",
-        "404": "NOT FOUND — Resource not found.",
-        "500": "INTERNAL SERVER ERROR — Server error during request processing."
+        "200": "OK - Returns the list of buckets owned by the application.",
+        "400": "BAD REQUEST - Malformed request or missing headers.",
+        "401": "UNAUTHORIZED - Invalid token or unacceptable token scope.",
+        "403": "FORBIDDEN - Permissions are not granted.",
+        "404": "NOT FOUND - Resource not found.",
+        "500": "INTERNAL SERVER ERROR - Server error during request processing."
       },
       "body_structure": {
         "200": {
@@ -4203,12 +4203,12 @@
     ],
     "response": {
       "status_codes": {
-        "200": "OK — Returns the details of the specified bucket.",
-        "400": "BAD REQUEST — Malformed request or missing headers.",
-        "401": "UNAUTHORIZED — Invalid token or unacceptable token scope.",
-        "403": "FORBIDDEN — Permission is not granted (caller is not the bucket owner).",
-        "404": "NOT FOUND — The specified bucket does not exist.",
-        "500": "INTERNAL SERVER ERROR — Server error during request processing."
+        "200": "OK - Returns the details of the specified bucket.",
+        "400": "BAD REQUEST - Malformed request or missing headers.",
+        "401": "UNAUTHORIZED - Invalid token or unacceptable token scope.",
+        "403": "FORBIDDEN - Permission is not granted (caller is not the bucket owner).",
+        "404": "NOT FOUND - The specified bucket does not exist.",
+        "500": "INTERNAL SERVER ERROR - Server error during request processing."
       },
       "body_structure": {
         "200": {
@@ -4279,13 +4279,13 @@
     ],
     "response": {
       "status_codes": {
-        "200": "OK — The bucket has been successfully deleted.",
-        "400": "BAD REQUEST — The request could not be understood due to malformed syntax or missing request headers.",
-        "401": "UNAUTHORIZED — Invalid token or unacceptable token scope.",
-        "403": "FORBIDDEN — The caller does not have permission to delete the bucket.",
-        "404": "NOT FOUND — The specified bucket does not exist.",
-        "409": "CONFLICT — The bucket is currently marked for deletion.",
-        "500": "INTERNAL SERVER ERROR — Server failure during request processing."
+        "200": "OK - The bucket has been successfully deleted.",
+        "400": "BAD REQUEST - The request could not be understood due to malformed syntax or missing request headers.",
+        "401": "UNAUTHORIZED - Invalid token or unacceptable token scope.",
+        "403": "FORBIDDEN - The caller does not have permission to delete the bucket.",
+        "404": "NOT FOUND - The specified bucket does not exist.",
+        "409": "CONFLICT - The bucket is currently marked for deletion.",
+        "500": "INTERNAL SERVER ERROR - Server failure during request processing."
       },
       "body_structure": {
         "200": {
@@ -4330,13 +4330,13 @@
     ],
     "response": {
       "status_codes": {
-        "202": "ACCEPTED — Server acknowledges reception of the segment.",
-        "400": "BAD REQUEST — The request could not be understood due to malformed syntax or missing request headers.",
-        "401": "UNAUTHORIZED — The supplied Authorization header was not valid or the supplied token scope was not acceptable.",
-        "403": "FORBIDDEN — Permission was not granted to access the resource.",
-        "404": "NOT FOUND — The specified bucket does not exist.",
-        "416": "REQUEST RANGE NOT SATISFIABLE — Missing Content-Range header.",
-        "500": "INTERNAL SERVER ERROR — Server failure while processing the request."
+        "202": "ACCEPTED - Server acknowledges reception of the segment.",
+        "400": "BAD REQUEST - The request could not be understood due to malformed syntax or missing request headers.",
+        "401": "UNAUTHORIZED - The supplied Authorization header was not valid or the supplied token scope was not acceptable.",
+        "403": "FORBIDDEN - Permission was not granted to access the resource.",
+        "404": "NOT FOUND - The specified bucket does not exist.",
+        "416": "REQUEST RANGE NOT SATISFIABLE - Missing Content-Range header.",
+        "500": "INTERNAL SERVER ERROR - Server failure while processing the request."
       },
       "body_structure": {
         "202": {
@@ -4386,12 +4386,12 @@
     ],
     "response": {
       "status_codes": {
-        "200": "OK — The objects were successfully listed.",
-        "400": "BAD REQUEST — The request could not be understood due to malformed syntax or missing request headers.",
-        "401": "UNAUTHORIZED — The supplied Authorization header was not valid or the supplied token scope was not acceptable.",
-        "403": "FORBIDDEN — Permission was not granted to access the resource.",
-        "404": "NOT FOUND — The specified bucket does not exist.",
-        "500": "INTERNAL SERVER ERROR — Server failure while processing the request."
+        "200": "OK - The objects were successfully listed.",
+        "400": "BAD REQUEST - The request could not be understood due to malformed syntax or missing request headers.",
+        "401": "UNAUTHORIZED - The supplied Authorization header was not valid or the supplied token scope was not acceptable.",
+        "403": "FORBIDDEN - Permission was not granted to access the resource.",
+        "404": "NOT FOUND - The specified bucket does not exist.",
+        "500": "INTERNAL SERVER ERROR - Server failure while processing the request."
       },
       "body_structure": {
         "200": {
@@ -4451,13 +4451,13 @@
     ],
     "response": {
       "status_codes": {
-        "200": "OK — The object details were successfully retrieved.",
-        "304": "NOT MODIFIED — The object has not been modified since the provided timestamp.",
-        "400": "BAD REQUEST — The request was malformed or missing headers.",
-        "401": "UNAUTHORIZED — Invalid Authorization or token scope.",
-        "403": "FORBIDDEN — Permission was not granted to access the resource.",
-        "404": "NOT FOUND — The object does not exist.",
-        "500": "INTERNAL SERVER ERROR — Server failure while processing the request."
+        "200": "OK - The object details were successfully retrieved.",
+        "304": "NOT MODIFIED - The object has not been modified since the provided timestamp.",
+        "400": "BAD REQUEST - The request was malformed or missing headers.",
+        "401": "UNAUTHORIZED - Invalid Authorization or token scope.",
+        "403": "FORBIDDEN - Permission was not granted to access the resource.",
+        "404": "NOT FOUND - The object does not exist.",
+        "500": "INTERNAL SERVER ERROR - Server failure while processing the request."
       },
       "body_structure": {
         "200": {
@@ -4539,12 +4539,12 @@
     },
     "response": {
       "status_codes": {
-        "200": "OK — The signed URL has been successfully created.",
-        "400": "BAD REQUEST — The request was malformed or missing headers.",
-        "401": "UNAUTHORIZED — Invalid Authorization or token scope.",
-        "403": "FORBIDDEN — Permission was not granted to access the resource.",
-        "404": "NOT FOUND — The object does not exist.",
-        "500": "INTERNAL SERVER ERROR — Server failure while processing the request."
+        "200": "OK - The signed URL has been successfully created.",
+        "400": "BAD REQUEST - The request was malformed or missing headers.",
+        "401": "UNAUTHORIZED - Invalid Authorization or token scope.",
+        "403": "FORBIDDEN - Permission was not granted to access the resource.",
+        "404": "NOT FOUND - The object does not exist.",
+        "500": "INTERNAL SERVER ERROR - Server failure while processing the request."
       },
       "body_structure": {
         "200": {
@@ -4601,13 +4601,13 @@
     },
     "response": {
       "status_codes": {
-        "200": "OK — The object has been successfully overwritten.",
-        "400": "BAD REQUEST — The request was malformed or missing required headers.",
-        "401": "UNAUTHORIZED — Invalid Authorization or token scope.",
-        "403": "FORBIDDEN — Permission was not granted to access or modify the resource.",
-        "404": "NOT FOUND — The specified resource or bucket does not exist.",
-        "412": "PRECONDITION FAILED — The SHA-1 hash provided in the If-Match header does not match the current hash of the object.",
-        "500": "INTERNAL SERVER ERROR — Server failure while processing the request."
+        "200": "OK - The object has been successfully overwritten.",
+        "400": "BAD REQUEST - The request was malformed or missing required headers.",
+        "401": "UNAUTHORIZED - Invalid Authorization or token scope.",
+        "403": "FORBIDDEN - Permission was not granted to access or modify the resource.",
+        "404": "NOT FOUND - The specified resource or bucket does not exist.",
+        "412": "PRECONDITION FAILED - The SHA-1 hash provided in the If-Match header does not match the current hash of the object.",
+        "500": "INTERNAL SERVER ERROR - Server failure while processing the request."
       },
       "body_structure": {
         "200": {
@@ -4668,15 +4668,15 @@
     },
     "response": {
       "status_codes": {
-        "200": "OK — The segment has been uploaded successfully.",
-        "202": "ACCEPTED — The server acknowledges the reception of the segment.",
-        "400": "BAD REQUEST — The request was malformed or missing required headers.",
-        "401": "UNAUTHORIZED — Invalid Authorization or token scope.",
-        "403": "FORBIDDEN — Permission was not granted to access or modify the resource.",
-        "404": "NOT FOUND — The specified bucket or resource does not exist.",
-        "409": "CONFLICT — Unable to persist the data.",
-        "416": "REQUEST RANGE NOT SATISFIABLE — Missing Content-Range header or an invalid range.",
-        "500": "INTERNAL SERVER ERROR — Server failure while processing the request."
+        "200": "OK - The segment has been uploaded successfully.",
+        "202": "ACCEPTED - The server acknowledges the reception of the segment.",
+        "400": "BAD REQUEST - The request was malformed or missing required headers.",
+        "401": "UNAUTHORIZED - Invalid Authorization or token scope.",
+        "403": "FORBIDDEN - Permission was not granted to access or modify the resource.",
+        "404": "NOT FOUND - The specified bucket or resource does not exist.",
+        "409": "CONFLICT - Unable to persist the data.",
+        "416": "REQUEST RANGE NOT SATISFIABLE - Missing Content-Range header or an invalid range.",
+        "500": "INTERNAL SERVER ERROR - Server failure while processing the request."
       },
       "body_structure": {
         "200": {
@@ -4735,16 +4735,16 @@
     ],
     "response": {
       "status_codes": {
-        "200": "OK — The object was successfully downloaded.",
-        "400": "BAD REQUEST — The request was malformed or missing required headers.",
-        "401": "UNAUTHORIZED — Invalid authorization or token scope.",
-        "403": "FORBIDDEN — Permission was not granted to access the object.",
-        "404": "NOT FOUND — The specified resource does not exist.",
-        "412": "PRECONDITION FAILED — The request precondition failed.",
-        "500": "INTERNAL SERVER ERROR — The server encountered an error while processing the request."
+        "200": "OK - The object was successfully downloaded.",
+        "400": "BAD REQUEST - The request was malformed or missing required headers.",
+        "401": "UNAUTHORIZED - Invalid authorization or token scope.",
+        "403": "FORBIDDEN - Permission was not granted to access the object.",
+        "404": "NOT FOUND - The specified resource does not exist.",
+        "412": "PRECONDITION FAILED - The request precondition failed.",
+        "500": "INTERNAL SERVER ERROR - The server encountered an error while processing the request."
       },
       "body_structure": {
-        "200": "Raw bytes — The raw content of the requested object."
+        "200": "Raw bytes - The raw content of the requested object."
       }
     }
   },
@@ -4773,14 +4773,14 @@
     ],
     "response": {
       "status_codes": {
-        "200": "OK — The signed URL was successfully deleted.",
-        "401": "UNAUTHORIZED — Invalid authorization or token scope.",
-        "403": "FORBIDDEN — The user does not have the necessary permissions to delete the signed resource.",
-        "404": "NOT FOUND — The specified signed resource does not exist.",
-        "500": "INTERNAL SERVER ERROR — The server encountered an error while processing the request."
+        "200": "OK - The signed URL was successfully deleted.",
+        "401": "UNAUTHORIZED - Invalid authorization or token scope.",
+        "403": "FORBIDDEN - The user does not have the necessary permissions to delete the signed resource.",
+        "404": "NOT FOUND - The specified signed resource does not exist.",
+        "500": "INTERNAL SERVER ERROR - The server encountered an error while processing the request."
       },
       "body_structure": {
-        "200": "Text message — Confirmation that the signed resource was deleted: 'Signed resource deleted successfully: <ID>'"
+        "200": "Text message - Confirmation that the signed resource was deleted: 'Signed resource deleted successfully: <ID>'"
       }
     }
   },
@@ -4812,12 +4812,12 @@
     ],
     "response": {
       "status_codes": {
-        "200": "OK — The object was successfully copied.",
-        "400": "BAD REQUEST — The request could not be understood, possibly due to malformed syntax or missing parameters.",
-        "401": "UNAUTHORIZED — Invalid authorization or token scope.",
-        "403": "FORBIDDEN — Insufficient permissions to perform the copy operation.",
-        "404": "NOT FOUND — The specified bucket or object does not exist.",
-        "500": "INTERNAL SERVER ERROR — A server error occurred while processing the request."
+        "200": "OK - The object was successfully copied.",
+        "400": "BAD REQUEST - The request could not be understood, possibly due to malformed syntax or missing parameters.",
+        "401": "UNAUTHORIZED - Invalid authorization or token scope.",
+        "403": "FORBIDDEN - Insufficient permissions to perform the copy operation.",
+        "404": "NOT FOUND - The specified bucket or object does not exist.",
+        "500": "INTERNAL SERVER ERROR - A server error occurred while processing the request."
       },
       "body_structure": {
         "200": {
@@ -4855,12 +4855,12 @@
     ],
     "response": {
       "status_codes": {
-        "200": "OK — The object was successfully deleted.",
-        "400": "BAD REQUEST — The request could not be understood, possibly due to malformed syntax or missing parameters.",
-        "401": "UNAUTHORIZED — Invalid authorization or token scope.",
-        "403": "FORBIDDEN — Insufficient permissions to perform the delete operation.",
-        "404": "NOT FOUND — The specified bucket or object does not exist.",
-        "500": "INTERNAL SERVER ERROR — A server error occurred while processing the request."
+        "200": "OK - The object was successfully deleted.",
+        "400": "BAD REQUEST - The request could not be understood, possibly due to malformed syntax or missing parameters.",
+        "401": "UNAUTHORIZED - Invalid authorization or token scope.",
+        "403": "FORBIDDEN - Insufficient permissions to perform the delete operation.",
+        "404": "NOT FOUND - The specified bucket or object does not exist.",
+        "500": "INTERNAL SERVER ERROR - A server error occurred while processing the request."
       },
       "body_structure": {
         "200": "Empty response body (successful deletion)"
@@ -4922,13 +4922,13 @@
     ],
     "response": {
       "status_codes": {
-        "200": "OK — A signed URL for direct download from S3 is returned.",
-        "304": "NOT MODIFIED — If the If-None-Match or If-Modified-Since headers are used and the object hasn’t been modified.",
-        "400": "BAD REQUEST — The request could not be understood due to malformed syntax or missing parameters.",
-        "401": "UNAUTHORIZED — Invalid Authorization header or unacceptable token scope.",
-        "403": "FORBIDDEN — Permission denied for the requested operation.",
-        "404": "NOT FOUND — The specified object or bucket does not exist.",
-        "500": "INTERNAL SERVER ERROR — An error occurred while processing the request."
+        "200": "OK - A signed URL for direct download from S3 is returned.",
+        "304": "NOT MODIFIED - If the If-None-Match or If-Modified-Since headers are used and the object hasn’t been modified.",
+        "400": "BAD REQUEST - The request could not be understood due to malformed syntax or missing parameters.",
+        "401": "UNAUTHORIZED - Invalid Authorization header or unacceptable token scope.",
+        "403": "FORBIDDEN - Permission denied for the requested operation.",
+        "404": "NOT FOUND - The specified object or bucket does not exist.",
+        "500": "INTERNAL SERVER ERROR - An error occurred while processing the request."
       },
       "body_structure": {
         "200": {
@@ -5027,11 +5027,11 @@
     },
     "response": {
       "status_codes": {
-        "200": "OK — The signed URLs for the requested objects are successfully returned.",
-        "400": "BAD REQUEST — The request could not be understood due to malformed syntax or missing parameters.",
-        "401": "UNAUTHORIZED — Invalid Authorization header or unacceptable token scope.",
-        "403": "FORBIDDEN — Permission denied for the requested operation.",
-        "500": "INTERNAL SERVER ERROR — An error occurred while processing the request."
+        "200": "OK - The signed URLs for the requested objects are successfully returned.",
+        "400": "BAD REQUEST - The request could not be understood due to malformed syntax or missing parameters.",
+        "401": "UNAUTHORIZED - Invalid Authorization header or unacceptable token scope.",
+        "403": "FORBIDDEN - Permission denied for the requested operation.",
+        "500": "INTERNAL SERVER ERROR - An error occurred while processing the request."
       },
       "body_structure": {
         "200": {
@@ -5123,13 +5123,13 @@
     ],
     "response": {
       "status_codes": {
-        "200": "OK — The signed URL(s) for uploading the object(s) have been successfully returned.",
-        "400": "BAD REQUEST — The request was malformed or missing required headers.",
-        "401": "UNAUTHORIZED — The provided Authorization header was invalid or the token scope was not sufficient.",
-        "403": "FORBIDDEN — Permission denied for the requested operation.",
-        "404": "NOT FOUND — The specified object or bucket does not exist.",
-        "429": "RATE-LIMIT EXCEEDED — The maximum number of API calls was exceeded.",
-        "500": "INTERNAL SERVER ERROR — An internal error occurred while processing the request."
+        "200": "OK - The signed URL(s) for uploading the object(s) have been successfully returned.",
+        "400": "BAD REQUEST - The request was malformed or missing required headers.",
+        "401": "UNAUTHORIZED - The provided Authorization header was invalid or the token scope was not sufficient.",
+        "403": "FORBIDDEN - Permission denied for the requested operation.",
+        "404": "NOT FOUND - The specified object or bucket does not exist.",
+        "429": "RATE-LIMIT EXCEEDED - The maximum number of API calls was exceeded.",
+        "500": "INTERNAL SERVER ERROR - An internal error occurred while processing the request."
       },
       "body_structure": {
         "200": {
@@ -5226,13 +5226,13 @@
     },
     "response": {
       "status_codes": {
-        "200": "OK — The object has been successfully completed and is now accessible.",
-        "400": "BAD REQUEST — The request could not be understood due to malformed syntax or missing request headers.",
-        "401": "UNAUTHORIZED — The Authorization header was invalid or the token scope was not sufficient.",
-        "403": "FORBIDDEN — Permission denied for the requested operation.",
-        "404": "NOT FOUND — The specified object or bucket does not exist.",
-        "429": "RATE-LIMIT EXCEEDED — The maximum number of API calls was exceeded.",
-        "500": "INTERNAL SERVER ERROR — An internal error occurred while processing the request."
+        "200": "OK - The object has been successfully completed and is now accessible.",
+        "400": "BAD REQUEST - The request could not be understood due to malformed syntax or missing request headers.",
+        "401": "UNAUTHORIZED - The Authorization header was invalid or the token scope was not sufficient.",
+        "403": "FORBIDDEN - Permission denied for the requested operation.",
+        "404": "NOT FOUND - The specified object or bucket does not exist.",
+        "429": "RATE-LIMIT EXCEEDED - The maximum number of API calls was exceeded.",
+        "500": "INTERNAL SERVER ERROR - An internal error occurred while processing the request."
       },
       "body_structure": {
         "200": {
@@ -5384,11 +5384,11 @@
     },
     "response": {
       "status_codes": {
-        "200": "OK — The upload completion process has succeeded for all objects in the batch.",
-        "400": "BAD REQUEST — The request could not be understood due to malformed syntax or missing request headers.",
-        "401": "UNAUTHORIZED — The Authorization header was invalid or the token scope was not sufficient.",
-        "403": "FORBIDDEN — Permission denied for the requested operation.",
-        "500": "INTERNAL SERVER ERROR — An internal error occurred while processing the request."
+        "200": "OK - The upload completion process has succeeded for all objects in the batch.",
+        "400": "BAD REQUEST - The request could not be understood due to malformed syntax or missing request headers.",
+        "401": "UNAUTHORIZED - The Authorization header was invalid or the token scope was not sufficient.",
+        "403": "FORBIDDEN - Permission denied for the requested operation.",
+        "500": "INTERNAL SERVER ERROR - An internal error occurred while processing the request."
       },
       "body_structure": {
         "200": {
@@ -5544,13 +5544,13 @@
     },
     "response": {
       "status_codes": {
-        "200": "OK — Signed URLs for the upload(s) have been successfully generated.",
-        "400": "BAD REQUEST — The request was malformed or missing required headers/parameters.",
-        "401": "UNAUTHORIZED — Invalid Authorization or insufficient token scope.",
-        "403": "FORBIDDEN — Permission denied to access the specified bucket.",
-        "404": "NOT FOUND — The specified bucket does not exist.",
-        "429": "RATE-LIMIT EXCEEDED — Too many API requests in a short time.",
-        "500": "INTERNAL SERVER ERROR — An error occurred while processing the request."
+        "200": "OK - Signed URLs for the upload(s) have been successfully generated.",
+        "400": "BAD REQUEST - The request was malformed or missing required headers/parameters.",
+        "401": "UNAUTHORIZED - Invalid Authorization or insufficient token scope.",
+        "403": "FORBIDDEN - Permission denied to access the specified bucket.",
+        "404": "NOT FOUND - The specified bucket does not exist.",
+        "429": "RATE-LIMIT EXCEEDED - Too many API requests in a short time.",
+        "500": "INTERNAL SERVER ERROR - An error occurred while processing the request."
       },
       "body_structure": {
         "200": {

@@ -27,13 +27,13 @@
     "query_parameters": [],
     "response": {
       "status_codes": {
-        "200": "OK — Request succeeded and returns supported formats.",
-        "304": "Not Modified — No new formats since the specified date.",
-        "400": "Bad Request — Invalid date or request format.",
-        "401": "Unauthorized — Invalid or missing Authorization header.",
-        "403": "Forbidden — Access denied.",
-        "404": "Not Found — Endpoint does not exist.",
-        "500": "Internal Server Error — Unexpected failure."
+        "200": "OK - Request succeeded and returns supported formats.",
+        "304": "Not Modified - No new formats since the specified date.",
+        "400": "Bad Request - Invalid date or request format.",
+        "401": "Unauthorized - Invalid or missing Authorization header.",
+        "403": "Forbidden - Access denied.",
+        "404": "Not Found - Endpoint does not exist.",
+        "500": "Internal Server Error - Unexpected failure."
       },
       "headers": [
         {
@@ -135,16 +135,16 @@
     },
     "response": {
       "status_codes": {
-        "200": "OK — Translation accepted and in progress.",
-        "201": "Created — Translation exists already and won't re-run.",
-        "400": "Bad Request — Likely malformed URN or unsupported format.",
-        "401": "Unauthorized — Invalid or missing token.",
-        "403": "Forbidden — Authorization denied.",
-        "404": "Not Found — Endpoint does not exist.",
-        "406": "Not Acceptable — Format not supported for this input.",
-        "409": "Conflict — Another translation job is still processing.",
-        "429": "Too Many Requests — Rate limit exceeded.",
-        "500": "Internal Server Error — Server-side error."
+        "200": "OK - Translation accepted and in progress.",
+        "201": "Created - Translation exists already and won't re-run.",
+        "400": "Bad Request - Likely malformed URN or unsupported format.",
+        "401": "Unauthorized - Invalid or missing token.",
+        "403": "Forbidden - Authorization denied.",
+        "404": "Not Found - Endpoint does not exist.",
+        "406": "Not Acceptable - Format not supported for this input.",
+        "409": "Conflict - Another translation job is still processing.",
+        "429": "Too Many Requests - Rate limit exceeded.",
+        "500": "Internal Server Error - Server-side error."
       },
       "headers": [
         {
@@ -164,15 +164,15 @@
         }
       ],
       "body_structure": {
-        "result": "string — success status",
-        "urn": "string — same as source input URN",
+        "result": "string - success status",
+        "urn": "string - same as source input URN",
         "acceptedJobs": [
           {
             "type": "string",
             "views": ["2d", "3d"]
           }
         ],
-        "output": "object — echo of request's output"
+        "output": "object - echo of request's output"
       }
     }
   },
@@ -202,7 +202,7 @@
       }
     ],
     "uri_params": {
-      "urn": "string — The URL safe Base64 encoded URN of the source design [required]"
+      "urn": "string - The URL safe Base64 encoded URN of the source design [required]"
     },
     "body_structure": {
       "urn": {
@@ -219,20 +219,20 @@
       },
       "references": [
         {
-          "urn": "string — Base64 encoded URN of the reference file [required]",
-          "filename": "string — File name of the reference file [required]"
+          "urn": "string - Base64 encoded URN of the reference file [required]",
+          "filename": "string - File name of the reference file [required]"
         }
       ]
     },
     "response": {
       "status_codes": {
-        "200": "OK — References successfully registered.",
-        "400": "Bad Request — Invalid URN or malformed JSON.",
-        "401": "Unauthorized — Missing or invalid token.",
-        "403": "Forbidden — Access denied.",
-        "404": "Not Found — Endpoint does not exist.",
-        "406": "Not Acceptable — Reference files stored in a different region than the main file.",
-        "500": "Internal Server Error — Unexpected error."
+        "200": "OK - References successfully registered.",
+        "400": "Bad Request - Invalid URN or malformed JSON.",
+        "401": "Unauthorized - Missing or invalid token.",
+        "403": "Forbidden - Access denied.",
+        "404": "Not Found - Endpoint does not exist.",
+        "406": "Not Acceptable - Reference files stored in a different region than the main file.",
+        "500": "Internal Server Error - Unexpected error."
       },
       "headers": [
         {
@@ -249,8 +249,8 @@
         }
       ],
       "body_structure": {
-        "result": "string — Result status, always 'success' on 200",
-        "urn": "string — The URN of the top-level design component"
+        "result": "string - Result status, always 'success' on 200",
+        "urn": "string - The URN of the top-level design component"
       }
     }
   },
@@ -280,16 +280,16 @@
       }
     ],
     "uri_params": {
-      "urn": "string — Base64 URL-safe encoded URN of the source design [required]"
+      "urn": "string - Base64 URL-safe encoded URN of the source design [required]"
     },
     "response": {
       "status_codes": {
-        "200": "OK — Manifest successfully retrieved.",
-        "400": "Bad Request — Invalid URN or malformed request.",
-        "401": "Unauthorized — Invalid or missing access token.",
-        "403": "Forbidden — Access denied.",
-        "404": "Not Found — URN does not exist.",
-        "500": "Internal Server Error — Unexpected service issue."
+        "200": "OK - Manifest successfully retrieved.",
+        "400": "Bad Request - Invalid URN or malformed request.",
+        "401": "Unauthorized - Invalid or missing access token.",
+        "403": "Forbidden - Access denied.",
+        "404": "Not Found - URN does not exist.",
+        "500": "Internal Server Error - Unexpected service issue."
       },
       "headers": [
         {
@@ -310,23 +310,23 @@
         }
       ],
       "body_structure": {
-        "urn": "string — URN of the source design",
-        "type": "string — Always 'manifest'",
-        "progress": "string — Overall progress (e.g. 'complete', '45%')",
-        "status": "string — Overall translation status: pending | inprogress | success | failed | timeout",
-        "hasThumbnail": "boolean — Whether the source design has a thumbnail",
-        "region": "string — Region where the files are stored (US, EMEA, AUS)",
+        "urn": "string - URN of the source design",
+        "type": "string - Always 'manifest'",
+        "progress": "string - Overall progress (e.g. 'complete', '45%')",
+        "status": "string - Overall translation status: pending | inprogress | success | failed | timeout",
+        "hasThumbnail": "boolean - Whether the source design has a thumbnail",
+        "region": "string - Region where the files are stored (US, EMEA, AUS)",
         "derivatives": [
           {
-            "name": "string — Name of the derivative",
+            "name": "string - Name of the derivative",
             "hasThumbnail": "boolean",
-            "outputType": "string — Format of derivative: svf, svf2, stl, obj, etc.",
-            "status": "string — Status of this derivative: pending | inprogress | success | failed | timeout",
-            "progress": "string — Progress of this derivative",
+            "outputType": "string - Format of derivative: svf, svf2, stl, obj, etc.",
+            "status": "string - Status of this derivative: pending | inprogress | success | failed | timeout",
+            "progress": "string - Progress of this derivative",
             "messages": [
               {
-                "type": "string — Type of message (error, warning, info)",
-                "message": "string — Message details"
+                "type": "string - Type of message (error, warning, info)",
+                "message": "string - Message details"
               }
             ],
             "children": [
@@ -349,7 +349,7 @@
     "name": "Delete Manifest and Derivatives",
     "method": "DELETE",
     "url": "https://developer.api.autodesk.com/modelderivative/v2/designdata/{urn}/manifest",
-    "description": "Deletes the manifest and all generated derivatives for the given design URN. The original source file remains unaffected. The operation is idempotent—repeated calls return 200 even if the manifest is already gone.",
+    "description": "Deletes the manifest and all generated derivatives for the given design URN. The original source file remains unaffected. The operation is idempotent-repeated calls return 200 even if the manifest is already gone.",
     "auth_required": true,
     "oauth_scopes": ["data:read", "data:write"],
     "headers": [
@@ -365,16 +365,16 @@
       }
     ],
     "uri_params": {
-      "urn": "string — Base64 URL-safe encoded URN of the source design [required]"
+      "urn": "string - Base64 URL-safe encoded URN of the source design [required]"
     },
     "response": {
       "status_codes": {
-        "200": "OK — Manifest and all derivatives successfully deleted. Also returned if no manifest existed.",
-        "400": "Bad Request — Invalid URN or malformed request.",
-        "401": "Unauthorized — Token missing, invalid, or lacking proper scopes.",
-        "403": "Forbidden — Valid token but insufficient permissions (check data:write scope).",
-        "404": "Not Found — The URN does not correspond to any existing manifest.",
-        "500": "Internal Server Error — Unexpected failure during deletion."
+        "200": "OK - Manifest and all derivatives successfully deleted. Also returned if no manifest existed.",
+        "400": "Bad Request - Invalid URN or malformed request.",
+        "401": "Unauthorized - Token missing, invalid, or lacking proper scopes.",
+        "403": "Forbidden - Valid token but insufficient permissions (check data:write scope).",
+        "404": "Not Found - The URN does not correspond to any existing manifest.",
+        "500": "Internal Server Error - Unexpected failure during deletion."
       },
       "headers": [
         {
@@ -392,10 +392,10 @@
       ],
       "body_structure": {
         "200": {
-          "result": "string — Always 'success' for a valid request"
+          "result": "string - Always 'success' for a valid request"
         },
         "400": {
-          "diagnostics": "string — Human-readable error reason"
+          "diagnostics": "string - Human-readable error reason"
         }
       }
     }
@@ -421,8 +421,8 @@
       }
     ],
     "uri_params": {
-      "urn": "string — Base64 URL-safe encoded URN of the source design [required]",
-      "derivativeUrn": "string — URL-encoded URN of the derivative (from manifest) [required]"
+      "urn": "string - Base64 URL-safe encoded URN of the source design [required]",
+      "derivativeUrn": "string - URL-encoded URN of the derivative (from manifest) [required]"
     },
     "query_params": [
       {
@@ -438,12 +438,12 @@
     ],
     "response": {
       "status_codes": {
-        "200": "OK — Signed URL and cookies successfully returned.",
-        "400": "Bad Request — Malformed URN or invalid query params.",
-        "401": "Unauthorized — Invalid or missing token.",
-        "403": "Forbidden — Access denied even if authenticated.",
-        "404": "Not Found — Derivative or manifest not found.",
-        "500": "Internal Server Error — Unexpected backend failure."
+        "200": "OK - Signed URL and cookies successfully returned.",
+        "400": "Bad Request - Malformed URN or invalid query params.",
+        "401": "Unauthorized - Invalid or missing token.",
+        "403": "Forbidden - Access denied even if authenticated.",
+        "404": "Not Found - Derivative or manifest not found.",
+        "500": "Internal Server Error - Unexpected backend failure."
       },
       "headers": [
         {
@@ -472,11 +472,11 @@
         }
       ],
       "body_structure": {
-        "etag": "string — ETag (hash) of the derivative file",
-        "size": "string — Size of the derivative in bytes",
-        "url": "string — Pre-signed download URL",
-        "content-type": "string — MIME type of the derivative",
-        "expiration": "string — Epoch timestamp (ms) when the signed cookies expire"
+        "etag": "string - ETag (hash) of the derivative file",
+        "size": "string - Size of the derivative in bytes",
+        "url": "string - Pre-signed download URL",
+        "content-type": "string - MIME type of the derivative",
+        "expiration": "string - Epoch timestamp (ms) when the signed cookies expire"
       }
     }
   },
@@ -506,18 +506,18 @@
       }
     ],
     "uri_params": {
-      "urn": "string — Base64 URL-safe encoded source design URN [required]",
-      "derivativeUrn": "string — URL-encoded URN of the derivative file [required]"
+      "urn": "string - Base64 URL-safe encoded source design URN [required]",
+      "derivativeUrn": "string - URL-encoded URN of the derivative file [required]"
     },
     "response": {
       "status_codes": {
-        "200": "OK — Derivative info successfully returned.",
-        "202": "Accepted — Request accepted but derivative not yet ready. Try again later.",
-        "400": "Bad Request — Malformed URN or invalid Range format.",
-        "401": "Unauthorized — Invalid or missing access token.",
-        "403": "Forbidden — Token lacks permission or access denied.",
-        "404": "Not Found — Resource doesn't exist.",
-        "500": "Internal Server Error — Service interruption."
+        "200": "OK - Derivative info successfully returned.",
+        "202": "Accepted - Request accepted but derivative not yet ready. Try again later.",
+        "400": "Bad Request - Malformed URN or invalid Range format.",
+        "401": "Unauthorized - Invalid or missing access token.",
+        "403": "Forbidden - Token lacks permission or access denied.",
+        "404": "Not Found - Resource doesn't exist.",
+        "500": "Internal Server Error - Service interruption."
       },
       "headers": [
         {
@@ -568,7 +568,7 @@
       }
     ],
     "uri_params": {
-      "urn": "string — Base64 URL-safe encoded design URN [required]"
+      "urn": "string - Base64 URL-safe encoded design URN [required]"
     },
     "query_params": [
       {
@@ -586,12 +586,12 @@
     ],
     "response": {
       "status_codes": {
-        "200": "OK — Thumbnail image returned successfully.",
-        "400": "Bad Request — Invalid URN or thumbnail parameters.",
-        "401": "Unauthorized — Invalid or missing token.",
-        "403": "Forbidden — Token lacks permission.",
-        "404": "Not Found — Thumbnail not available.",
-        "500": "Internal Server Error — Server-side issue."
+        "200": "OK - Thumbnail image returned successfully.",
+        "400": "Bad Request - Invalid URN or thumbnail parameters.",
+        "401": "Unauthorized - Invalid or missing token.",
+        "403": "Forbidden - Token lacks permission.",
+        "404": "Not Found - Thumbnail not available.",
+        "500": "Internal Server Error - Server-side issue."
       },
       "headers": [
         {
@@ -661,12 +661,12 @@
     "query_parameters": [],
     "response": {
       "status_codes": {
-        "200": "OK — Success.",
-        "400": "Bad Request — Invalid URN format or malformed request.",
-        "401": "Unauthorized — Invalid or missing authorization token.",
-        "403": "Forbidden — Access denied regardless of token.",
-        "404": "Not Found — Design not found or not translated to SVF/SVF2.",
-        "500": "Internal Server Error — Unexpected service failure."
+        "200": "OK - Success.",
+        "400": "Bad Request - Invalid URN format or malformed request.",
+        "401": "Unauthorized - Invalid or missing authorization token.",
+        "403": "Forbidden - Access denied regardless of token.",
+        "404": "Not Found - Design not found or not translated to SVF/SVF2.",
+        "500": "Internal Server Error - Unexpected service failure."
       },
       "body_structure": [
         {
@@ -753,17 +753,17 @@
     ],
     "response": {
       "status_codes": {
-        "200": "OK — Success.",
-        "202": "Accepted — Processing is still ongoing.",
-        "400": "Bad Request — Invalid request.",
-        "401": "Unauthorized — Invalid authorization.",
-        "403": "Forbidden — Access denied.",
-        "404": "Not Found — Resource not found.",
-        "406": "Not Acceptable — Unsupported request.",
-        "409": "Conflict — Request conflicts with a previous one.",
-        "413": "Request Entity Too Large — Exceeds 20 MB limit.",
-        "429": "Too Many Requests — Rate limit exceeded.",
-        "500": "Internal Server Error — Unexpected error."
+        "200": "OK - Success.",
+        "202": "Accepted - Processing is still ongoing.",
+        "400": "Bad Request - Invalid request.",
+        "401": "Unauthorized - Invalid authorization.",
+        "403": "Forbidden - Access denied.",
+        "404": "Not Found - Resource not found.",
+        "406": "Not Acceptable - Unsupported request.",
+        "409": "Conflict - Request conflicts with a previous one.",
+        "413": "Request Entity Too Large - Exceeds 20 MB limit.",
+        "429": "Too Many Requests - Rate limit exceeded.",
+        "500": "Internal Server Error - Unexpected error."
       },
       "body_structure": [
         {
@@ -836,17 +836,17 @@
     ],
     "response": {
       "status_codes": {
-        "200": "OK — Success.",
-        "202": "Accepted — Processing is still ongoing.",
-        "400": "Bad Request — Invalid request.",
-        "401": "Unauthorized — Invalid authorization.",
-        "403": "Forbidden — Access denied.",
-        "404": "Not Found — Resource not found.",
-        "406": "Not Acceptable — Unsupported request.",
-        "409": "Conflict — Request conflicts with a previous one.",
-        "413": "Request Entity Too Large — Exceeds 20 MB limit.",
-        "429": "Too Many Requests — Rate limit exceeded.",
-        "500": "Internal Server Error — Unexpected error."
+        "200": "OK - Success.",
+        "202": "Accepted - Processing is still ongoing.",
+        "400": "Bad Request - Invalid request.",
+        "401": "Unauthorized - Invalid authorization.",
+        "403": "Forbidden - Access denied.",
+        "404": "Not Found - Resource not found.",
+        "406": "Not Acceptable - Unsupported request.",
+        "409": "Conflict - Request conflicts with a previous one.",
+        "413": "Request Entity Too Large - Exceeds 20 MB limit.",
+        "429": "Too Many Requests - Rate limit exceeded.",
+        "500": "Internal Server Error - Unexpected error."
       },
       "body_structure": [
         {
@@ -941,12 +941,12 @@
     ],
     "response": {
       "status_codes": {
-        "200": "OK — Success.",
-        "202": "Accepted — Request accepted but processing is not complete.",
-        "400": "Bad Request — Invalid or malformed input.",
-        "404": "Not Found — Resource or parameter is invalid or missing.",
-        "429": "Too Many Requests — Rate limit exceeded.",
-        "500": "Internal Server Error — Unexpected error occurred."
+        "200": "OK - Success.",
+        "202": "Accepted - Request accepted but processing is not complete.",
+        "400": "Bad Request - Invalid or malformed input.",
+        "404": "Not Found - Resource or parameter is invalid or missing.",
+        "429": "Too Many Requests - Rate limit exceeded.",
+        "500": "Internal Server Error - Unexpected error occurred."
       },
       "body_structure": [
         {
