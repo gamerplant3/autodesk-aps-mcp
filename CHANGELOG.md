@@ -6,7 +6,7 @@
 - Enhanced `search_autodesk_endpoints` with filters; structured JSON responses
 - Fuzzy matching in `get_endpoint_details`
 - Live read-only GET access via `.env` credentials (two-legged or static token)
-- JSON schema validation for `data/*.json`, CI workflow, pytest suite
+- JSON schema validation for `data/*.json`, pytest suite
 - Examples moved to `examples/`
 - Cursor MCP config in `.cursor/mcp.json`
 
