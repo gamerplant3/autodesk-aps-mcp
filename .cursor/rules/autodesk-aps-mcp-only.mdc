@@ -6,6 +6,6 @@ alwaysApply: true
 When answering APS/API questions (or when using `/autodesk-aps`):
 
 - Answer APS questions **only** via the **`autodesk-aps`** MCP server.
-- Do **not** read `data/*.json`, `examples/`, or `server.py` unless the user asks about MCP server code.
+- Do not read `examples/`, or `server.py` unless the user asks about MCP server code.
 - Prefer MCP resources `aps://catalog/*` for browsing; use tools for search, details, auth status, and live GET.
 - Always name the MCP tool(s) used in the response.

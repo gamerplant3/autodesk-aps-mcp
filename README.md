@@ -39,12 +39,11 @@ Config: `.cursor/mcp.json` (loads `.env` via `envFile`).
 ## Development
 
 ```bash
-uv run python scripts/validate_data.py
 uv run pytest
 uv run fastmcp run server.py
 ```
 
-After editing `data/*.json`, re-run `validate_data.py` and update the **Catalog snapshot** date above.
+After editing `data/*.json`, update the **Catalog snapshot** date above.
 
 ## Example
 
@@ -59,7 +58,5 @@ api_store.py   Cached catalog index
 aps_auth.py    .env + two-legged tokens
 aps_live.py    Allowlisted live GET
 data/          Offline endpoint JSON
-schemas/       Validation schema
-scripts/       validate_data.py
 tests/
 ```

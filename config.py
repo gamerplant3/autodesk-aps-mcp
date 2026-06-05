@@ -6,7 +6,6 @@ from pathlib import Path
 ROOT_DIR = Path(__file__).resolve().parent
 DATA_DIR = ROOT_DIR / "data"
 README_FILE = ROOT_DIR / "README.md"
-SCHEMA_FILE = ROOT_DIR / "schemas" / "endpoint.schema.json"
 ENV_FILE = ROOT_DIR / ".env"
 
 APS_TOKEN_URL = "https://developer.api.autodesk.com/authentication/v2/token"

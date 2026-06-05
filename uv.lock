@@ -70,7 +70,6 @@ dependencies = [
 
 [package.dev-dependencies]
 dev = [
-    { name = "jsonschema" },
     { name = "pytest" },
 ]
 
@@ -82,10 +81,7 @@ requires-dist = [
 ]
 
 [package.metadata.requires-dev]
-dev = [
-    { name = "jsonschema", specifier = ">=4.23" },
-    { name = "pytest", specifier = ">=8.0" },
-]
+dev = [{ name = "pytest", specifier = ">=8.0" }]
 
 [[package]]
 name = "backports-tarfile"

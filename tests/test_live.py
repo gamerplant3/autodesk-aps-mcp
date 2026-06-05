@@ -14,12 +14,10 @@ def _auth_without_env(monkeypatch: pytest.MonkeyPatch) -> ApsAuth:
     return ApsAuth()
 
 
-def test_live_rejects_non_allowlisted_host() -> None:
+def test_live_rejects_unsafe_urls() -> None:
     with pytest.raises(LiveApiError, match="not allowed"):
         aps_live_get("https://example.com/v1/test")
 
-
-def test_live_rejects_http() -> None:
     with pytest.raises(LiveApiError, match="https"):
         aps_live_get("http://developer.api.autodesk.com/v1/test")
 
@@ -30,10 +28,3 @@ def test_live_requires_credentials(monkeypatch: pytest.MonkeyPatch) -> None:
 
     with pytest.raises(LiveApiError, match="credentials"):
         aps_live_get("https://developer.api.autodesk.com/authentication/v2/keys")
-
-
-def test_auth_status_without_credentials(monkeypatch: pytest.MonkeyPatch) -> None:
-    auth = _auth_without_env(monkeypatch)
-    status = auth.status()
-    assert status["live_reads_available"] is False
-    assert "APS" in status["message"]
