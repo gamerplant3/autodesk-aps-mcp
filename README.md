@@ -4,6 +4,12 @@ MCP server (stdio) for Cursor: offline APS API reference plus optional **read-on
 
 **Catalog snapshot:** 2025-04-01 — last refresh of `data/*.json`.
 
+## Features
+
+- Offline APS API catalog with search, endpoint details, and browseable MCP resources.
+- Live read-only GETs via `aps_live_get` when `.env` credentials are set.
+- `aps_auth_status` reports `user_context_available` (true only when `APS_ACCESS_TOKEN` is set). Two-legged `APS_CLIENT_ID` + `APS_CLIENT_SECRET` grant app-level access; user-specific questions ("my hubs", "my projects") require a three-legged token in `APS_ACCESS_TOKEN`.
+
 ## Tools
 
 | Tool | Purpose |
@@ -27,8 +33,10 @@ MCP server (stdio) for Cursor: offline APS API reference plus optional **read-on
 
 ```bash
 uv sync --dev
-cp .env.example .env   # add APS_CLIENT_ID + APS_CLIENT_SECRET
+cp .env.example .env   # add APS_CLIENT_ID + APS_CLIENT_SECRET, or APS_ACCESS_TOKEN
 ```
+
+For user-specific live reads (e.g. listing *your* hubs or projects), set `APS_ACCESS_TOKEN` with a three-legged OAuth token. Client ID and secret alone only reflect what the app can access, not a particular user.
 
 **Cursor:** open this repo → restart Cursor → **Settings → Tools & MCP** → enable **`autodesk-aps`**.
 
@@ -45,9 +53,10 @@ uv run fastmcp run server.py
 
 After editing `data/*.json`, update the **Catalog snapshot** date above.
 
-## Example
+## Examples
 
-`examples/export-acc-sheets-pdf.js` — ACC Sheets API: list sheets → export combined PDF.
+- `examples/list-acc-project-sheets.js` — ACC Sheets API: authenticate, paginate `GET .../sheets`, and print every sheet in a project. Requires `ACC_PROJECT_ID` and `APS_ACCESS_TOKEN` (or `APS_CLIENT_ID` + `APS_CLIENT_SECRET`).
+- `examples/export-acc-sheets-pdf.js` — ACC Sheets API: list sheets → export combined PDF.
 
 ## Layout
 

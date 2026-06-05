@@ -43,6 +43,19 @@ class ApsAuth:
     def static_token_configured(self) -> bool:
         return bool(self._static_token)
 
+    @property
+    def user_context_available(self) -> bool:
+        """True when APS_ACCESS_TOKEN is set (expected to be a three-legged user token)."""
+        return self.static_token_configured
+
+    @property
+    def token_mode(self) -> str | None:
+        if self.static_token_configured:
+            return "three_legged"
+        if self.client_id_configured and self.client_secret_configured:
+            return "two_legged"
+        return None
+
     def status(self) -> dict[str, Any]:
         token = self._resolve_token(scopes=None, required=False)
         return {
@@ -50,11 +63,14 @@ class ApsAuth:
             "client_id_configured": self.client_id_configured,
             "client_secret_configured": self.client_secret_configured,
             "static_access_token_configured": self.static_token_configured,
+            "user_context_available": self.user_context_available,
+            "token_mode": self.token_mode,
             "live_reads_available": self.is_configured(),
             "token_source": token.source if token else None,
             "token_expires_at": token.expires_at if token else None,
             "token_scope": token.scope if token else None,
             "message": self._status_message(),
+            "user_context_message": self._user_context_message(),
         }
 
     def is_configured(self) -> bool:
@@ -68,12 +84,30 @@ class ApsAuth:
 
     def _status_message(self) -> str:
         if self.static_token_configured:
-            return "Using APS_ACCESS_TOKEN from .env for live reads."
+            return "Using APS_ACCESS_TOKEN from .env for live reads (user context)."
         if self.client_id_configured and self.client_secret_configured:
-            return "Will obtain two-legged tokens using APS_CLIENT_ID and APS_CLIENT_SECRET."
+            return (
+                "Will obtain two-legged tokens using APS_CLIENT_ID and APS_CLIENT_SECRET "
+                "(app context only)."
+            )
         if self.client_id_configured or self.client_secret_configured:
             return "Set both APS_CLIENT_ID and APS_CLIENT_SECRET, or provide APS_ACCESS_TOKEN."
         return "Copy .env.example to .env and add APS credentials to enable live reads."
+
+    def _user_context_message(self) -> str | None:
+        if self.user_context_available:
+            return None
+        if self.client_id_configured and self.client_secret_configured:
+            return (
+                "User context is not configured. APS_CLIENT_ID and APS_CLIENT_SECRET provide "
+                "app-level (two-legged) access only; they cannot answer what a specific user "
+                "can access. Set APS_ACCESS_TOKEN with a three-legged OAuth token for "
+                "user-specific questions."
+            )
+        return (
+            "User context is not configured. Set APS_ACCESS_TOKEN with a three-legged OAuth "
+            "token to answer user-specific questions (e.g. my hubs, my projects)."
+        )
 
     def _resolve_token(self, *, scopes: str | None, required: bool) -> "_ResolvedToken | None":
         if self._static_token:

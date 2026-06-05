@@ -124,7 +124,10 @@ def get_endpoint_by_url(url_fragment: str) -> str:
 
 @mcp.tool()
 def aps_auth_status() -> str:
-    """Reports whether .env APS credentials are configured for live API reads."""
+    """
+    Reports whether .env APS credentials are configured for live API reads.
+    Includes user_context_available (true only when APS_ACCESS_TOKEN is set).
+    """
     return _json(get_auth().status())
 
 

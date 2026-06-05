@@ -1,7 +1,9 @@
 ---
 description: APS MCP-only - use autodesk-aps tools/resources, not repo files
 alwaysApply: true
----# Autodesk APS MCP-only
+---
+
+# Autodesk APS MCP-only
 
 When answering APS/API questions (or when using `/autodesk-aps`):
 
@@ -9,3 +11,4 @@ When answering APS/API questions (or when using `/autodesk-aps`):
 - Do not read `examples/`, or `server.py` unless the user asks about MCP server code.
 - Prefer MCP resources `aps://catalog/*` for browsing; use tools for search, details, auth status, and live GET.
 - Always name the MCP tool(s) used in the response.
+- For user-specific questions ("I", "my", "me"; e.g. my hubs, my projects), call `aps_auth_status` first. If `user_context_available` is false, do not call `aps_live_get`. Tell the user to set `APS_ACCESS_TOKEN` (three-legged token) in `.env`. Client ID and secret are app-level only, not user context.
